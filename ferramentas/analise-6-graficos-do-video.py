@@ -332,9 +332,10 @@ def barras_simples(titulo, sub, rotulos, valores, cores, nome, unidade="", fmt=1
     y = np.arange(len(rotulos))[::-1]
     ax.barh(y, valores, color=cores, height=0.58)
     for yy, x, c in zip(y, valores, cores):
-        ax.text(x + (max(valores) * 0.015), yy, f"{v(x, fmt)}{unidade}", va="center", fontsize=32, fontweight="bold", color=ACENTO if c == ACENTO else FG)
-    ax.set_yticks(y); ax.set_yticklabels(rotulos, fontsize=25, color=FG)
-    ax.set_xlim(0, xmax or max(valores) * 1.18); ax.grid(axis="y", visible=False)
+        ax.text(max(x, 0) + (max(valores) * 0.015), yy, f"{v(x, fmt)}{unidade}", va="center", fontsize=28 if len(rotulos) > 8 else 32, fontweight="bold", color=ACENTO if c == ACENTO else FG)
+    ax.set_yticks(y); ax.set_yticklabels(rotulos, fontsize=21 if len(rotulos) > 8 else 25, color=FG)
+    ax.set_xlim(min(0, min(valores) * 1.6), xmax or max(valores) * 1.18); ax.grid(axis="y", visible=False)
+    ax.axvline(0, color=MUTED, lw=1.5)
     if nota:
         fig.text(0.30, 0.09, nota, fontsize=19, color=MUTED, ha="left", va="center")
     salvar(fig, nome)
@@ -363,7 +364,7 @@ def g16_vazio_comparado():
 
 def g17_governadores_aliados():
     lr = pd.read_csv(saida.RES / "p5_lacuna_governador_presidente.csv")
-    escolha = [(2022, "PA"), (2022, "PR"), (2022, "TO"), (2022, "MG"), (2026, "SP"), (2026, "MS"), (2026, "MG"), (2026, "PA")]
+    escolha = [(2022, "PA"), (2022, "PR"), (2022, "TO"), (2022, "MG"), (2026, "SP"), (2026, "MS"), (2026, "MG"), (2018, "GO"), (2018, "PR"), (2018, "MT")]
     rot, val, cor = [], [], []
     for ano, uf in escolha:
         r = lr[(lr.ano == ano) & (lr.uf == uf)].iloc[0]
@@ -371,8 +372,8 @@ def g17_governadores_aliados():
         nome = str(r.governador).replace("Tarcisio", "Tarcísio").replace("Ratinho Junior", "Ratinho Júnior")
         rot.append(f"{nome} ({uf}, {ano})\napoiava {apoio}")
         val.append(float(r.lacuna_pontos))
-        cor.append(ACENTO if uf == "SP" else NEUTRO)
-    barras_simples("Governador aliado acima do presidente que ele apoia", "Em pontos dos votos válidos. As maiores diferenças de 2022 e de 2026",
+        cor.append(ACENTO if uf == "SP" else ("#475569" if ano == 2018 else NEUTRO))
+    barras_simples("Governador aliado acima do presidente que ele apoia", "Em pontos dos votos válidos. As maiores de 2022 e 2026, e os três aliados de 2018",
                    rot, val, cor, "g17_governadores_aliados.png", " pts",
                    nota="Goiás 2026 (+46,8, apoio ao Caiado) fica fora: é um caso à parte")
 
