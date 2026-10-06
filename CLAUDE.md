@@ -18,6 +18,6 @@ As regras moram em `.cursor/rules/*.mdc`, que o Cursor carrega sozinho e o Claud
 - Mudar critério sem registrar na tabela da §9 do pré-registro, dizendo se foi antes ou depois de ver o resultado.
 - Escrever número à mão no relatório: ele vem de `resultados/RESUMO.json` pelos modelos `docs/*.modelo.md`.
 - Escrever "fraude" ou "provou que não houve fraude".
-- Tornar o repositório público sem o autor pedir. O remoto é privado.
+- Mudar a visibilidade do repositório sem o autor pedir. Ele está **público desde 06/out/2026**, por decisão do autor, e ⚠️ **ainda sem licença** (decisão dele).
 - Dizer que o alinhamento de alguém é o do partido: vale o apoio declarado, com fonte (`docs/PRE_REGISTRO.md` §0.1).
 - Baixar em massa sem teto de requisições e sem manifesto.

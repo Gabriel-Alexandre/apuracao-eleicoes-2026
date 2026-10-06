@@ -6,7 +6,7 @@ Uma sessão nova consegue continuar lendo só este arquivo. Ele não guarda mét
 
 ## Em uma frase
 
-A execução de ponta a ponta está feita: os boletins de 28 UFs foram coletados, validados contra o resultado oficial, a noite foi reconstruída pela hora de recebimento, as perguntas P1 a P8 foram respondidas, o relatório foi gerado e passou por revisão adversarial (20 de 20 checagens). Falta só o que depende do autor: gravar o vídeo e decidir o que publicar.
+A execução de ponta a ponta está feita: os boletins de 28 UFs foram coletados, validados contra o resultado oficial, a noite foi reconstruída pela hora de recebimento, as perguntas P1 a P8 foram respondidas, o relatório foi gerado e passou por revisão adversarial (20 de 20 checagens). O repositório é **público desde 06/out/2026** (decisão do autor), ainda **sem licença**. Falta só o que depende do autor: gravar o vídeo e decidir o que publicar. O roteiro e o pacote de publicação do vídeo estão no repositório de documentação dele, e os 17 gráficos do vídeo estão em `resultados/figuras/video/`.
 
 ## O que está pronto
 

@@ -31,6 +31,7 @@ python -m pytest -q
 | 11 | `python ferramentas/analise-5-relatorio.py` | escreve `RELATORIO.md` a partir de `RESUMO.json` |
 | 12 | `python ferramentas/revisao-adversarial.py` | 20 checagens que tentam derrubar o relatório (escreve `docs/REVISAO_ADVERSARIAL.md`) |
 | 13 | `python ferramentas/validacao-independente-1.py` e `-2.py` | recontagem com código novo, só pandas e sqlite: soma dos boletins contra o oficial, a curva da noite, os pontos da imprensa, São Paulo, os 19 senadores do PL e o hash de cada página capturada |
+| 14 | `python ferramentas/analise-6-graficos-do-video.py` | os 17 gráficos em 1920×1080 para o vídeo, só a partir de `resultados/` (`resultados/figuras/video/`) |
 
 ## Como conferir que nada foi alterado
 
