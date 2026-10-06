@@ -33,6 +33,37 @@ def cmd_oficial(args) -> int:
     return 0
 
 
+def cmd_manifesto(args) -> int:
+    import hashlib
+    import json
+    from datetime import datetime, timezone
+
+    ufs = {}
+    for uf in coleta.UFS:
+        con = coleta.abrir(uf)
+        n, ok, nao = con.execute("SELECT COUNT(*), SUM(status=200), SUM(status=404) FROM raw").fetchone()
+        ultimo = con.execute("SELECT MIN(fetched_utc), MAX(fetched_utc) FROM raw").fetchone()
+        tam = con.execute("SELECT COALESCE(SUM(nbytes),0) FROM raw").fetchone()[0]
+        con.close()
+        ufs[uf.upper()] = {"arquivos": n, "status_200": ok, "status_404": nao, "bytes": tam, "coleta_utc": list(ultimo), "sha256_resumo": coleta.hash_da_uf(uf)}
+    con = oficial.abrir()
+    h = hashlib.sha256()
+    for url, sha in con.execute("SELECT url, COALESCE(sha256,'-') FROM raw ORDER BY url"):
+        h.update((url + chr(9) + sha + chr(10)).encode())
+    n = con.execute("SELECT COUNT(*) FROM raw").fetchone()[0]
+    con.close()
+    dado = {
+        "gerado_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "como_o_resumo_e_calculado": "sha256 sobre as linhas 'url<TAB>sha256 do corpo' ordenadas por url, de cada banco em dados/brutos/",
+        "ufs": ufs,
+        "oficial": {"arquivos": n, "sha256_resumo": h.hexdigest()},
+        "totais": {"arquivos": sum(u["arquivos"] for u in ufs.values()), "bytes": sum(u["bytes"] for u in ufs.values())},
+    }
+    (coleta.RAIZ / "dados" / "MANIFESTO.json").write_text(json.dumps(dado, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(json.dumps(dado["totais"]), "->", coleta.RAIZ / "dados" / "MANIFESTO.json")
+    return 0
+
+
 def main() -> int:
     p = argparse.ArgumentParser(prog="apuracao")
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -46,6 +77,8 @@ def main() -> int:
     o.add_argument("--rps", type=float, default=20.0)
     o.add_argument("--concorrencia", type=int, default=16)
     o.set_defaults(fn=cmd_oficial)
+    m = sub.add_parser("manifesto", help="grava dados/MANIFESTO.json com o resumo sha256 de cada UF e do oficial")
+    m.set_defaults(fn=cmd_manifesto)
     args = p.parse_args()
     return args.fn(args)
 

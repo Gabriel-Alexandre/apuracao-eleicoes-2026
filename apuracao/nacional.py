@@ -53,7 +53,13 @@ def presidente(secoes: pd.DataFrame, votos: pd.DataFrame) -> pd.DataFrame:
     wide = nom.join(outros, how="outer").fillna(0).astype(int)
     wide["validos"] = wide[[c for c in wide.columns if c.startswith("p")]].sum(axis=1)
     base = secoes[(~secoes["agregada"]) & secoes["recebido"].notna()]
-    return base.merge(wide.reset_index(), on=chave, how="left")
+    out = base.merge(wide.reset_index(), on=chave, how="left")
+    faltantes = int(out["validos"].isna().sum())
+    out = out[out["validos"].notna()].copy()
+    for c in wide.columns:
+        out[c] = out[c].astype(int)
+    out.attrs["secoes_recebidas_sem_votos_decodificados"] = faltantes
+    return out
 
 
 def municipios() -> pd.DataFrame:

@@ -164,3 +164,85 @@ def senado_vs_presidente(votos: pd.DataFrame, ufs: list[str], flavio: int = 22, 
     out["razao_pt_media_sobre_lula"] = out["pt_media_por_candidato_pct_eleitores"] / out["lula_pct"]
     out["razao_apoio_flavio_media_sobre_flavio"] = out["apoio_flavio_media_por_candidato_pct_eleitores"] / out["flavio_pct"]
     return out
+
+
+# ---------------------------------------------------------------------------------------------
+# P5-b: de onde vem a diferenca entre o voto no governador aliado e o voto no presidente
+# ---------------------------------------------------------------------------------------------
+
+def contabilidade(votos: pd.DataFrame, uf: str) -> pd.DataFrame:
+    """Contabilidade exata (sem inferencia): % dos validos de cada cargo, candidato a candidato, na UF."""
+    tot = totais_uf(votos[votos["uf"] == uf])
+    return tot[tot.cargo.isin([1, 3])].sort_values(["cargo", "votos"], ascending=[True, False])
+
+
+def _tabela_ei(votos: pd.DataFrame, uf: str, gov_cands: dict[str, int], pres_cands: dict[str, int]) -> tuple[pd.DataFrame, list[str], list[str]]:
+    """Por secao: votos de cada grupo de governador (colunas) e de cada grupo de presidente (saidas), incluindo branco e nulo."""
+    v = votos[votos["uf"] == uf]
+    chave = ["mun_cd", "zona", "secao"]
+
+    def grupo(cargo, cands, prefixo):
+        sub = v[v.cargo == cargo]
+        parts = {}
+        nominal = sub[sub.tipo == 1]
+        total_nom = nominal.groupby(chave).votos.sum()
+        usados = 0
+        cols = {}
+        for nome, num in cands.items():
+            s = nominal[nominal.numero == num].groupby(chave).votos.sum()
+            cols[f"{prefixo}_{nome}"] = s
+        t = pd.DataFrame(cols).reindex(total_nom.index).fillna(0)
+        t[f"{prefixo}_outros_nominais"] = total_nom - t.sum(axis=1)
+        nao_val = sub[sub.tipo != 1].groupby(chave).votos.sum()
+        t[f"{prefixo}_branco_nulo"] = nao_val.reindex(t.index).fillna(0)
+        return t
+
+    g = grupo(3, gov_cands, "g")
+    p = grupo(1, pres_cands, "p")
+    t = g.join(p, how="inner")
+    return t, list(g.columns), list(p.columns)
+
+
+def inferencia_ecologica(votos: pd.DataFrame, uf: str, gov_cands: dict[str, int], pres_cands: dict[str, int], rodadas: int = 200, semente: int = 20261004) -> pd.DataFrame:
+    """Estima, por regressao com restricao, a fracao dos eleitores de cada grupo de governador que votou em cada grupo de presidente.
+
+    ECOLOGICA: usa totais por secao, nao o voto de ninguem. Exploratoria, com intervalo por reamostragem de municipios
+    (percentis 5 e 95) e com os limites da falacia ecologica. Cada linha da matriz soma 1 por construcao (normalizacao).
+    """
+    from scipy.optimize import nnls
+
+    t, gcols, pcols = _tabela_ei(votos, uf, gov_cands, pres_cands)
+    t = t.reset_index()
+    t = t[t[gcols].sum(axis=1) > 0]
+    muns = t["mun_cd"].unique()
+    rng = np.random.default_rng(semente)
+
+    def estimar(df: pd.DataFrame) -> np.ndarray:
+        X = df[gcols].to_numpy(dtype=float)
+        w = 1.0 / np.sqrt(np.maximum(X.sum(axis=1), 1.0))
+        B = np.zeros((len(gcols), len(pcols)))
+        for k, pc in enumerate(pcols):
+            y = df[pc].to_numpy(dtype=float)
+            b, _ = nnls(X * w[:, None], y * w)
+            B[:, k] = b
+        s = B.sum(axis=1, keepdims=True)
+        return B / np.where(s == 0, 1, s), s.ravel()
+
+    base, somas = estimar(t)
+    por_mun = {m: g for m, g in t.groupby("mun_cd")}
+    boot = []
+    for _ in range(rodadas):
+        amostra = rng.choice(muns, size=len(muns), replace=True)
+        df = pd.concat([por_mun[m] for m in amostra], ignore_index=True)
+        boot.append(estimar(df)[0])
+    boot = np.stack(boot)
+    linhas = []
+    for i, gc in enumerate(gcols):
+        for k, pc in enumerate(pcols):
+            linhas.append({
+                "grupo_governador": gc, "grupo_presidente": pc, "fracao_estimada": float(base[i, k]),
+                "p05": float(np.percentile(boot[:, i, k], 5)), "p95": float(np.percentile(boot[:, i, k], 95)),
+                "soma_da_linha_antes_de_normalizar": float(somas[i]),
+                "votos_do_grupo_governador": int(t[gc].sum()),
+            })
+    return pd.DataFrame(linhas)

@@ -30,6 +30,10 @@ def decompor(d: pd.DataFrame, p0: float, p1: float, chave: str = "uf") -> pd.Dat
     antes = d[d["pct"] <= p0]
     lote = d[(d["pct"] > p0) & (d["pct"] <= p1)]
     ate = d[d["pct"] <= p1]
+    if lote.empty or antes.empty:
+        vazio = pd.DataFrame(columns=[chave, "secoes_no_lote", "peso_no_lote_pct", "margem_do_grupo_no_lote", "margem_do_grupo_antes", "margem_final_do_grupo", "contribuicao_pontos"])
+        vazio.attrs.update(M_antes=np.nan, M_ate=np.nan, mudanca=np.nan, soma_contribuicoes=np.nan, M_lote=np.nan, diferenca_lote_menos_antes=np.nan, efeito_composicao=np.nan, efeito_ordem_dentro_do_grupo=np.nan)
+        return vazio
     M_antes = margem(antes)
     M_ate = margem(ate)
     m_g = d.groupby(chave).apply(lambda g: 100 * g["dif"].sum() / g["validos"].sum(), include_groups=False)  # margem final do grupo
@@ -58,6 +62,7 @@ def decompor(d: pd.DataFrame, p0: float, p1: float, chave: str = "uf") -> pd.Dat
     comp_antes = sum((sub["validos"].sum() / antes["validos"].sum()) * m_g[g] for g, sub in antes.groupby(chave))
     out.attrs.update(
         M_lote=M_lote,
+        diferenca_lote_menos_antes=M_lote - M_antes,
         efeito_composicao=comp_lote - comp_antes,
         efeito_ordem_dentro_do_grupo=(M_lote - comp_lote) - (M_antes - comp_antes),
     )

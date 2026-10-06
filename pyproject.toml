@@ -1,0 +1,10 @@
+[project]
+name = "apuracao-eleicoes-2026"
+version = "0.1.0"
+description = "Analise aberta da apuracao do 1o turno de 2026 com os dados publicos do TSE"
+requires-python = ">=3.10"
+dependencies = ["aiohttp", "pandas", "numpy", "scipy", "pyarrow", "matplotlib"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
