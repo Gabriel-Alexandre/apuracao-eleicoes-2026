@@ -87,12 +87,14 @@ def comparar_pontos(cv: pd.DataFrame, pontos: pd.DataFrame, tol_pct: float = 0.1
     return pd.DataFrame(linhas)
 
 
-def permutacoes(pres: pd.DataFrame, grade_pct: np.ndarray, n: int = 1000, seed: int = 20261004, por_uf: bool = False):
+def permutacoes(pres: pd.DataFrame, grade_pct: np.ndarray, n: int = 1000, seed: int = 20261004, por_uf: bool = False, grupos: np.ndarray | None = None):
     """Contrafactual da P1. Devolve matriz (n, len(grade)) da margem Flavio-Lula em cada % de secoes.
 
     por_uf=False: ordem de chegada totalmente aleatoria.
     por_uf=True : mantem o calendario de chegada de cada UF (os instantes que ela ocupou na fila) e embaralha
                   QUAIS secoes da UF ocupam esses instantes. Mostra o que o calendario por UF explica sozinho.
+    grupos      : vetor (alinhado a ordenar(pres)) com o rotulo do grupo de cada secao; generaliza por_uf para qualquer
+                  agrupamento (UF e capital, UF e porte do municipio etc.).
     """
     d = ordenar(pres)
     f = d[FLAVIO].to_numpy(dtype=np.int64)
@@ -103,11 +105,12 @@ def permutacoes(pres: pd.DataFrame, grade_pct: np.ndarray, n: int = 1000, seed: 
     idx_grade = np.clip((grade_pct / 100 * N).astype(int) - 1, 0, N - 1)
     rng = np.random.default_rng(seed)
     resultados = np.empty((n, len(grade_pct)))
-    grupos = [np.flatnonzero(uf == u) for u in np.unique(uf)] if por_uf else None
+    chaves = uf if grupos is None else np.asarray(grupos)
+    blocos = [np.flatnonzero(chaves == u) for u in np.unique(chaves)] if (por_uf or grupos is not None) else None
     for k in range(n):
-        if por_uf:
+        if blocos is not None:
             ordem = np.arange(N)
-            for g in grupos:
+            for g in blocos:
                 ordem[g] = rng.permutation(g)
         else:
             ordem = rng.permutation(N)

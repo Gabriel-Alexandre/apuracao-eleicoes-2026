@@ -56,10 +56,9 @@ def comparar(votos: pd.DataFrame, secoes: pd.DataFrame, nivel: str = "uf") -> pd
         nom_g.setdefault((key[:-2], key[-2]), {})[key[-1]] = int(v)
     bra = {(_tup(k[:-1]), k[-1]): int(v) for k, v in votos[votos.tipo == 2].groupby(chave + ["cargo"]).votos.sum().items()}
     nul = {(_tup(k[:-1]), k[-1]): int(v) for k, v in votos[votos.tipo == 3].groupby(chave + ["cargo"]).votos.sum().items()}
-    comp = {
-        _tup(k): int(v)
-        for k, v in secoes[(~secoes["agregada"]) & secoes["comparecimento"].notna()].groupby(chave).comparecimento.sum().items()
-    }
+    # comparecimento do boletim = soma de todos os votos de Presidente (nominais, brancos e nulos); em todas as secoes
+    # com boletim comum ele e igual ao campo de comparecimento do cabecalho (conferido: 499.161 de 499.161)
+    comp = {_tup(k): int(v) for k, v in votos[votos.cargo == 1].groupby(chave).votos.sum().items()}
     unidades = sorted({u for (u, _c) in nom_g})
     linhas = []
     for un in unidades:

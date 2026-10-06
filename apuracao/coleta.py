@@ -170,7 +170,7 @@ async def coletar_uf(uf: str, lim: Limitador, concorrencia: int, relatorio, so_p
                     dado = json.loads(corpo)
                     for h in dado.get("hashes", []):
                         for arq in h.get("arq", []):
-                            if arq.get("tp") == "bu":
+                            if arq.get("tp") in ("bu", "busa"):
                                 ub = url_bu(uf, mun, zona, secao, h["hash"], arq["nm"])
                                 if not salvo(con, ub):
                                     stb, cb = await baixar(sessao, lim, ub)

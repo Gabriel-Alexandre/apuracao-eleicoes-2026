@@ -101,7 +101,7 @@ def candidatos_oficiais_senado(uf: str) -> pd.DataFrame:
     for a in d["carg"][0]["agr"]:
         for p in a["par"]:
             for c in p["cand"]:
-                linhas.append({"uf": uf.upper(), "numero": int(c["n"]), "nome": c["nmu"], "nome_civil": c.get("nm", ""), "partido": p["sg"], "votos": int(c["vap"]), "pct": float(c["pvapn"]), "eleito": c.get("e") == "s"})
+                linhas.append({"uf": uf.upper(), "numero": int(c["n"]), "nome": c["nmu"], "nome_civil": c.get("nm", ""), "partido": p["sg"], "votos": int(c["vap"]), "pct": float(str(c["pvapn"]).replace(",", ".")), "eleito": c.get("e") == "s"})
     return pd.DataFrame(linhas)
 
 
@@ -245,4 +245,31 @@ def inferencia_ecologica(votos: pd.DataFrame, uf: str, gov_cands: dict[str, int]
                 "soma_da_linha_antes_de_normalizar": float(somas[i]),
                 "votos_do_grupo_governador": int(t[gc].sum()),
             })
+    return pd.DataFrame(linhas)
+
+
+def alinhamento_municipal(votos: pd.DataFrame, num_partido: int, num_pres: int, votos_por_eleitor: int, min_municipios: int = 10) -> pd.DataFrame:
+    """Dentro de cada UF, a correlacao (Spearman, entre municipios) entre o voto no candidato a presidente e o voto
+    medio por candidato do mesmo partido ao Senado. Mostra se os dois votos andam juntos no territorio, sem depender do nivel.
+    """
+    from scipy import stats
+
+    v = votos[(votos.tipo == 1)]
+    chave = ["uf", "mun_cd"]
+    pres = v[v.cargo == 1].groupby(chave).votos.sum().rename("vp")
+    pres_c = v[(v.cargo == 1) & (v.numero == num_pres)].groupby(chave).votos.sum().rename("p")
+    sen = v[v.cargo == 5]
+    sen_tot = sen.groupby(chave).votos.sum().rename("vs")
+    cand = sen[(sen.numero // 10) == num_partido]
+    n_cand = cand.groupby("uf").numero.nunique().rename("n")
+    sen_c = cand.groupby(chave).votos.sum().rename("s")
+    t = pd.concat([pres, pres_c, sen_tot, sen_c], axis=1).fillna(0).reset_index().merge(n_cand.reset_index(), on="uf", how="inner")
+    t = t[(t.vp > 0) & (t.vs > 0)]
+    t["pct_pres"] = 100 * t["p"] / t["vp"]
+    t["pct_sen_por_candidato"] = 100 * (t["s"] / t["n"]) / (t["vs"] / votos_por_eleitor)
+    linhas = []
+    for uf, g in t.groupby("uf"):
+        if len(g) >= min_municipios:
+            rho = stats.spearmanr(g["pct_pres"], g["pct_sen_por_candidato"])[0]
+            linhas.append({"uf": uf, "municipios": len(g), "n_candidatos_do_partido": int(g["n"].iloc[0]), "spearman_pres_x_senado": rho})
     return pd.DataFrame(linhas)

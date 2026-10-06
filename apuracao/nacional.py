@@ -73,3 +73,42 @@ def municipios() -> pd.DataFrame:
         for mu in abr["mu"]:
             linhas.append({"uf": abr["cd"].upper(), "mun_cd": mu["cd"], "nome": mu["nm"], "capital": mu.get("c") == "s", "cdi": mu.get("cdi")})
     return pd.DataFrame(linhas)
+
+
+def candidaturas_oficiais() -> pd.MultiIndex:
+    """Pares (UF, cargo, numero) dos candidatos que aparecem no resultado OFICIAL (arquivo de totalizacao da UF)."""
+    con = oficial.abrir()
+    pares = []
+    for uf in coleta.UFS:
+        for cargo, ele in ((1, oficial.ELE_FEDERAL), (3, oficial.ELE_ESTADUAL), (5, oficial.ELE_ESTADUAL)):
+            if uf == "zz" and cargo != 1:
+                continue
+            row = con.execute("SELECT body FROM raw WHERE url=?", (oficial.url_uf(uf, str(cargo), ele),)).fetchone()
+            if row is None:
+                continue
+            d = json.loads(row[0])
+            for carg in d.get("carg", []):
+                for a in carg.get("agr", []):
+                    for p in a.get("par", []):
+                        for c in p.get("cand", []):
+                            pares.append((uf.upper(), cargo, int(c["n"])))
+    con.close()
+    return pd.MultiIndex.from_tuples(pares, names=["uf", "cargo", "numero"])
+
+
+def aplicar_candidaturas_oficiais(votos: pd.DataFrame) -> pd.DataFrame:
+    """Voto de candidato que nao esta na lista oficial vira nulo, como no resultado oficial do TSE.
+
+    Conferido na validacao (P4): o total de nulos do arquivo oficial e igual aos nulos dos boletins mais os votos
+    desses candidatos (candidatura sem registro valido). Sem isto os percentuais saem diferentes dos oficiais.
+    """
+    validos = candidaturas_oficiais()
+    idx = pd.MultiIndex.from_arrays([votos["uf"], votos["cargo"], votos["numero"]])
+    nominal = votos["tipo"] == 1
+    fora = nominal & ~idx.isin(validos)
+    v = votos.copy()
+    v.loc[fora, "tipo"] = 3
+    v.loc[fora, "partido"] = 0
+    v.loc[fora, "numero"] = 0
+    v.attrs["votos_reclassificados_como_nulos"] = int(votos.loc[fora, "votos"].sum())
+    return v

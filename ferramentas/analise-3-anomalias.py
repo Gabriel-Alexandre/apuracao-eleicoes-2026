@@ -40,6 +40,7 @@ def main() -> int:
     args = ap.parse_args()
     ufs = [u.lower() for u in args.ufs] if args.ufs else coleta.UFS
     s26, v26 = nacional.carregar(ufs)
+    v26 = nacional.aplicar_candidaturas_oficiais(v26)
     s22, v22 = historico.carregar("2022", "1")
     s18, v18 = historico.carregar("2018", "1")
     for s in (s22, s18):

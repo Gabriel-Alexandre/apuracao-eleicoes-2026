@@ -1,0 +1,35 @@
+ano,uf,governador,partido,apoio,candidato_apoiado,fonte,observacao,gov_numero,gov_votos,gov_pct,venceu_no_1_turno,pres_pct,pres_votos,lacuna_pontos,lacuna_votos,razao_liquido_bruto,estavel,fracao_das_secoes,indice_top1pct
+2026,BA,Jeronimo Rodrigues,PT,Lula,13,cnnbrasil 2026-10-05,,13.0000,4626509,55.8010,True,66.1730,5664771,-10.3721,-1038262,0.9882,True,0.2463,2.4272
+2026,CE,Elmano de Freitas,PT,Lula,13,cnnbrasil 2026-10-05,,13.0000,2875573,53.1913,True,63.2835,3555263,-10.0922,-679690,0.9995,True,0.3257,2.9290
+2026,GO,Daniel Vilela,MDB,Caiado,55,cnnbrasil 2026-10-05,,15.0000,2148218,59.1702,True,12.3315,472041,46.8387,1676177,1.0000,True,0.4174,1.2543
+2026,MG,Cleitinho Azevedo,Republicanos,Flavio,22,cnnbrasil 2026-10-05,,10.0000,6321287,55.3953,True,48.2394,5777227,7.1559,544060,0.4844,True,0.0859,5.6434
+2026,MS,Eduardo Riedel,PP,Flavio,22,cnnbrasil 2026-10-05,,11.0000,914323,67.0670,True,58.6002,873351,8.4668,40972,0.3935,True,0.0502,8.6210
+2026,MT,Otaviano Pivetta,Republicanos,Flavio,22,cnnbrasil 2026-10-05,,10.0000,1128099,60.7716,True,65.1446,1298581,-4.3730,-170482,0.7443,True,0.1913,3.3724
+2026,PA,Dr. Daniel,Podemos,Flavio,22,cnnbrasil 2026-10-05,,20.0000,2345721,51.3643,True,44.4951,2163957,6.8692,181764,0.5334,True,0.0778,5.5554
+2026,PB,Lucas Ribeiro,PP,Lula,13,cnnbrasil 2026-10-05,,11.0000,1470252,64.2814,True,61.3058,1541127,2.9756,-70875,0.3456,True,0.0448,8.7277
+2026,PI,Rafael Fonteles,PT,Lula,13,cnnbrasil 2026-10-05,,13.0000,1436697,70.9034,True,70.9876,1523710,-0.0842,-87013,0.6564,True,0.1053,5.7158
+2026,PR,Sergio Moro,PL,Flavio,22,cnnbrasil 2026-10-05,,22.0000,3127911,50.0963,True,59.9095,3945345,-9.8132,-817434,0.9987,True,0.3239,2.6283
+2026,RO,Marcos Rogerio,PL,Flavio,22,cnnbrasil 2026-10-05,,22.0000,537370,56.8611,True,67.4487,652988,-10.5877,-115618,0.9729,True,0.2456,3.4900
+2026,RR,Arthur Henrique,PL,Flavio,22,cnnbrasil 2026-10-05,,22.0000,220809,69.1296,True,71.0538,231322,-1.9242,-10513,0.4775,True,0.0862,8.2166
+2026,RS,Zucco,PL,Flavio,22,cnnbrasil 2026-10-05,,22.0000,3516048,58.0451,True,55.6378,3573783,2.4073,-57735,0.3298,True,0.0344,8.6837
+2026,SC,Jorginho Mello,PL,Flavio,22,cnnbrasil 2026-10-05,,22.0000,2942386,68.9788,True,66.6511,3000020,2.3277,-57634,0.2379,True,0.0129,12.9653
+2026,SE,Fabio,PSD,Lula,13,cnnbrasil 2026-10-05,,55.0000,727291,57.7122,True,62.7464,856019,-5.0341,-128728,0.8429,True,0.1881,4.1493
+2026,SP,Tarcisio,Republicanos,Flavio,22,cnnbrasil 2026-10-05;tribunadejundiai 2026-07-31;acritica 2026-07-31;metropoles 2026-10-04,declarou apoio incondicional em 31/jul/2026 (tribunadejundiai e acritica; capturadas),10.0000,14490219,62.5932,True,51.9295,12920587,10.6636,1569632,0.9859,True,0.2841,2.4357
+2022,AC,Gladson Cameli,PP,Bolsonaro,22,cnnbrasil 2022;gazetadopovo 2022,,11.0000,242100,56.7511,True,62.5020,275582,-5.7510,-33482,0.7148,True,0.1615,4.2707
+2022,AP,Clecio Luis,Solidariedade,Lula,13,cnnbrasil 2022;gazetadopovo 2022,Revista Oeste (05/10/2022) dizia que ele ainda nao se pronunciara,77.0000,222168,53.6881,True,45.6733,197382,8.0149,24786,0.5749,True,0.1310,3.4368
+2022,CE,Elmano de Freitas,PT,Lula,13,cnnbrasil 2022;gazetadopovo 2022,,13.0000,2808300,54.0173,True,65.9087,3578355,-11.8914,-770055,0.9975,True,0.2919,2.5908
+2022,DF,Ibaneis Rocha,MDB,Bolsonaro,22,cnnbrasil 2022;gazetadopovo 2022,,15.0000,832633,50.2975,True,51.6515,910397,-1.3540,-77764,0.6877,True,0.1515,5.1118
+2022,GO,Ronaldo Caiado,Uniao Brasil,Bolsonaro,22,cnnbrasil 2022;gazetadopovo 2022,,44.0000,1806892,51.8052,True,52.1586,1920203,-0.3534,-113311,0.2159,True,0.0412,4.2128
+2022,MA,Carlos Brandao,PSB,Lula,13,cnnbrasil 2022;gazetadopovo 2022,,40.0000,1769187,51.2899,True,68.8445,2603454,-17.5546,-834267,0.9943,True,0.2894,2.5018
+2022,MG,Romeu Zema,Novo,Bolsonaro,22,cnnbrasil 2022;gazetadopovo 2022,,30.0000,6094136,56.1849,True,43.6001,5239264,12.5848,854872,0.7159,True,0.1648,4.0558
+2022,MT,Mauro Mendes,Uniao Brasil,Bolsonaro,22,cnnbrasil 2022;gazetadopovo 2022,,44.0000,1114549,68.4523,True,59.8444,1102866,8.6079,11683,0.0593,False,0.0068,7.1181
+2022,PA,Helder Barbalho,MDB,Lula,13,cnnbrasil 2022;gazetadopovo 2022,,15.0000,3117276,70.4073,True,52.2172,2443730,18.1902,673546,0.9705,True,0.2488,2.1679
+2022,PI,Rafael Fonteles,PT,Lula,13,cnnbrasil 2022;gazetadopovo 2022,,13.0000,1115139,56.7199,True,74.2525,1518008,-17.5326,-402869,0.9996,True,0.3160,2.3136
+2022,PR,Ratinho Junior,PSD,Bolsonaro,22,cnnbrasil 2022;gazetadopovo 2022,,55.0000,4243292,69.6437,True,55.2572,3628612,14.3865,614680,0.9675,True,0.2736,2.6241
+2022,RJ,Claudio Castro,PL,Bolsonaro,22,cnnbrasil 2022;gazetadopovo 2022,,22.0000,4930288,58.6402,True,51.0882,4831246,7.5520,99042,0.1881,False,0.0238,7.8738
+2022,RN,Fatima Bezerra,PT,Lula,13,cnnbrasil 2022;gazetadopovo 2022,,13.0000,1066496,58.3112,True,62.9802,1264179,-4.6690,-197683,0.9717,True,0.2424,3.2877
+2022,RR,Antonio Denarium,PP,Bolsonaro,22,cnnbrasil 2022;gazetadopovo 2022,,11.0000,163167,56.4723,True,69.5739,207587,-13.1017,-44420,0.8261,True,0.2374,3.5668
+2022,TO,Wanderlei Barbosa,Republicanos,Bolsonaro,22,cnnbrasil 2022;gazetadopovo 2022;revistaoeste 2022,as tres fontes capturadas o colocam ao lado de Bolsonaro,10.0000,481496,58.1376,True,44.0006,379194,14.1369,102302,0.6110,True,0.1301,4.0884
+2018,GO,Ronaldo Caiado,DEM,Bolsonaro,17,agenciabrasil 2018-10-28,eleito no 1o turno; apoio declarado na fase decisiva (2o turno); numero de Bolsonaro em 2018 era 17,25.0000,1773185,59.7287,True,57.2376,1868686,2.4911,-95501,0.2871,True,0.0559,4.4165
+2018,MT,Mauro Mendes,DEM,Bolsonaro,17,agenciabrasil 2018-10-28,eleito no 1o turno; apoio declarado na fase decisiva (2o turno),25.0000,840094,58.6857,True,60.0390,981119,-1.3533,-141025,0.5605,True,0.1238,3.4764
+2018,PR,Ratinho Junior,PSD,Bolsonaro,17,agenciabrasil 2018-10-28,eleito no 1o turno; apoio declarado na fase decisiva (2o turno),55.0000,3210712,56.3281,True,56.8927,3496448,-0.5646,-285736,0.4096,True,0.0903,4.0962

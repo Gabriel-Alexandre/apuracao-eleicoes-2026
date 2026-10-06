@@ -59,6 +59,7 @@ def main() -> int:
     # ---- T2.4 fuso
     fuso = tempo.testar_fuso(secoes)
     saida.csv(fuso, "t24_fuso_por_uf.csv")
+    saida.csv(fuso.attrs["municipios_fora_do_padrao"], "t24_municipios_fora_do_padrao.csv")
     saida.anotar("t24_resumo", {"ufs": len(fuso), "decididas": fuso["fuso_decidido"].value_counts().to_dict(),
                                 "viol_BRT_total": int(fuso["viol_BRT"].sum()), "secoes_testadas": int(fuso["secoes"].sum())})
     off = secoes["uf"].map(lambda u: tempo.OFFSET_PARA_BRASILIA.get(u, 0))
@@ -82,8 +83,10 @@ def main() -> int:
                                   "nulos_dif_nao_explicada": int((~ok.nulos_dif_explicada_por_so_boletim.astype(bool)).sum()),
                                   "brancos_dif_total": int(ok.brancos_dif.abs().sum())})
 
-    # ---- curva
-    pres = nacional.presidente(secoes, votos)
+    # ---- curva (votos de candidato fora da lista oficial contam como nulos, como no resultado oficial)
+    votos_f = nacional.aplicar_candidaturas_oficiais(votos)
+    saida.anotar("votos_de_candidato_fora_da_lista_oficial_vistos_como_nulos", votos_f.attrs["votos_reclassificados_como_nulos"])
+    pres = nacional.presidente(secoes, votos_f)
     pres = pres.merge(secoes[["uf", "mun_cd", "zona", "secao", "recebido_brt"]], on=["uf", "mun_cd", "zona", "secao"], how="left", suffixes=("", "_x"))
     pres["recebido"] = pres["recebido_brt"]
     mun = nacional.municipios()
@@ -110,6 +113,21 @@ def main() -> int:
         "pontos_que_nao_encaixam": cmp_.loc[~cmp_["encaixa"], "ponto"].tolist(),
     })
 
+    # sensibilidade ao fuso de Mato Grosso: a leitura literal da regra por secao (MT "LOCAL") soma 1 h ao recebimento de MT
+    alt = pres.copy()
+    alt.loc[alt["uf"] == "MT", "recebido"] = alt.loc[alt["uf"] == "MT", "recebido"] + pd.Timedelta(hours=1)
+    cv_alt = curva.curva(alt, total)
+    grade_s = np.array([10, 20, 30, 40, 50, 60, 64.81, 70, 80, 84.96, 90, 95, 99, 100.0])
+    m_base = np.array([curva.no_pct(cv, g)["margem_flavio_lula"] for g in grade_s])
+    m_alt = np.array([curva.no_pct(cv_alt, g)["margem_flavio_lula"] for g in grade_s])
+    cmp_alt = curva.comparar_pontos(cv_alt, pontos)
+    saida.anotar("t24_sensibilidade_MT", {
+        "diferenca_maxima_da_margem_em_pontos": float(np.max(np.abs(m_base - m_alt))),
+        "pontos_que_encaixam_com_MT_em_BRT": int(cmp_["encaixa"].sum()),
+        "pontos_que_encaixam_com_MT_deslocado_1h": int(cmp_alt["encaixa"].sum()),
+        "secoes_de_MT": int((pres["uf"] == "MT").sum()),
+    })
+
     # ---- P2: a parada
     d = analises.marcar_pct(pres, total)
     p_antes, p_depois = 64.81, 84.96
@@ -125,6 +143,24 @@ def main() -> int:
         "margem_do_lote_19h06_20h08": analises.margem(janela) if len(janela) else None,
     })
     saida.csv(analises.taxa_de_chegada(d, "5min").reset_index(), "p2_chegada_a_cada_5min.csv")
+    c1, c2 = curva.no_pct(cv, p_antes), curva.no_pct(cv, p_depois)
+    pub1 = pontos.loc[pontos.ponto == "P04"].iloc[0]
+    pub2 = pontos.loc[pontos.ponto == "P05"].iloc[0]
+    m1p, m2p = pub1.flavio_pct - pub1.lula_pct, pub2.flavio_pct - pub2.lula_pct
+    V1, V2 = float(c1["validos"]), float(c2["validos"])
+    implicado = (V2 * m2p - V1 * m1p) / (V2 - V1)
+    reconstruido = 100 * ((c2["votos_flavio"] - c2["votos_lula"]) - (c1["votos_flavio"] - c1["votos_lula"])) / (V2 - V1)
+    saida.anotar("p2_lote", {"margem_implicada_pelos_dois_pontos_publicados": float(implicado), "margem_reconstruida_do_lote": float(reconstruido), "diferenca_pontos": float(reconstruido - implicado),
+                             "votos_validos_do_lote_reconstruido": int(V2 - V1)})
+    # a tela, hora a hora: quanto ja tinha chegado quando a tela mostrava cada ponto com hora conhecida
+    saida.anotar("p2_tela_contra_recebido", {
+        "tela_as_19h06": p_antes, "recebido_ate_19h06_pct": 100 * (d["recebido"] <= pd.Timestamp("2026-10-04 19:06")).sum() / total,
+        "tela_as_20h08": p_depois, "recebido_ate_20h08_pct": 100 * (d["recebido"] <= pd.Timestamp("2026-10-04 20:08")).sum() / total,
+        "minutos_de_defasagem_na_parada_19h06": float((pd.Timestamp("2026-10-04 19:06") - pd.Timestamp(c1["recebido"])).total_seconds() / 60),
+        "minutos_de_defasagem_na_retomada_20h08": float((pd.Timestamp("2026-10-04 20:08") - pd.Timestamp(c2["recebido"])).total_seconds() / 60),
+    })
+    pico = analises.taxa_de_chegada(d, "5min")
+    saida.anotar("p2_pico_de_chegada", {"boletins_por_5min_pico": int(pico["boletins"].max()), "faixa_do_pico": pico["boletins"].idxmax(), "boletins_por_minuto_no_pico": float(pico["boletins"].max() / 5)})
 
     # ---- P1: decomposicao
     base = d.merge(mun[["uf", "mun_cd", "capital"]].rename(columns={"capital": "cap"}), on=["uf", "mun_cd"], how="left")
@@ -152,7 +188,7 @@ def main() -> int:
         for rotulo, p0, p1 in (("64_81_a_100", p_antes, 100.0), ("64_81_a_84_96", p_antes, p_depois), ("84_96_a_100", p_depois, 100.0)):
             dec = analises.decompor(base, p0, p1, chave)
             saida.csv(dec, f"p1_decomposicao_{chave}_{rotulo}.csv")
-            if chave in ("uf_capital", "regiao", "porte_municipio", "tamanho_secao", "capital_ou_interior"):
+            if chave in ("uf", "uf_capital", "regiao", "porte_municipio", "tamanho_secao", "capital_ou_interior"):
                 resumo_dec[f"{chave}_{rotulo}"] = {k: float(v) for k, v in dec.attrs.items()}
     saida.anotar("p1_decomposicao_uf_capital", resumo_dec)
     pcts = [10, 20, 30, 40, 50, 60, 64.81, 70, 80, 84.96, 90, 95, 99, 100]
@@ -167,12 +203,24 @@ def main() -> int:
     idx = np.clip((grade / 100 * len(base)).astype(int) - 1, 0, len(base) - 1)
     real = 100 * cd[idx] / cvv[idx]
     out = {"grade_pct": grade, "real": real}
-    for modo, flag in (("aleatoria", False), ("calendario_por_uf", True)):
-        m = curva.permutacoes(pres, grade, n=args.permutacoes, por_uf=flag)
+    dord = curva.ordenar(pres)
+    dord["validos_mun"] = dord.groupby(["uf", "mun_cd"])["validos"].transform("sum")
+    dord["porte"] = pd.qcut(dord["validos_mun"], 5, labels=False, duplicates="drop").astype(str)
+    dord["cap"] = np.where(dord["capital"].fillna(False), "cap", "int")
+    variantes = {
+        "aleatoria": None,
+        "calendario_por_uf": dord["uf"].to_numpy(),
+        "calendario_por_uf_e_capital": (dord["uf"] + dord["cap"]).to_numpy(),
+        "calendario_por_uf_capital_e_porte": (dord["uf"] + dord["cap"] + dord["porte"]).to_numpy(),
+    }
+    for modo, grupos in variantes.items():
+        m = curva.permutacoes(pres, grade, n=args.permutacoes, grupos=grupos)
         out[f"{modo}_p05"], out[f"{modo}_p50"], out[f"{modo}_p95"] = np.percentile(m, [5, 50, 95], axis=0)
         fora = (real < out[f"{modo}_p05"]) | (real > out[f"{modo}_p95"])
+        dist = np.where(real > out[f"{modo}_p95"], real - out[f"{modo}_p95"], np.where(real < out[f"{modo}_p05"], out[f"{modo}_p05"] - real, 0))
         saida.anotar(f"p1_permutacao_{modo}", {"n": args.permutacoes, "pontos_da_curva_fora_da_faixa_5_95": int(fora.sum()), "de": len(grade),
-                                              "maior_distancia_pontos": float(np.max(np.where(real > out[f"{modo}_p95"], real - out[f"{modo}_p95"], np.where(real < out[f"{modo}_p05"], out[f"{modo}_p05"] - real, 0))))})
+                                              "maior_distancia_pontos": float(np.max(dist)), "distancia_mediana_pontos": float(np.median(dist)),
+                                              "grupos": int(len(np.unique(grupos))) if grupos is not None else None})
     saida.csv(pd.DataFrame(out), "p1_permutacoes.csv")
     print("ok")
     return 0

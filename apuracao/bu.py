@@ -32,13 +32,12 @@ class Boletim:
     votos: dict[tuple[int, int, int, int], int] = field(default_factory=dict)
 
 
-def _first_big_octets(nodes) -> bytes | None:
-    for _cls, _tag, cons, v in nodes:
-        if cons:
-            r = _first_big_octets(v)
-            if r:
-                return r
-        elif len(v) > 1000:
+def _conteudo(envelope) -> bytes | None:
+    """O boletim de verdade e o OCTET STRING (universal 4) filho do SEQUENCE de nivel mais alto do envelope."""
+    if not envelope or not envelope[0][2]:
+        return None
+    for cls, tag, cons, v in envelope[0][3]:
+        if cls == 0 and tag == 4 and not cons and len(v) > 50:
             return v
     return None
 
@@ -95,7 +94,7 @@ def _ts(b: bytes) -> str:
 
 def decode(raw: bytes) -> Boletim:
     envelope = ber.parse(raw)
-    inner = _first_big_octets(envelope)
+    inner = _conteudo(envelope)
     if inner is None:
         raise ValueError("conteudo do boletim nao encontrado")
     tree = ber.parse(inner)

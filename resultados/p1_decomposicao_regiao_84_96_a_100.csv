@@ -1,0 +1,7 @@
+regiao,secoes_no_lote,peso_no_lote_pct,margem_do_grupo_no_lote,margem_do_grupo_antes,margem_final_do_grupo,contribuicao_pontos
+Nordeste,35216,47.3898,-37.0435,-31.4429,-32.9201,-3.1318
+Norte,6037,7.9403,-18.6198,8.4597,4.5020,-0.2947
+Exterior,406,0.4626,16.8593,-11.5191,-4.0761,0.0086
+Centro-Oeste,1719,2.2569,15.1432,24.3196,23.8920,0.0361
+Sudeste,29391,39.0047,7.0330,12.5066,11.6804,0.1258
+Sul,2261,2.9457,35.0824,28.5951,28.7999,0.1394

@@ -62,7 +62,9 @@ def derivar_uf(uf: str) -> dict:
             "hash_secao": h.get("hash") if h else None,
         }
         if h:
-            nome = next((a["nm"] for a in h.get("arq", []) if a.get("tp") == "bu"), None)
+            arq_bu = next((a for a in h.get("arq", []) if a.get("tp") in ("bu", "busa")), None)
+            nome = arq_bu["nm"] if arq_bu else None
+            linha["tipo_boletim"] = arq_bu["tp"] if arq_bu else None
             if nome:
                 ub = coleta.url_bu(uf, mun, zona, secao, h["hash"], nome)
                 r = con.execute("SELECT status, sha256, body FROM raw WHERE url=?", (ub,)).fetchone()

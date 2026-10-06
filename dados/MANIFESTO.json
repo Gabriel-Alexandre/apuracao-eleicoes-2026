@@ -1,0 +1,322 @@
+{
+ "gerado_utc": "2026-10-06T04:49:05+00:00",
+ "como_o_resumo_e_calculado": "sha256 sobre as linhas 'url<TAB>sha256 do corpo' ordenadas por url, de cada banco em dados/brutos/",
+ "ufs": {
+  "AC": {
+   "arquivos": 4541,
+   "status_200": 4541,
+   "status_404": 0,
+   "bytes": 25466189,
+   "coleta_utc": [
+    "2026-10-06T02:04:57+00:00",
+    "2026-10-06T02:06:14+00:00"
+   ],
+   "sha256_resumo": "653198d70f18eb404081c15f5ce2e782bcdebc67fb24e6de999763d0df8e45ae"
+  },
+  "AL": {
+   "arquivos": 14203,
+   "status_200": 14203,
+   "status_404": 0,
+   "bytes": 69123672,
+   "coleta_utc": [
+    "2026-10-06T02:06:22+00:00",
+    "2026-10-06T02:08:55+00:00"
+   ],
+   "sha256_resumo": "d0bba767c43e4149119e33fb03c0555b23efe2c11165bf338dded738bce7a389"
+  },
+  "AM": {
+   "arquivos": 16315,
+   "status_200": 16315,
+   "status_404": 0,
+   "bytes": 104249614,
+   "coleta_utc": [
+    "2026-10-06T02:08:56+00:00",
+    "2026-10-06T02:11:22+00:00"
+   ],
+   "sha256_resumo": "214a3a0dc8ab76915b4736ec954441b23dbfc44aa80b5dc62524518e8fd1c9e3"
+  },
+  "AP": {
+   "arquivos": 3829,
+   "status_200": 3829,
+   "status_404": 0,
+   "bytes": 25751138,
+   "coleta_utc": [
+    "2026-10-06T02:11:22+00:00",
+    "2026-10-06T02:12:00+00:00"
+   ],
+   "sha256_resumo": "aec2b4a988cedd4257c0a930faf3299dab0725bd03b4427e1d30e6c1bb06e8d6"
+  },
+  "BA": {
+   "arquivos": 70953,
+   "status_200": 70953,
+   "status_404": 0,
+   "bytes": 414442272,
+   "coleta_utc": [
+    "2026-10-06T02:12:00+00:00",
+    "2026-10-06T02:22:25+00:00"
+   ],
+   "sha256_resumo": "271cbd223dbce02d304674841cb0bdfc460492bf2ef3645aae901968f5d6b6e0"
+  },
+  "CE": {
+   "arquivos": 47531,
+   "status_200": 47531,
+   "status_404": 0,
+   "bytes": 271058143,
+   "coleta_utc": [
+    "2026-10-06T02:22:25+00:00",
+    "2026-10-06T02:29:24+00:00"
+   ],
+   "sha256_resumo": "d620931b2f0cdf02ff4794c428402485c6887c2cb43e90cc194e40a719e4ad2e"
+  },
+  "DF": {
+   "arquivos": 13939,
+   "status_200": 13939,
+   "status_404": 0,
+   "bytes": 112299709,
+   "coleta_utc": [
+    "2026-10-06T02:29:25+00:00",
+    "2026-10-06T02:31:27+00:00"
+   ],
+   "sha256_resumo": "8428e0540f008a89f731edef5d8f35461e8dc8f1ab9fc9d3b1c2cfe8c8025e36"
+  },
+  "ES": {
+   "arquivos": 19689,
+   "status_200": 19689,
+   "status_404": 0,
+   "bytes": 115507947,
+   "coleta_utc": [
+    "2026-10-06T02:31:27+00:00",
+    "2026-10-06T02:34:20+00:00"
+   ],
+   "sha256_resumo": "7a397fe5826204d61ba33d5825d72c779e4787b7c88b89c15ddd0c0f8990286f"
+  },
+  "GO": {
+   "arquivos": 31373,
+   "status_200": 31373,
+   "status_404": 0,
+   "bytes": 206305593,
+   "coleta_utc": [
+    "2026-10-06T02:34:21+00:00",
+    "2026-10-06T02:52:36+00:00"
+   ],
+   "sha256_resumo": "2140055813ab1c419754c9594f04a04520c1817e8064e218100a25ca7c4e9501"
+  },
+  "MA": {
+   "arquivos": 36187,
+   "status_200": 36187,
+   "status_404": 0,
+   "bytes": 191317518,
+   "coleta_utc": [
+    "2026-10-06T02:39:38+00:00",
+    "2026-10-06T03:08:13+00:00"
+   ],
+   "sha256_resumo": "9eb87524db712c055252bab5661c8fe1dc00b865ece0cdf35615b27ef2d3c9f7"
+  },
+  "MG": {
+   "arquivos": 104120,
+   "status_200": 104117,
+   "status_404": 3,
+   "bytes": 619308587,
+   "coleta_utc": [
+    "2026-10-06T03:08:14+00:00",
+    "2026-10-06T03:28:56+00:00"
+   ],
+   "sha256_resumo": "0925ce8e8a3c543685d19d8cf80c16af178996fe126c38294aa8236c05b775b2"
+  },
+  "MS": {
+   "arquivos": 14213,
+   "status_200": 14213,
+   "status_404": 0,
+   "bytes": 74779108,
+   "coleta_utc": [
+    "2026-10-06T03:28:56+00:00",
+    "2026-10-06T03:31:44+00:00"
+   ],
+   "sha256_resumo": "181b558bcdd344cf1b9e05269997cfce4eb1a81a6c0e7b7d07cc76a0c5e83d55"
+  },
+  "MT": {
+   "arquivos": 16575,
+   "status_200": 16575,
+   "status_404": 0,
+   "bytes": 88671795,
+   "coleta_utc": [
+    "2026-10-06T03:31:44+00:00",
+    "2026-10-06T03:34:53+00:00"
+   ],
+   "sha256_resumo": "d7f6d95b91da8036d3ef3a08587e53f8c8a90ca6bd0dc6080f0d82391ae0b455"
+  },
+  "PA": {
+   "arquivos": 41655,
+   "status_200": 41655,
+   "status_404": 0,
+   "bytes": 235045911,
+   "coleta_utc": [
+    "2026-10-06T03:34:53+00:00",
+    "2026-10-06T03:42:20+00:00"
+   ],
+   "sha256_resumo": "dd191b25533d45eabb4866b78f259d2c2e6930f3b30a25efbf04f9ec00d32130"
+  },
+  "PB": {
+   "arquivos": 21425,
+   "status_200": 21425,
+   "status_404": 0,
+   "bytes": 107684344,
+   "coleta_utc": [
+    "2026-10-06T03:42:21+00:00",
+    "2026-10-06T03:45:29+00:00"
+   ],
+   "sha256_resumo": "721bbd500ed57f2c605f70410ad0dc97d3587c6873adfcb24f0c7b8d5b45cee1"
+  },
+  "PE": {
+   "arquivos": 42837,
+   "status_200": 42837,
+   "status_404": 0,
+   "bytes": 272431246,
+   "coleta_utc": [
+    "2026-10-06T03:45:30+00:00",
+    "2026-10-06T03:51:47+00:00"
+   ],
+   "sha256_resumo": "5aecaa8305e6302a661dec8c4c80d6fd40424eae535d7ba8a1cc87422776f88e"
+  },
+  "PI": {
+   "arquivos": 20451,
+   "status_200": 20451,
+   "status_404": 0,
+   "bytes": 94098709,
+   "coleta_utc": [
+    "2026-10-06T03:51:48+00:00",
+    "2026-10-06T03:54:48+00:00"
+   ],
+   "sha256_resumo": "f21b3ac1a4818cb8df06616ae5431dac97760348fe7973f06e731f4469a52e2b"
+  },
+  "PR": {
+   "arquivos": 54285,
+   "status_200": 54285,
+   "status_404": 0,
+   "bytes": 351745573,
+   "coleta_utc": [
+    "2026-10-06T03:54:48+00:00",
+    "2026-10-06T04:02:45+00:00"
+   ],
+   "sha256_resumo": "8144ffe9dccf373b9215adcd3715c37135b387fc9fc670575d0b1c36d429e17b"
+  },
+  "RJ": {
+   "arquivos": 75351,
+   "status_200": 75351,
+   "status_404": 0,
+   "bytes": 666796242,
+   "coleta_utc": [
+    "2026-10-06T02:38:42+00:00",
+    "2026-10-06T04:11:15+00:00"
+   ],
+   "sha256_resumo": "0eb273af9c9ed0558e84436bbbb8ac9cf457fa9dc9d05fa4c4a293b45d852c28"
+  },
+  "RN": {
+   "arquivos": 16231,
+   "status_200": 16231,
+   "status_404": 0,
+   "bytes": 75854096,
+   "coleta_utc": [
+    "2026-10-06T04:11:16+00:00",
+    "2026-10-06T04:13:39+00:00"
+   ],
+   "sha256_resumo": "30d580270d2c9af1a478ef47b9b9d034b3648346cb38c7f038555f6be4ba891f"
+  },
+  "RO": {
+   "arquivos": 9397,
+   "status_200": 9397,
+   "status_404": 0,
+   "bytes": 52973983,
+   "coleta_utc": [
+    "2026-10-06T04:13:39+00:00",
+    "2026-10-06T04:15:02+00:00"
+   ],
+   "sha256_resumo": "9be90e30e555b7f2244687534e2d17420fdabfba6484f562636a53ac3adb36dd"
+  },
+  "RR": {
+   "arquivos": 3039,
+   "status_200": 3039,
+   "status_404": 0,
+   "bytes": 18794847,
+   "coleta_utc": [
+    "2026-10-06T04:15:02+00:00",
+    "2026-10-06T04:15:29+00:00"
+   ],
+   "sha256_resumo": "66d0ee61dbe7cee7111463322134c7ba4ce58e693bf6f7df0ccb3e5d5d803b08"
+  },
+  "RS": {
+   "arquivos": 55095,
+   "status_200": 55095,
+   "status_404": 0,
+   "bytes": 353468289,
+   "coleta_utc": [
+    "2026-10-06T04:15:29+00:00",
+    "2026-10-06T04:23:33+00:00"
+   ],
+   "sha256_resumo": "f917a9a101e49a2281d1931903a09b0c95b9a6678bb8bde67d79164b8ecd2eec"
+  },
+  "SC": {
+   "arquivos": 34653,
+   "status_200": 34653,
+   "status_404": 0,
+   "bytes": 207137602,
+   "coleta_utc": [
+    "2026-10-06T04:23:33+00:00",
+    "2026-10-06T04:28:38+00:00"
+   ],
+   "sha256_resumo": "6b4ca7876e678fcbb54a7a0d319ecf2a6a61f8b20493516c7dead8b0ae86be25"
+  },
+  "SE": {
+   "arquivos": 11847,
+   "status_200": 11847,
+   "status_404": 0,
+   "bytes": 65345074,
+   "coleta_utc": [
+    "2026-10-06T04:28:38+00:00",
+    "2026-10-06T04:30:23+00:00"
+   ],
+   "sha256_resumo": "92ccaab12093103e8b107071a4aaffaa5617dc4ef2f32c33b5600cd63c8da907"
+  },
+  "SP": {
+   "arquivos": 207301,
+   "status_200": 207289,
+   "status_404": 12,
+   "bytes": 1687812073,
+   "coleta_utc": [
+    "2026-10-06T02:29:25+00:00",
+    "2026-10-06T04:48:40+00:00"
+   ],
+   "sha256_resumo": "e8ba3dae2d4dda7be00ffd9bf4ba48f0cefea7dbca37e40ac0c775d3f817ff47"
+  },
+  "TO": {
+   "arquivos": 8769,
+   "status_200": 8769,
+   "status_404": 0,
+   "bytes": 42973357,
+   "coleta_utc": [
+    "2026-10-06T02:28:08+00:00",
+    "2026-10-06T02:29:25+00:00"
+   ],
+   "sha256_resumo": "d3c990c22054467b3077eb3da99694658f80718dd6a1e939382382ccd8853647"
+  },
+  "ZZ": {
+   "arquivos": 2633,
+   "status_200": 2633,
+   "status_404": 0,
+   "bytes": 2665544,
+   "coleta_utc": [
+    "2026-10-06T02:27:43+00:00",
+    "2026-10-06T02:28:07+00:00"
+   ],
+   "sha256_resumo": "aeea29bab290ac68b5fb3f93d0ead740c07f6854c55a796218954c7d70dd3834"
+  }
+ },
+ "oficial": {
+  "arquivos": 16983,
+  "sha256_resumo": "90057b4b9ea9203646bc373d608c037e68353713e80ffb94acc3221783ceed6d"
+ },
+ "totais": {
+  "arquivos": 998437,
+  "bytes": 6553108175
+ }
+}

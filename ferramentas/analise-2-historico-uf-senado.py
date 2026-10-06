@@ -49,6 +49,8 @@ def main() -> int:
     args = ap.parse_args()
     ufs = [u.lower() for u in args.ufs] if args.ufs else coleta.UFS
     secoes, votos26 = nacional.carregar(ufs)
+    votos26 = nacional.aplicar_candidaturas_oficiais(votos26)
+    saida.anotar("votos_de_candidato_fora_da_lista_oficial_como_nulos_2026", votos26.attrs["votos_reclassificados_como_nulos"])
 
     # ---------------------------------------------------------------- P7: 2022 contra 2026
     h = curva_2022()
@@ -220,6 +222,38 @@ def main() -> int:
         "razao_2026_pl": {"n": len(r26), "q05": float(np.percentile(r26, 5)) if len(r26) else None, "mediana": float(r26.median()) if len(r26) else None, "q95": float(np.percentile(r26, 95)) if len(r26) else None},
         "ufs_2026_fora_do_intervalo_historico": sen.loc[(sen["razao_pl_media_sobre_flavio"] < q05) | (sen["razao_pl_media_sobre_flavio"] > q95), "uf"].tolist(),
     })
+    # ---- P6 (b): onde o PL elegeu senadores contra quem liderou a eleicao presidencial; e o alinhamento dentro da UF
+    sen["flavio_liderou"] = sen["flavio_pct"] > sen["lula_pct"]
+    cruz = pd.crosstab(sen["flavio_liderou"].map({True: "Flavio na frente", False: "Lula na frente ou empate"}), sen["pl_eleitos"].clip(upper=2).map({0: "0 senador do PL", 1: "1 senador do PL", 2: "2 senadores do PL"}))
+    saida.csv(cruz.reset_index(), "p6_senadores_do_pl_por_quem_liderou.csv")
+    pl_total = int(sen["pl_eleitos"].sum())
+    saida.anotar("p6_senadores_do_pl", {
+        "total_eleitos": pl_total,
+        "em_ufs_com_flavio_na_frente": int(sen.loc[sen["flavio_liderou"], "pl_eleitos"].sum()),
+        "em_ufs_com_lula_na_frente_ou_empate": int(sen.loc[~sen["flavio_liderou"], "pl_eleitos"].sum()),
+        "ufs_com_flavio_na_frente": int(sen["flavio_liderou"].sum()),
+        "ufs_com_flavio_na_frente_e_sem_senador_do_pl": sen.loc[sen["flavio_liderou"] & (sen["pl_eleitos"] == 0), "uf"].tolist(),
+        "ufs_com_lula_na_frente_ou_empate": sen.loc[~sen["flavio_liderou"], "uf"].tolist(),
+    })
+    saida.anotar("p6_senadores_do_pt", {"total_eleitos": int(sen["pt_eleitos"].sum()), "em_ufs_com_lula_na_frente_ou_empate": int(sen.loc[~sen["flavio_liderou"], "pt_eleitos"].sum()), "em_ufs_com_flavio_na_frente": int(sen.loc[sen["flavio_liderou"], "pt_eleitos"].sum())})
+    com_pl = sen.dropna(subset=["pl_media_por_candidato_pct_eleitores"])
+    r_uf = stats.spearmanr(com_pl["flavio_pct"], com_pl["pl_media_por_candidato_pct_eleitores"])[0]
+    com_pt = sen.dropna(subset=["pt_media_por_candidato_pct_eleitores"])
+    r_uf_pt = stats.spearmanr(com_pt["lula_pct"], com_pt["pt_media_por_candidato_pct_eleitores"])[0]
+    saida.anotar("p6_entre_ufs", {"spearman_flavio_x_candidatos_do_pl": float(r_uf), "n_pl": len(com_pl), "spearman_lula_x_candidatos_do_pt": float(r_uf_pt), "n_pt": len(com_pt),
+                                  "mediana_razao_pl": float(com_pl["razao_pl_media_sobre_flavio"].median()), "mediana_razao_pt": float(com_pt["razao_pt_media_sobre_lula"].median())})
+    alin = []
+    for ano, vv, npres, nlula, ve, rot in ((2026, votos26, 22, 13, 2, "2026"), (2022, vv22g, 22, 13, 1, "2022"), (2018, vv18g, 17, 13, 2, "2018")):
+        for nome, npart, npc in (("partido_do_candidato_que_liderou_o_1_turno", npres, npres), ("PT", 13, 13)):
+            a = ufm.alinhamento_municipal(vv, npart, npc, ve)
+            a["ano"], a["partido"] = ano, nome if nome == "PT" else ("PL" if ano != 2018 else "PSL")
+            alin.append(a)
+    alin = pd.concat(alin, ignore_index=True)
+    saida.csv(alin, "p6_alinhamento_entre_municipios_por_uf.csv")
+    resumo_alin = {}
+    for (ano, partido), g in alin.groupby(["ano", "partido"]):
+        resumo_alin[f"{ano}_{partido}"] = {"ufs": len(g), "mediana_spearman": float(g["spearman_pres_x_senado"].median()), "ufs_com_spearman_acima_de_0_8": int((g["spearman_pres_x_senado"] > 0.8).sum())}
+    saida.anotar("p6_alinhamento_municipal", resumo_alin)
     print("ok")
     return 0
 
