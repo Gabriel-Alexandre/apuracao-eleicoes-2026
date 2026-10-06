@@ -46,6 +46,8 @@ FONTES = [
     ("apoio", "https://www.cnnbrasil.com.br/politica/oito-governadores-eleitos-se-aliam-a-bolsonaro-e-quatro-apoiam-lula/"),
     ("apoio", "https://www.gazetadopovo.com.br/eleicoes/2022/governadores-eleitos-primeiro-turno-aliados-lula-bolsonaro/"),
     ("apoio", "https://agenciabrasil.ebc.com.br/politica/noticia/2018-10/bolsonaro-recebeu-apoio-de-15-dos-27-governadores-eleitos"),
+    ("apoio", "https://www.gazetadopovo.com.br/eleicoes/2022/eleicoes-governador-eleitos-apoios-lula-bolsonaro/"),
+    ("apoio", "https://revistaoeste.com/politica/eleicoes-2022/placar-dos-governadores-veja-quem-apoia-bolsonaro-e-lula-no-2o-turno/"),
     ("metodo", "https://en.wikipedia.org/wiki/Election_forensics"),
     ("metodo", "https://arxiv.org/pdf/1410.6059"),
 ]

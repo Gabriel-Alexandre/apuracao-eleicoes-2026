@@ -18,9 +18,9 @@ ano,uf,governador,partido,apoio,candidato_apoiado,fonte,observacao
 2026,RS,Zucco,PL,Flavio,22,cnnbrasil 2026-10-05,
 2026,SC,Jorginho Mello,PL,Flavio,22,cnnbrasil 2026-10-05,
 2026,SE,Fabio,PSD,Lula,13,cnnbrasil 2026-10-05,
-2026,SP,Tarcisio,Republicanos,Flavio,22,cnnbrasil 2026-10-05;tribunadejundiai 2026-07-31;acritica 2026-07-31;metropoles 2026-10-04,declarou apoio incondicional em 31/jul/2026 (tribunadejundiai e acritica, capturadas)
+2026,SP,Tarcisio,Republicanos,Flavio,22,cnnbrasil 2026-10-05;tribunadejundiai 2026-07-31;acritica 2026-07-31;metropoles 2026-10-04,declarou apoio incondicional em 31/jul/2026 (tribunadejundiai e acritica; capturadas)
 2022,AC,Gladson Cameli,PP,Bolsonaro,22,cnnbrasil 2022;gazetadopovo 2022,
-2022,AP,Clecio Luis,Solidariedade,Lula,13,cnnbrasil 2022;gazetadopovo 2022,
+2022,AP,Clecio Luis,Solidariedade,Lula,13,cnnbrasil 2022;gazetadopovo 2022,Revista Oeste (05/10/2022) dizia que ele ainda nao se pronunciara
 2022,CE,Elmano de Freitas,PT,Lula,13,cnnbrasil 2022;gazetadopovo 2022,
 2022,DF,Ibaneis Rocha,MDB,Bolsonaro,22,cnnbrasil 2022;gazetadopovo 2022,
 2022,GO,Ronaldo Caiado,Uniao Brasil,Bolsonaro,22,cnnbrasil 2022;gazetadopovo 2022,
@@ -33,7 +33,7 @@ ano,uf,governador,partido,apoio,candidato_apoiado,fonte,observacao
 2022,RJ,Claudio Castro,PL,Bolsonaro,22,cnnbrasil 2022;gazetadopovo 2022,
 2022,RN,Fatima Bezerra,PT,Lula,13,cnnbrasil 2022;gazetadopovo 2022,
 2022,RR,Antonio Denarium,PP,Bolsonaro,22,cnnbrasil 2022;gazetadopovo 2022,
-2022,TO,Wanderlei Barbosa,Republicanos,divergente,,cnnbrasil 2022 (Bolsonaro);gazetadopovo 2022 (sem posicao),as duas fontes divergem: fica fora da classe de referencia
+2022,TO,Wanderlei Barbosa,Republicanos,Bolsonaro,22,cnnbrasil 2022;gazetadopovo 2022;revistaoeste 2022,as tres fontes capturadas o colocam ao lado de Bolsonaro
 2018,GO,Ronaldo Caiado,DEM,Bolsonaro,17,agenciabrasil 2018-10-28,eleito no 1o turno; apoio declarado na fase decisiva (2o turno); numero de Bolsonaro em 2018 era 17
 2018,MT,Mauro Mendes,DEM,Bolsonaro,17,agenciabrasil 2018-10-28,eleito no 1o turno; apoio declarado na fase decisiva (2o turno)
 2018,PR,Ratinho Junior,PSD,Bolsonaro,17,agenciabrasil 2018-10-28,eleito no 1o turno; apoio declarado na fase decisiva (2o turno)
