@@ -1,0 +1,16 @@
+ponto,hora_brt_publicada,pct_secoes,flavio_pct,lula_pct,fontes,observacao
+P01,17:27,1.51,49.17,42.18,bloomberglinea,fonte unica
+P02,17:47,7.59,50.70,40.98,bloomberglinea,fonte unica
+P03,18:16,21.96,51.07,40.82,bloomberglinea,fonte unica
+P04,18:26,22.00,51.10,40.80,bloomberglinea,fonte unica; 22% as 18:26 contra 21.96% as 18:16: a hora publicada pode ser a da postagem e nao a do dado
+P05,19:06,64.81,49.58,42.25,jornaldebrasilia;bloomberglinea;ovale,tres fontes. Ultimo ponto antes da parada
+P06,20:08,84.96,48.47,43.49,jornaldebrasilia;ovale,duas fontes. Primeiro ponto depois da parada (OVALE titula "85%")
+P07,20:11,88.46,48.19,43.80,bloomberglinea,fonte unica
+P08,20:21,90.61,48.02,44.01,bloomberglinea,fonte unica; a Tribuna do Norte (20:31) publica 90.56% com 48.02 e 44.00: ver P08b
+P08b,20:31,90.56,48.02,44.00,tribunadonorte;tribunadosertao,duas fontes. Os 90.56 e 90.61 sao dois instantes proximos
+P09,20:41,92.58,47.84,44.20,bloomberglinea,fonte unica
+P10,20:55,96.44,47.51,44.59,bloomberglinea,fonte unica
+P11,21:12,99.00,47.22,44.94,bloomberglinea,fonte unica
+P12,21:30,99.37,47.15,45.01,bloomberglinea,fonte unica
+P13,21:52,99.69,47.10,45.08,bloomberglinea,fonte unica; Band e CNN trazem 99.63% com 47.11 e 45.07
+P14,22:51,99.95,47.04,45.15,bloomberglinea,fonte unica

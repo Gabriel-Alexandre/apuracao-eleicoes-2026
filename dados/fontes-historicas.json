@@ -1,0 +1,686 @@
+{
+ "2022-1": [
+  [
+   "AC - Boletim de Urna - Primeiro turno - 05.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_1t_AC_051020221321.zip"
+  ],
+  [
+   "AL - Boletim de Urna - Primeiro turno - 05.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_1t_AL_051020221321.zip"
+  ],
+  [
+   "AM - Boletim de Urna - Primeiro turno - 05.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_1t_AM_051020221321.zip"
+  ],
+  [
+   "AP - Boletim de Urna - Primeiro turno - 05.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_1t_AP_051020221321.zip"
+  ],
+  [
+   "BA - Boletim de Urna - Primeiro turno - 05.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_1t_BA_051020221321.zip"
+  ],
+  [
+   "CE - Boletim de Urna - Primeiro turno - 05.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_1t_CE_051020221321.zip"
+  ],
+  [
+   "DF - Boletim de Urna - Primeiro turno - 05.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_1t_DF_051020221321.zip"
+  ],
+  [
+   "ES - Boletim de Urna - Primeiro turno - 05.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_1t_ES_051020221321.zip"
+  ],
+  [
+   "GO - Boletim de Urna - Primeiro turno - 05.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_1t_GO_051020221321.zip"
+  ],
+  [
+   "MA - Boletim de Urna - Primeiro turno - 05.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_1t_MA_051020221321.zip"
+  ],
+  [
+   "MG - Boletim de Urna - Primeiro turno - 05.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_1t_MG_051020221321.zip"
+  ],
+  [
+   "MS - Boletim de Urna - Primeiro turno - 05.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_1t_MS_051020221321.zip"
+  ],
+  [
+   "MT - Boletim de Urna - Primeiro turno - 05.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_1t_MT_051020221321.zip"
+  ],
+  [
+   "PA - Boletim de Urna - Primeiro turno - 05.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_1t_PA_051020221321.zip"
+  ],
+  [
+   "PB - Boletim de Urna - Primeiro turno - 05.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_1t_PB_051020221321.zip"
+  ],
+  [
+   "PE - Boletim de Urna - Primeiro turno - 05.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_1t_PE_051020221321.zip"
+  ],
+  [
+   "PI - Boletim de Urna - Primeiro turno - 05.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_1t_PI_051020221321.zip"
+  ],
+  [
+   "PR - Boletim de Urna - Primeiro turno - 05.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_1t_PR_051020221321.zip"
+  ],
+  [
+   "RJ - Boletim de Urna - Primeiro turno - 05.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_1t_RJ_051020221321.zip"
+  ],
+  [
+   "RN - Boletim de Urna - Primeiro turno - 05.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_1t_RN_051020221321.zip"
+  ],
+  [
+   "RO - Boletim de Urna - Primeiro turno - 05.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_1t_RO_051020221321.zip"
+  ],
+  [
+   "RR - Boletim de Urna - Primeiro turno - 05.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_1t_RR_051020221321.zip"
+  ],
+  [
+   "RS - Boletim de Urna - Primeiro turno - 05.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_1t_RS_051020221321.zip"
+  ],
+  [
+   "SC - Boletim de Urna - Primeiro turno - 05.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_1t_SC_051020221321.zip"
+  ],
+  [
+   "SE - Boletim de Urna - Primeiro turno - 05.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_1t_SE_051020221321.zip"
+  ],
+  [
+   "SP - Boletim de Urna - Primeiro turno - 05.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_1t_SP_051020221321.zip"
+  ],
+  [
+   "TO - Boletim de Urna - Primeiro turno - 05.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_1t_TO_051020221321.zip"
+  ],
+  [
+   "ZZ - Boletim de Urna - Primeiro turno - 05.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_1t_ZZ_051020221321.zip"
+  ]
+ ],
+ "2022-2": [
+  [
+   "AC - Boletim de Urna - Segundo turno - 31.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_AC_311020221535.zip"
+  ],
+  [
+   "AL - Boletim de Urna - Segundo turno - 31.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_AL_311020221535.zip"
+  ],
+  [
+   "AM - Boletim de Urna - Segundo turno - 31.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_AM_311020221535.zip"
+  ],
+  [
+   "AP - Boletim de Urna - Segundo turno - 31.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_AP_311020221535.zip"
+  ],
+  [
+   "BA - Boletim de Urna - Segundo turno - 31.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_BA_311020221535.zip"
+  ],
+  [
+   "CE - Boletim de Urna - Segundo turno - 31.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_CE_311020221535.zip"
+  ],
+  [
+   "DF - Boletim de Urna - Segundo turno - 31.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_DF_311020221535.zip"
+  ],
+  [
+   "ES - Boletim de Urna - Segundo turno - 31.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_ES_311020221535.zip"
+  ],
+  [
+   "GO - Boletim de Urna - Segundo turno - 31.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_GO_311020221535.zip"
+  ],
+  [
+   "MA - Boletim de Urna - Segundo turno - 31.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_MA_311020221535.zip"
+  ],
+  [
+   "MG - Boletim de Urna - Segundo turno - 31.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_MG_311020221535.zip"
+  ],
+  [
+   "MS - Boletim de Urna - Segundo turno - 31.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_MS_311020221535.zip"
+  ],
+  [
+   "MT - Boletim de Urna - Segundo turno - 31.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_MT_311020221535.zip"
+  ],
+  [
+   "PA - Boletim de Urna - Segundo turno - 31.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_PA_311020221535.zip"
+  ],
+  [
+   "PB - Boletim de Urna - Segundo turno - 31.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_PB_311020221535.zip"
+  ],
+  [
+   "PE - Boletim de Urna - Segundo turno - 31.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_PE_311020221535.zip"
+  ],
+  [
+   "PI - Boletim de Urna - Segundo turno - 31.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_PI_311020221535.zip"
+  ],
+  [
+   "PR - Boletim de Urna - Segundo turno - 31.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_PR_311020221535.zip"
+  ],
+  [
+   "RJ - Boletim de Urna - Segundo turno - 31.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_RJ_311020221535.zip"
+  ],
+  [
+   "RN - Boletim de Urna - Segundo turno - 31.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_RN_311020221535.zip"
+  ],
+  [
+   "RO - Boletim de Urna - Segundo turno - 31.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_RO_311020221535.zip"
+  ],
+  [
+   "RR - Boletim de Urna - Segundo turno - 31.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_RR_311020221535.zip"
+  ],
+  [
+   "RS - Boletim de Urna - Segundo turno - 31.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_RS_311020221535.zip"
+  ],
+  [
+   "SC - Boletim de Urna - Segundo turno - 31.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_SC_311020221535.zip"
+  ],
+  [
+   "SE - Boletim de Urna - Segundo turno - 31.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_SE_311020221535.zip"
+  ],
+  [
+   "SP - Boletim de Urna - Segundo turno - 31.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_SP_311020221535.zip"
+  ],
+  [
+   "TO - Boletim de Urna - Segundo turno - 31.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_TO_311020221535.zip"
+  ],
+  [
+   "ZZ - Boletim de Urna - Segundo turno - 31.10.2022",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/buweb/bweb_2t_ZZ_311020221535.zip"
+  ]
+ ],
+ "2018-1": [
+  [
+   "AC - Boletim de urna - Primeiro turno - 10.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_1t_AC_101020181938.zip"
+  ],
+  [
+   "AL - Boletim de urna - Primeiro turno - 10.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_1t_AL_101020181938.zip"
+  ],
+  [
+   "AM - Boletim de urna - Primeiro turno - 10.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_1t_AM_101020181938.zip"
+  ],
+  [
+   "AP - Boletim de urna - Primeiro turno - 10.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_1t_AP_101020181938.zip"
+  ],
+  [
+   "BA - Boletim de urna - Primeiro turno - 10.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_1t_BA_101020181938.zip"
+  ],
+  [
+   "CE - Boletim de urna - Primeiro turno - 10.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_1t_CE_101020181938.zip"
+  ],
+  [
+   "DF - Boletim de urna - Primeiro turno - 10.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_1t_DF_101020181938.zip"
+  ],
+  [
+   "ES - Boletim de urna - Primeiro turno - 10.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_1t_ES_101020181938.zip"
+  ],
+  [
+   "GO - Boletim de urna - Primeiro turno - 10.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_1t_GO_101020181938.zip"
+  ],
+  [
+   "MA - Boletim de urna - Primeiro turno - 10.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_1t_MA_101020181938.zip"
+  ],
+  [
+   "MG - Boletim de urna - Primeiro turno - 10.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_1t_MG_101020181938.zip"
+  ],
+  [
+   "MS - Boletim de urna - Primeiro turno - 10.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_1t_MS_101020181938.zip"
+  ],
+  [
+   "MT - Boletim de urna - Primeiro turno - 10.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_1t_MT_101020181938.zip"
+  ],
+  [
+   "PA - Boletim de urna - Primeiro turno - 10.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_1t_PA_101020181938.zip"
+  ],
+  [
+   "PB - Boletim de urna - Primeiro turno - 10.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_1t_PB_101020181938.zip"
+  ],
+  [
+   "PE - Boletim de urna - Primeiro turno - 10.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_1t_PE_101020181938.zip"
+  ],
+  [
+   "PI - Boletim de urna - Primeiro turno - 10.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_1t_PI_101020181938.zip"
+  ],
+  [
+   "PR - Boletim de urna - Primeiro turno - 10.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_1t_PR_101020181938.zip"
+  ],
+  [
+   "RJ - Boletim de urna - Primeiro turno - 10.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_1t_RJ_101020181938.zip"
+  ],
+  [
+   "RN - Boletim de urna - Primeiro turno - 10.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_1t_RN_101020181938.zip"
+  ],
+  [
+   "RO - Boletim de urna - Primeiro turno - 10.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_1t_RO_101020181938.zip"
+  ],
+  [
+   "RR - Boletim de urna - Primeiro turno - 10.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_1t_RR_101020181938.zip"
+  ],
+  [
+   "RS - Boletim de urna - Primeiro turno - 10.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_1t_RS_101020181938.zip"
+  ],
+  [
+   "SC - Boletim de urna - Primeiro turno - 10.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_1t_SC_101020181938.zip"
+  ],
+  [
+   "SE - Boletim de urna - Primeiro turno - 10.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_1t_SE_101020181938.zip"
+  ],
+  [
+   "SP - Boletim de urna - Primeiro turno - 10.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_1t_SP_101020181938.zip"
+  ],
+  [
+   "TO - Boletim de urna - Primeiro turno - 10.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_1t_TO_101020181938.zip"
+  ],
+  [
+   "Exterior - Boletim de urna - Primeiro turno - 10.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_1t_ZZ_111020181508.zip"
+  ]
+ ],
+ "2018-2": [
+  [
+   "AC - Boletim de urna - Segundo turno - 31.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_AC_301020181744.zip"
+  ],
+  [
+   "AL - Boletim de urna - Segundo turno - 31.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_AL_301020181744.zip"
+  ],
+  [
+   "AM - Boletim de urna - Segundo turno - 31.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_AM_301020181744.zip"
+  ],
+  [
+   "AP - Boletim de urna - Segundo turno - 31.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_AP_301020181744.zip"
+  ],
+  [
+   "BA - Boletim de urna - Segundo turno - 31.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_BA_301020181744.zip"
+  ],
+  [
+   "CE - Boletim de urna - Segundo turno - 31.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_CE_301020181744.zip"
+  ],
+  [
+   "DF - Boletim de urna - Segundo turno - 31.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_DF_301020181744.zip"
+  ],
+  [
+   "ES - Boletim de urna - Segundo turno - 31.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_ES_301020181744.zip"
+  ],
+  [
+   "GO - Boletim de urna - Segundo turno - 31.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_GO_301020181744.zip"
+  ],
+  [
+   "MA - Boletim de urna - Segundo turno - 31.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_MA_301020181744.zip"
+  ],
+  [
+   "MG - Boletim de urna - Segundo turno - 31.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_MG_301020181744.zip"
+  ],
+  [
+   "MS - Boletim de urna - Segundo turno - 31.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_MS_301020181744.zip"
+  ],
+  [
+   "MT - Boletim de urna - Segundo turno - 31.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_MT_301020181744.zip"
+  ],
+  [
+   "PA - Boletim de urna - Segundo turno - 31.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_PA_301020181744.zip"
+  ],
+  [
+   "PB - Boletim de urna - Segundo turno - 31.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_PB_301020181744.zip"
+  ],
+  [
+   "PE - Boletim de urna - Segundo turno - 31.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_PE_301020181744.zip"
+  ],
+  [
+   "PI - Boletim de urna - Segundo turno - 31.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_PI_301020181744.zip"
+  ],
+  [
+   "PR - Boletim de urna - Segundo turno - 31.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_PR_301020181744.zip"
+  ],
+  [
+   "RJ - Boletim de urna - Segundo turno - 31.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_RJ_301020181744.zip"
+  ],
+  [
+   "RN - Boletim de urna - Segundo turno - 31.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_RN_301020181744.zip"
+  ],
+  [
+   "RO - Boletim de urna - Segundo turno - 31.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_RO_301020181744.zip"
+  ],
+  [
+   "RR - Boletim de urna - Segundo turno - 31.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_RR_301020181744.zip"
+  ],
+  [
+   "RS - Boletim de urna - Segundo turno - 31.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_RS_301020181744.zip"
+  ],
+  [
+   "SC - Boletim de urna - Segundo turno - 31.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_SC_301020181744.zip"
+  ],
+  [
+   "SE - Boletim de urna - Segundo turno - 31.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_SE_301020181744.zip"
+  ],
+  [
+   "SP - Boletim de urna - Segundo turno - 31.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_SP_301020181744.zip"
+  ],
+  [
+   "TO - Boletim de urna - Segundo turno - 31.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_TO_301020181744.zip"
+  ],
+  [
+   "Exterior - Boletim de urna - Segundo turno - 31.10.2018",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2018/buweb/BWEB_2t_ZZ_301020181744.zip"
+  ]
+ ],
+ "2014-1": [
+  [
+   "AC - Boletim de urna - Primeiro turno - 14.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_1t_AC_14102014131600.zip"
+  ],
+  [
+   "AL - Boletim de urna - Primeiro turno - 14.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_1t_AL_14102014131724.zip"
+  ],
+  [
+   "AP - Boletim de urna - Primeiro turno - 14.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_1t_AP_14102014132239.zip"
+  ],
+  [
+   "AM - Boletim de urna - Primeiro turno - 14.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_1t_AM_14102014131956.zip"
+  ],
+  [
+   "BA - Boletim de urna - Primeiro turno - 14.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_1t_BA_14102014132437.zip"
+  ],
+  [
+   "CE - Boletim de urna - Primeiro turno - 14.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_1t_CE_14102014132811.zip"
+  ],
+  [
+   "DF - Boletim de urna - Primeiro turno - 14.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_1t_DF_14102014133057.zip"
+  ],
+  [
+   "ES - Boletim de urna - Primeiro turno - 14.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_1t_ES_14102014133258.zip"
+  ],
+  [
+   "GO - Boletim de urna - Primeiro turno - 14.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_1t_GO_14102014133534.zip"
+  ],
+  [
+   "MA - Boletim de urna - Primeiro turno - 14.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_1t_MA_14102014133746.zip"
+  ],
+  [
+   "MT - Boletim de urna - Primeiro turno - 14.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_1t_MT_14102014134508.zip"
+  ],
+  [
+   "MS - Boletim de urna - Primeiro turno - 14.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_1t_MS_14102014134342.zip"
+  ],
+  [
+   "MG - Boletim de urna - Primeiro turno - 14.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_1t_MG_14102014133941.zip"
+  ],
+  [
+   "PA - Boletim de urna - Primeiro turno - 14.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_1t_PA_14102014134622.zip"
+  ],
+  [
+   "PB - Boletim de urna - Primeiro turno - 14.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_1t_PB_14102014134816.zip"
+  ],
+  [
+   "PR - Boletim de urna - Primeiro turno - 14.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_1t_PR_14102014135330.zip"
+  ],
+  [
+   "PE - Boletim de urna - Primeiro turno - 14.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_1t_PE_14102014134940.zip"
+  ],
+  [
+   "PI - Boletim de urna - Primeiro turno - 14.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_1t_PI_14102014135200.zip"
+  ],
+  [
+   "RJ - Boletim de urna - Primeiro turno - 14.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_1t_RJ_14102014135555.zip"
+  ],
+  [
+   "RN - Boletim de urna - Primeiro turno - 14.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_1t_RN_14102014140015.zip"
+  ],
+  [
+   "RS - Boletim de urna - Primeiro turno - 14.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_1t_RS_14102014140344.zip"
+  ],
+  [
+   "RO - Boletim de urna - Primeiro turno - 14.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_1t_RO_14102014140131.zip"
+  ],
+  [
+   "RR - Boletim de urna - Primeiro turno - 14.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_1t_RR_14102014140241.zip"
+  ],
+  [
+   "SC - Boletim de urna - Primeiro turno - 14.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_1t_SC_14102014140606.zip"
+  ],
+  [
+   "SP - Boletim de urna - Primeiro turno - 14.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_1t_SP_14102014140937.zip"
+  ],
+  [
+   "SE - Boletim de urna - Primeiro turno - 14.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_1t_SE_14102014140814.zip"
+  ],
+  [
+   "TO - Boletim de urna - Primeiro turno - 14.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_1t_TO_14102014141909.zip"
+  ],
+  [
+   "Exterior - Boletim de urna - Primeiro turno - 14.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_1t_ZZ_14102014142031.zip"
+  ]
+ ],
+ "2014-2": [
+  [
+   "AC - Boletim de urna - Segundo turno - 28.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_2t_AC_28102014114450.zip"
+  ],
+  [
+   "AL - Boletim de urna - Segundo turno - 28.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_2t_AL_28102014114941.zip"
+  ],
+  [
+   "AP - Boletim de urna - Segundo turno - 28.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_2t_AP_28102014115835.zip"
+  ],
+  [
+   "AM - Boletim de urna - Segundo turno - 28.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_2t_AM_28102014115349.zip"
+  ],
+  [
+   "BA - Boletim de urna - Segundo turno - 28.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_2t_BA_28102014120236.zip"
+  ],
+  [
+   "CE - Boletim de urna - Segundo turno - 28.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_2t_CE_28102014120643.zip"
+  ],
+  [
+   "DF - Boletim de urna - Segundo turno - 28.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_2t_DF_28102014121036.zip"
+  ],
+  [
+   "ES - Boletim de urna - Segundo turno - 28.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_2t_ES_28102014121431.zip"
+  ],
+  [
+   "GO - Boletim de urna - Segundo turno - 28.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_2t_GO_28102014121839.zip"
+  ],
+  [
+   "MA - Boletim de urna - Segundo turno - 28.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_2t_MA_28102014122307.zip"
+  ],
+  [
+   "MT - Boletim de urna - Segundo turno - 28.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_2t_MT_28102014123633.zip"
+  ],
+  [
+   "MS - Boletim de urna - Segundo turno - 28.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_2t_MS_28102014123155.zip"
+  ],
+  [
+   "MG - Boletim de urna - Segundo turno - 28.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_2t_MG_28102014122730.zip"
+  ],
+  [
+   "PA - Boletim de urna - Segundo turno - 28.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_2t_PA_28102014124021.zip"
+  ],
+  [
+   "PB - Boletim de urna - Segundo turno - 28.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_2t_PB_28102014124426.zip"
+  ],
+  [
+   "PR - Boletim de urna - Segundo turno - 28.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_2t_PR_28102014125604.zip"
+  ],
+  [
+   "PE - Boletim de urna - Segundo turno - 28.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_2t_PE_28102014124827.zip"
+  ],
+  [
+   "PI - Boletim de urna - Segundo turno - 28.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_2t_PI_28102014125213.zip"
+  ],
+  [
+   "RJ - Boletim de urna - Segundo turno - 28.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_2t_RJ_28102014130047.zip"
+  ],
+  [
+   "RN - Boletim de urna - Segundo turno - 28.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_2t_RN_28102014130526.zip"
+  ],
+  [
+   "RS - Boletim de urna - Segundo turno - 28.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_2t_RS_28102014131811.zip"
+  ],
+  [
+   "RO - Boletim de urna - Segundo turno - 28.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_2t_RO_28102014130948.zip"
+  ],
+  [
+   "RR - Boletim de urna - Segundo turno - 28.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_2t_RR_28102014131402.zip"
+  ],
+  [
+   "SC - Boletim de urna - Segundo turno - 28.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_2t_SC_28102014132154.zip"
+  ],
+  [
+   "SP - Boletim de urna - Segundo turno - 28.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_2t_SP_28102014133018.zip"
+  ],
+  [
+   "SE - Boletim de urna - Segundo turno - 28.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_2t_SE_28102014132556.zip"
+  ],
+  [
+   "TO - Boletim de urna - Segundo turno - 28.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_2t_TO_28102014133436.zip"
+  ],
+  [
+   "Exterior - Boletim de urna - Segundo turno - 28.10.2014",
+   "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2014/buweb/bweb_2t_ZZ_28102014133904.zip"
+  ]
+ ]
+}

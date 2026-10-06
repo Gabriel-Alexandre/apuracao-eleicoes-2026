@@ -1,0 +1,166 @@
+"""P5 (governador x presidente, classe de referencia por apoio declarado) e P6 (Senado x presidente)."""
+
+from __future__ import annotations
+
+import json
+import unicodedata
+
+import numpy as np
+import pandas as pd
+
+from . import coleta, oficial
+
+DADOS = coleta.RAIZ / "dados"
+
+
+def _norm(s: str) -> str:
+    s = unicodedata.normalize("NFKD", str(s)).encode("ascii", "ignore").decode().upper()
+    return " ".join(s.replace(".", " ").replace("-", " ").split())
+
+
+def _mun_int(s: pd.Series) -> pd.Series:
+    return pd.to_numeric(s, errors="coerce").astype("Int64")
+
+
+def totais_uf(votos: pd.DataFrame) -> pd.DataFrame:
+    """Votos nominais por (uf, cargo, numero), e % dos validos do cargo na UF."""
+    nom = votos[votos["tipo"] == 1].groupby(["uf", "cargo", "numero"]).votos.sum().rename("votos").reset_index()
+    nom["validos"] = nom.groupby(["uf", "cargo"]).votos.transform("sum")
+    nom["pct"] = 100 * nom["votos"] / nom["validos"]
+    return nom
+
+
+def por_secao(votos: pd.DataFrame, cargo: int, numero: int, nome: str) -> pd.Series:
+    v = votos[(votos["cargo"] == cargo) & (votos["tipo"] == 1) & (votos["numero"] == numero)]
+    return v.groupby(["uf", "mun_cd", "zona", "secao"]).votos.sum().rename(nome)
+
+
+def vencedor_governador(tot: pd.DataFrame) -> pd.DataFrame:
+    g = tot[tot.cargo == 3].sort_values(["uf", "votos"], ascending=[True, False])
+    top = g.groupby("uf").head(1).rename(columns={"numero": "gov_numero", "votos": "gov_votos", "pct": "gov_pct"})
+    top["venceu_no_1_turno"] = top["gov_pct"] > 50
+    return top[["uf", "gov_numero", "gov_votos", "gov_pct", "venceu_no_1_turno"]]
+
+
+def lacuna_governador_presidente(votos: pd.DataFrame, apoios: pd.DataFrame, ano: int) -> pd.DataFrame:
+    """g = % do governador vencedor menos % do candidato a presidente que ele declarou apoiar, por UF."""
+    tot = totais_uf(votos)
+    ap = apoios[(apoios.ano == ano) & (apoios.candidato_apoiado.notna())].copy()
+    ap["candidato_apoiado"] = ap["candidato_apoiado"].astype(int)
+    gov = vencedor_governador(tot)
+    base = ap.merge(gov, on="uf", how="left")
+    pres = tot[tot.cargo == 1][["uf", "numero", "pct", "votos"]].rename(columns={"numero": "candidato_apoiado", "pct": "pres_pct", "votos": "pres_votos"})
+    base = base.merge(pres, on=["uf", "candidato_apoiado"], how="left")
+    base["lacuna_pontos"] = base["gov_pct"] - base["pres_pct"]
+    base["lacuna_votos"] = base["gov_votos"] - base["pres_votos"]
+    return base
+
+
+def concentracao(votos: pd.DataFrame, uf: str, gov_numero: int, pres_numero: int, fracao: float = 0.5) -> dict:
+    """Concentracao da diferenca de votos governador - presidente, por secao.
+
+    Medida pre-registrada: quantas secoes (das que mais contribuem) somam `fracao` da diferenca liquida D.
+    Refinamento de 05/out (PRE_REGISTRO secao 9): quando |D| e pequeno frente ao fluxo bruto, a medida e instavel
+    (poucas secoes grandes ja passam de metade de um D quase zero). Por isso se reporta tambem a razao
+    liquido/bruto e o indice de concentracao do 1% de secoes que mais contribuem (1,0 = proporcional ao tamanho).
+    """
+    v = votos[votos["uf"] == uf]
+    g = por_secao(v, 3, gov_numero, "g")
+    p = por_secao(v, 1, pres_numero, "p")
+    validos_g = v[(v.cargo == 3) & (v.tipo == 1)].groupby(["uf", "mun_cd", "zona", "secao"]).votos.sum().rename("vg")
+    t = pd.concat([g, p, validos_g], axis=1).fillna(0)
+    t["c"] = t["g"] - t["p"]
+    D = float(t["c"].sum())
+    n = len(t)
+    bruto = float(t["c"].abs().sum())
+    out = {"uf": uf, "secoes": n, "diferenca_votos": int(D), "fluxo_bruto": int(bruto), "razao_liquido_bruto": abs(D) / bruto if bruto else np.nan}
+    if D == 0 or n == 0:
+        return {**out, "secoes_para_metade": np.nan, "fracao_das_secoes": np.nan, "estavel": False, "indice_top1pct": np.nan}
+    dirc = np.sign(D)
+    a = (dirc * t["c"]).sort_values(ascending=False)
+    cum = a.cumsum()
+    k = int((cum >= fracao * abs(D)).values.argmax()) + 1
+    topn = max(1, int(round(0.01 * n)))
+    top_idx = a.index[:topn]
+    pos_total = float(a.clip(lower=0).sum())
+    share_gross = float(a.iloc[:topn].clip(lower=0).sum() / pos_total) if pos_total else np.nan
+    share_votes = float(t.loc[top_idx, "vg"].sum() / t["vg"].sum()) if t["vg"].sum() else np.nan
+    return {
+        **out, "secoes_para_metade": k, "fracao_das_secoes": k / n, "estavel": abs(D) / bruto >= 0.2,
+        "top1pct_parcela_do_fluxo_positivo": share_gross, "top1pct_parcela_dos_votos": share_votes,
+        "indice_top1pct": share_gross / share_votes if share_votes else np.nan,
+    }
+
+
+def candidatos_oficiais_senado(uf: str) -> pd.DataFrame:
+    con = oficial.abrir()
+    row = con.execute("SELECT body FROM raw WHERE url=?", (oficial.url_uf(uf.lower(), "5", oficial.ELE_ESTADUAL),)).fetchone()
+    con.close()
+    d = json.loads(row[0])
+    linhas = []
+    for a in d["carg"][0]["agr"]:
+        for p in a["par"]:
+            for c in p["cand"]:
+                linhas.append({"uf": uf.upper(), "numero": int(c["n"]), "nome": c["nmu"], "nome_civil": c.get("nm", ""), "partido": p["sg"], "votos": int(c["vap"]), "pct": float(c["pvapn"]), "eleito": c.get("e") == "s"})
+    return pd.DataFrame(linhas)
+
+
+def casar_apoio_flavio(ufs: list[str]) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Casa a lista de candidatos ao Senado que Flavio declarou apoiar com os candidatos do arquivo oficial."""
+    lista = pd.read_csv(DADOS / "senado-apoio-flavio.csv")
+    cand = pd.concat([candidatos_oficiais_senado(u) for u in ufs], ignore_index=True)
+    cand["nn"] = cand["nome"].map(_norm)
+    cand["nc"] = cand["nome_civil"].map(_norm)
+    achados, perdidos = [], []
+    for r in lista.itertuples():
+        alvo = _norm(r.candidato)
+        toks = set(alvo.split())
+        c = cand[cand.uf == r.uf]
+        hit = c[(c.nn == alvo) | (c.nc == alvo) | c.apply(lambda x: toks <= set(x.nn.split()) or toks <= set(x.nc.split()) or set(x.nn.split()) <= toks, axis=1)]
+        if len(hit) == 1:
+            achados.append({**hit.iloc[0].to_dict(), "apoio_declarado": True, "nome_na_lista": r.candidato})
+        elif len(hit) > 1:
+            h2 = hit[hit.partido.map(_norm) == _norm(r.partido)]
+            if len(h2) == 1:
+                achados.append({**h2.iloc[0].to_dict(), "apoio_declarado": True, "nome_na_lista": r.candidato})
+            else:
+                perdidos.append({"uf": r.uf, "candidato": r.candidato, "motivo": f"{len(hit)} candidatos casam"})
+        else:
+            perdidos.append({"uf": r.uf, "candidato": r.candidato, "motivo": "nenhum candidato casa"})
+    return pd.DataFrame(achados), pd.DataFrame(perdidos)
+
+
+def senado_vs_presidente(votos: pd.DataFrame, ufs: list[str], flavio: int = 22, lula: int = 13) -> pd.DataFrame:
+    """Por UF: voto do campo ao Senado por eleitor, contra % de Flavio. Tres campos: PL, apoiados por Flavio, PT."""
+    tot = totais_uf(votos)
+    achados, _perdidos = casar_apoio_flavio(ufs)
+    linhas = []
+    for uf in ufs:
+        sen = tot[(tot.uf == uf) & (tot.cargo == 5)]
+        pres = tot[(tot.uf == uf) & (tot.cargo == 1)]
+        if sen.empty or pres.empty:
+            continue
+        v_sen = sen.votos.sum()
+        eleitores_aprox = v_sen / 2  # dois votos por eleitor
+        F = pres[pres.numero == flavio].pct.sum()
+        L = pres[pres.numero == lula].pct.sum()
+        oc = candidatos_oficiais_senado(uf)
+        pl = oc[oc.partido == "PL"]
+        pt = oc[oc.partido == "PT"]
+        ap = achados[achados.uf == uf] if len(achados) else pd.DataFrame(columns=["votos", "eleito"])
+        def bloco(df, prefixo):
+            n = len(df)
+            vt = int(df.votos.sum()) if n else 0
+            return {
+                f"{prefixo}_n": n,
+                f"{prefixo}_votos": vt,
+                f"{prefixo}_eleitos": int(df.eleito.sum()) if n else 0,
+                f"{prefixo}_votos_por_eleitor": vt / eleitores_aprox if n else np.nan,
+                f"{prefixo}_media_por_candidato_pct_eleitores": 100 * vt / n / eleitores_aprox if n else np.nan,
+            }
+        linhas.append({"uf": uf, "flavio_pct": F, "lula_pct": L, "validos_senado": int(v_sen), "eleitores_aprox": eleitores_aprox, **bloco(pl, "pl"), **bloco(ap, "apoio_flavio"), **bloco(pt, "pt")})
+    out = pd.DataFrame(linhas)
+    out["razao_pl_media_sobre_flavio"] = out["pl_media_por_candidato_pct_eleitores"] / out["flavio_pct"]
+    out["razao_pt_media_sobre_lula"] = out["pt_media_por_candidato_pct_eleitores"] / out["lula_pct"]
+    out["razao_apoio_flavio_media_sobre_flavio"] = out["apoio_flavio_media_por_candidato_pct_eleitores"] / out["flavio_pct"]
+    return out
