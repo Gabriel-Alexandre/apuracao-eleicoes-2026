@@ -129,12 +129,30 @@ def main() -> int:
     # ---- P1: decomposicao
     base = d.merge(mun[["uf", "mun_cd", "capital"]].rename(columns={"capital": "cap"}), on=["uf", "mun_cd"], how="left")
     base["uf_capital"] = base["uf"] + np.where(base["cap"].fillna(False), "-capital", "-interior")
+    base["validos_mun"] = base.groupby(["uf", "mun_cd"])["validos"].transform("sum")
+    base["porte_municipio"] = pd.qcut(base["validos_mun"], 5, labels=["1 menores", "2", "3", "4", "5 maiores"], duplicates="drop")
+    base["tamanho_secao"] = pd.qcut(base["aptos"].fillna(base["aptos"].median()), 4, labels=["1 menores", "2", "3", "4 maiores"], duplicates="drop")
+    base["capital_ou_interior"] = np.where(base["cap"].fillna(False), "capital", "interior")
+    grupos_chegada = []
+    for chave in ("regiao", "capital_ou_interior", "porte_municipio", "tamanho_secao", "uf"):
+        g = base.groupby(chave, observed=True)
+        t = pd.DataFrame({
+            "secoes": g.size(),
+            "recebido_mediana": g["recebido"].median(),
+            "recebido_p10": g["recebido"].quantile(0.10),
+            "recebido_p90": g["recebido"].quantile(0.90),
+            "pct_ate_19h06": g["recebido"].apply(lambda x: 100 * (x <= pd.Timestamp("2026-10-04 19:06")).mean()),
+            "margem_final_flavio_lula": g.apply(lambda x: 100 * x["dif"].sum() / x["validos"].sum(), include_groups=False),
+        }).reset_index().rename(columns={chave: "grupo"})
+        t.insert(0, "tipo_de_grupo", chave)
+        grupos_chegada.append(t)
+    saida.csv(pd.concat(grupos_chegada, ignore_index=True), "p1_chegada_e_margem_por_grupo.csv")
     resumo_dec = {}
-    for chave in ("regiao", "uf", "uf_capital"):
+    for chave in ("regiao", "uf", "uf_capital", "porte_municipio", "tamanho_secao", "capital_ou_interior"):
         for rotulo, p0, p1 in (("64_81_a_100", p_antes, 100.0), ("64_81_a_84_96", p_antes, p_depois), ("84_96_a_100", p_depois, 100.0)):
             dec = analises.decompor(base, p0, p1, chave)
             saida.csv(dec, f"p1_decomposicao_{chave}_{rotulo}.csv")
-            if chave in ("uf_capital", "regiao"):
+            if chave in ("uf_capital", "regiao", "porte_municipio", "tamanho_secao", "capital_ou_interior"):
                 resumo_dec[f"{chave}_{rotulo}"] = {k: float(v) for k, v in dec.attrs.items()}
     saida.anotar("p1_decomposicao_uf_capital", resumo_dec)
     pcts = [10, 20, 30, 40, 50, 60, 64.81, 70, 80, 84.96, 90, 95, 99, 100]

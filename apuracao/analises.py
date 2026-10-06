@@ -36,11 +36,11 @@ def decompor(d: pd.DataFrame, p0: float, p1: float, chave: str = "uf") -> pd.Dat
         return vazio
     M_antes = margem(antes)
     M_ate = margem(ate)
-    m_g = d.groupby(chave).apply(lambda g: 100 * g["dif"].sum() / g["validos"].sum(), include_groups=False)  # margem final do grupo
+    m_g = d.groupby(chave, observed=True).apply(lambda g: 100 * g["dif"].sum() / g["validos"].sum(), include_groups=False)  # margem final do grupo
     linhas = []
     Vl = lote["validos"].sum()
     Va = ate["validos"].sum()
-    for g, sub in lote.groupby(chave):
+    for g, sub in lote.groupby(chave, observed=True):
         b = antes[antes[chave] == g]
         mg_lote = 100 * sub["dif"].sum() / sub["validos"].sum() if sub["validos"].sum() else np.nan
         linhas.append(
@@ -58,8 +58,8 @@ def decompor(d: pd.DataFrame, p0: float, p1: float, chave: str = "uf") -> pd.Dat
     out.attrs.update(M_antes=M_antes, M_ate=M_ate, mudanca=M_ate - M_antes, soma_contribuicoes=out["contribuicao_pontos"].sum())
     # composicao x ordem dentro do grupo
     M_lote = margem(lote)
-    comp_lote = sum((sub["validos"].sum() / Vl) * m_g[g] for g, sub in lote.groupby(chave))
-    comp_antes = sum((sub["validos"].sum() / antes["validos"].sum()) * m_g[g] for g, sub in antes.groupby(chave))
+    comp_lote = sum((sub["validos"].sum() / Vl) * m_g[g] for g, sub in lote.groupby(chave, observed=True))
+    comp_antes = sum((sub["validos"].sum() / antes["validos"].sum()) * m_g[g] for g, sub in antes.groupby(chave, observed=True))
     out.attrs.update(
         M_lote=M_lote,
         diferenca_lote_menos_antes=M_lote - M_antes,

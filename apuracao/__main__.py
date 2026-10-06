@@ -17,7 +17,7 @@ def cmd_coletar(args) -> int:
 
     def rel(uf, feitas, total):
         dt = time.time() - t0
-        print(f"[{dt:7.0f}s] {uf}: {feitas}/{total} secoes", flush=True)
+        print(f"[{dt:7.0f}s] {uf}: {feitas}/{total} secoes | taxa {lim.taxa:5.1f}/s teto {lim.teto:.0f} penalizacoes {lim.penalizacoes}", flush=True)
 
     async def rodar():
         for uf in ufs:

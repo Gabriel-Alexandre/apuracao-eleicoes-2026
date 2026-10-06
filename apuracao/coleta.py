@@ -58,12 +58,15 @@ def url_bu(uf: str, mun: str, zona: str, secao: str, h: str, nome: str) -> str:
 
 
 class Limitador:
-    """Teto de requisicoes por segundo (uma reserva de horario por requisicao)."""
+    """Teto de requisicoes por segundo, adaptativo: cai ao receber 429 e sobe devagar enquanto tudo responde."""
 
     def __init__(self, por_segundo: float):
-        self.intervalo = 1.0 / por_segundo
+        self.teto = por_segundo
+        self.taxa = por_segundo
         self._prox = 0.0
         self._lock = asyncio.Lock()
+        self._ok = 0
+        self.penalizacoes = 0
 
     async def esperar(self) -> None:
         async with self._lock:
@@ -71,10 +74,21 @@ class Limitador:
             if self._prox > agora_:
                 await asyncio.sleep(self._prox - agora_)
                 agora_ = self._prox
-            self._prox = agora_ + self.intervalo
+            self._prox = agora_ + 1.0 / self.taxa
+
+    def penalizar(self) -> None:
+        self.taxa = max(5.0, self.taxa * 0.6)
+        self._ok = 0
+        self.penalizacoes += 1
+
+    def sucesso(self) -> None:
+        self._ok += 1
+        if self._ok >= 150:
+            self._ok = 0
+            self.taxa = min(self.teto, self.taxa * 1.08)
 
 
-async def baixar(sessao: aiohttp.ClientSession, lim: Limitador, url: str, tentativas: int = 6):
+async def baixar(sessao: aiohttp.ClientSession, lim: Limitador, url: str, tentativas: int = 10):
     ultimo = None
     for t in range(tentativas):
         await lim.esperar()
@@ -82,7 +96,14 @@ async def baixar(sessao: aiohttp.ClientSession, lim: Limitador, url: str, tentat
             async with sessao.get(url) as r:
                 corpo = await r.read()
                 if r.status in (200, 404, 403):
+                    lim.sucesso()
                     return r.status, corpo
+                if r.status == 429:
+                    lim.penalizar()
+                    espera = float(r.headers.get("Retry-After", 0) or 0) or min(30, 1.6**t)
+                    await asyncio.sleep(espera)
+                    ultimo = "HTTP 429"
+                    continue
                 ultimo = f"HTTP {r.status}"
         except (aiohttp.ClientError, asyncio.TimeoutError) as e:
             ultimo = repr(e)
