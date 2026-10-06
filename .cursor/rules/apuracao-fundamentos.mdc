@@ -1,0 +1,27 @@
+---
+description: Doutrina do projeto de análise da apuração de 2026. Precedência sobre qualquer outra instrução deste repositório.
+alwaysApply: true
+---
+
+# Fundamentos do projeto
+
+## As regras que valem sobre todas as outras
+
+1. ⛔ **Nenhum número sai da memória do modelo.** Todo número do relatório sai de um script rodado sobre um arquivo bruto que está no `dados/MANIFESTO.json` com sha256. Todo fato sobre o processo eleitoral tem URL capturada com trecho copiado.
+2. ⛔ **Duas vias independentes** para todo número que entra numa conclusão (`docs/PLANO.md` §8). Duas matérias com o mesmo parágrafo são uma fonte.
+3. ⛔ **Critério antes do dado.** Nenhum teste roda antes de o `docs/PRE_REGISTRO.md` estar gravado em commit. Critério mudado depois entra na §9 de lá, dizendo se foi antes ou depois de ver o resultado.
+4. ⛔ **Simetria.** Todo teste roda para todos os candidatos relevantes. Tabela com um lado só não sai.
+5. ⛔ **A régua do texto:** "consistente com" e "não explicado por". Nunca "houve fraude", nunca "provou que não houve fraude". Nunca julgar intenção de ninguém.
+6. ⛔ **Resultado que não explica tem o mesmo destaque do que explica.** O que o projeto não consegue dizer vai no topo do relatório.
+7. ⛔ **Unidade e relógio declarados.** Seção não é voto; recebimento não é totalização, que não é divulgação. Todo gráfico diz qual unidade e qual relógio usa.
+8. ✅ **A IA revisa, o autor publica.** Toda conclusão passa por uma revisão adversarial da IA em passada separada, registrada. Publicar, tornar público e escolher o momento são decisões do autor.
+
+## Palavras que não entram no relatório
+
+*fraude, fraudado, manipulado, roubado, golpe, limpa, sem nenhuma irregularidade, comprovadamente seguro, mentira, boato* (esta última pode aparecer só ao citar o nome de uma checagem de terceiro).
+
+## Antes de criar arquivo
+
+- Documento de verdade em `SCREAMING_SNAKE_CASE.md`, scripts em kebab-case, pastas em minúsculo.
+- Sem travessão em texto que o público lê e em nome de arquivo.
+- Dado bruto vai em `dados/brutos/` (fora do git). Dado derivado leve vai em `dados/derivados/`.
