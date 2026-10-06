@@ -162,7 +162,7 @@ O que explica a queda é a geografia. Seções grandes ou pequenas, de capital o
 
 ## 6. São Paulo: Tarcísio, Haddad, Flávio e Lula
 
-**Os números.** Em São Paulo, Tarcísio (Republicanos) teve 62,65% dos votos válidos para governador, e Flávio 51,93% para presidente: 1.569.632 votos a mais para Tarcísio. Haddad teve 36,42% e Lula 38,20%. Os quatro percentuais coincidem com os do arquivo oficial.
+**Os números.** Em São Paulo, Tarcísio (Republicanos) teve 62,65% dos votos válidos para governador, e Flávio 51,93% para presidente: 1.569.851 votos a mais para Tarcísio no arquivo oficial. A soma dos boletins dá 219 votos a menos que isso, porque as seções sem arquivo publicado não entram nela. Haddad teve 36,42% e Lula 38,20%. Os quatro percentuais coincidem com os do arquivo oficial.
 
 **A base dos percentuais não é a mesma.** O percentual de governador é calculado sobre os votos válidos para governador, e o de presidente sobre os votos válidos para presidente. Em São Paulo as duas bases são diferentes, porque muito mais eleitores votaram em branco ou nulo para governador do que para presidente.
 
@@ -172,7 +172,7 @@ O que explica a queda é a geografia. Seções grandes ou pequenas, de capital o
 | Tarcísio e Flávio, em % dos votos válidos | 62,65% | 51,93% |
 | Tarcísio e Flávio, em % de quem compareceu | 54,8% | 48,9% |
 
-A diferença de 10,7 pontos entre Tarcísio e Flávio nos votos válidos cai para 5,9 pontos quando os dois são medidos sobre quem compareceu. Os 4,8 pontos de diferença (45%) são a base, e não troca de voto entre candidatos. Esse efeito é comum: a mediana nos 30 outros casos é de 3,3 pontos (3,3 em 2026 e 2,9 em 2022). É conta exata, feita com os totais oficiais, e não inferência.
+O arquivo oficial de governador traz o seu próprio total de votos do cargo (26.394.256) e dá 87,6% de válidos, e o de presidente dá 94,1%. A tabela acima usa o mesmo denominador para os dois cargos (quem votou para presidente), e por isso o governador aparece com um décimo a menos. A diferença de 10,7 pontos entre Tarcísio e Flávio nos votos válidos cai para 5,9 pontos quando os dois são medidos sobre quem compareceu. Os 4,8 pontos de diferença (45%) são a base, e não troca de voto entre candidatos. Esse efeito é comum: a mediana nos 30 outros casos é de 3,3 pontos (3,3 em 2026 e 2,9 em 2022). É conta exata, feita com os totais oficiais, e não inferência.
 
 **Alinhamento.** Tarcísio declarou em 31/jul/2026 apoio "incondicional" a Flávio. A CNN Brasil classificou 10 dos 20 governadores eleitos no 1º turno como apoiadores de Flávio, 5 de Lula, 1 de Caiado e 4 sem apoio declarado; o g1, citado pelo Space Money, contou 11, 5 e 3 sem apoio (e 1 de Caiado). A divergência é de um governador e não envolve São Paulo. Por isso a pergunta não é se o voto em Tarcísio deveria ser igual ao voto em Flávio. A pergunta é quanto uma diferença desse tamanho é comum entre um governador aliado e o candidato a presidente que ele apoia.
 
@@ -240,7 +240,7 @@ Cerca de 87,2% dos eleitores de Tarcísio votaram em Flávio, e o restante se di
 | Rodrigo Garcia | 33,0% (26,4 a 43,0) | 4,2% (3,8 a 4,7) | 8,2% (5,8 a 9,5) | 23,8% (20,5 a 29,0) | 5,2% (3,0 a 6,3) | 25,6% (15,5 a 33,2) |
 
 
-**O que isso pode indicar e o que não diz.** Pela estimativa, o grupo de eleitores de Tarcísio que não votou em Flávio tem cerca de 1.851.351 votos. A diferença de 1.569.632 votos entre os dois fica menor porque cerca de 329.588 votos de Flávio vieram de quem anulou ou deixou em branco o voto para governador. Dentro desse grupo, Cury, Caiado e Renan Santos somam 9,4% dos eleitores de Tarcísio, e Lula 1,8%. Isso é consistente com voto dividido: eleitor que escolhe o governador por um motivo e o presidente por outro. Os números não separam essa hipótese de outras, como o efeito de quem já está no cargo ou a rejeição diferente de cada nome. O que os números dizem é que a diferença não é um ponto isolado, é um padrão geral do estado e do tamanho do que aconteceu em outros estados.
+**O que isso pode indicar e o que não diz.** Pela estimativa, o grupo de eleitores de Tarcísio que não votou em Flávio tem cerca de 1.851.351 votos. A diferença de 1.569.851 votos entre os dois fica menor porque cerca de 329.588 votos de Flávio vieram de quem anulou ou deixou em branco o voto para governador. Dentro desse grupo, Cury, Caiado e Renan Santos somam 9,4% dos eleitores de Tarcísio, e Lula 1,8%. Isso é consistente com voto dividido: eleitor que escolhe o governador por um motivo e o presidente por outro. Os números não separam essa hipótese de outras, como o efeito de quem já está no cargo ou a rejeição diferente de cada nome. O que os números dizem é que a diferença não é um ponto isolado, é um padrão geral do estado e do tamanho do que aconteceu em outros estados.
 
 ---
 

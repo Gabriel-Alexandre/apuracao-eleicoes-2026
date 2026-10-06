@@ -184,8 +184,27 @@ def derivar_numeros() -> None:
         "gap_2026_p05": float(sp["gap_26"].quantile(0.05)), "gap_2026_p95": float(sp["gap_26"].quantile(0.95)),
         "gap_2022_p05": float(sp["gap_22"].quantile(0.05)), "gap_2022_p95": float(sp["gap_22"].quantile(0.95)),
         "pct_dos_votos_validos_de_governador_em_municipios_com_gap_entre_5_e_15": float(100 * sp.loc[(sp.gap_26 >= 5) & (sp.gap_26 <= 15), "vg_26"].sum() / sp["vg_26"].sum()),
-        "diferenca_de_votos_tarcisio_menos_flavio": int(sp["g_26"].sum() - sp["p_26"].sum()),
+        "diferenca_de_votos_dos_boletins": int(sp["g_26"].sum() - sp["p_26"].sum()),
     }
+    # numeros de SP no arquivo oficial do TSE (a fonte que quem confere vai abrir)
+    _con = oficial.abrir()
+    def _of(url):
+        return json.loads(_con.execute("SELECT body FROM raw WHERE url=?", (url,)).fetchone()[0])
+    _g = _of(oficial.url_uf("sp", "3", oficial.ELE_ESTADUAL))
+    _p = _of(oficial.url_uf("sp", "1", oficial.ELE_FEDERAL))
+    _con.close()
+    def _votos(d, nome):
+        for ag in d["carg"][0]["agr"]:
+            for pa in ag["par"]:
+                for c in pa["cand"]:
+                    if c["nmu"].upper().startswith(nome):
+                        return int(c["vap"])
+    _tar, _fla = _votos(_g, "TARC"), _votos(_p, "FLAVIO")
+    der["p5"]["diferenca_de_votos_tarcisio_menos_flavio"] = _tar - _fla
+    der["p5"]["votos_a_menos_nos_boletins_que_no_oficial_na_diferenca"] = (_tar - _fla) - der["p5"]["diferenca_de_votos_dos_boletins"]
+    der["p5"]["oficial_gov_validos_pct_do_total_do_cargo"] = float(str(_g["v"]["pvvc"]).replace(",", "."))
+    der["p5"]["oficial_pres_validos_pct_do_total_do_cargo"] = float(str(_p["v"]["pvvc"]).replace(",", "."))
+    der["p5"]["oficial_gov_total_do_cargo"] = int(_g["v"]["tv"])
     # contagens e listas que o texto usa
     sit = pd.read_csv(saida.RES / "t26_situacao_das_secoes.csv")
     sem = r["secoes_sem_boletim"]

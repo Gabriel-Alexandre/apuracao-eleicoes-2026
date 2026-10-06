@@ -29,6 +29,8 @@ python -m pytest -q
 | 9 | `python ferramentas/analise-3-anomalias.py` | testes de anomalia (P8) |
 | 10 | `python ferramentas/analise-4-figuras.py` | figuras |
 | 11 | `python ferramentas/analise-5-relatorio.py` | escreve `RELATORIO.md` a partir de `RESUMO.json` |
+| 12 | `python ferramentas/revisao-adversarial.py` | 20 checagens que tentam derrubar o relatório (escreve `docs/REVISAO_ADVERSARIAL.md`) |
+| 13 | `python ferramentas/validacao-independente-1.py` e `-2.py` | recontagem com código novo, só pandas e sqlite: soma dos boletins contra o oficial, a curva da noite, os pontos da imprensa, São Paulo, os 19 senadores do PL e o hash de cada página capturada |
 
 ## Como conferir que nada foi alterado
 

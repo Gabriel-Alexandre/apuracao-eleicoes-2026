@@ -78,14 +78,19 @@
    "votos_validos_reconstruidos_menos_oficial": -3935
   },
   "p5": {
-   "diferenca_de_votos_tarcisio_menos_flavio": 1569632,
+   "diferenca_de_votos_dos_boletins": 1569632,
+   "diferenca_de_votos_tarcisio_menos_flavio": 1569851,
    "gap_2022_p05": -17.013,
    "gap_2022_p95": -2.34296,
    "gap_2026_maximo_entre_municipios": 21.7493,
    "gap_2026_minimo_entre_municipios": 4.682,
    "gap_2026_p05": 7.3471,
    "gap_2026_p95": 14.323379999999998,
-   "pct_dos_votos_validos_de_governador_em_municipios_com_gap_entre_5_e_15": 99.04231642783958
+   "oficial_gov_total_do_cargo": 26394256,
+   "oficial_gov_validos_pct_do_total_do_cargo": 87.63,
+   "oficial_pres_validos_pct_do_total_do_cargo": 94.14,
+   "pct_dos_votos_validos_de_governador_em_municipios_com_gap_entre_5_e_15": 99.04231642783958,
+   "votos_a_menos_nos_boletins_que_no_oficial_na_diferenca": 219
   },
   "p5_n": {
    "casos_2022": 15,
