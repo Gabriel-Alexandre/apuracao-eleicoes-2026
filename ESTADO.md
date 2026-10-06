@@ -18,6 +18,7 @@ A execução de ponta a ponta está feita: os boletins de 28 UFs foram coletados
 | Validação aritmética contra o oficial | ✅ conta fecha exata em 99,96% das linhas município × cargo; a sobra são 3.935 votos de Presidente em 15 seções que o TSE não publicou |
 | Curva reconstruída e comparada com 14 pontos da imprensa | ✅ 13 encaixam, P02 não encaixa (declarado) |
 | Relatório completo e resumo simples | ✅ `RELATORIO.md`, `RESUMO_SIMPLES.md`, gerados por `ferramentas/analise-5-relatorio.py` a partir de `resultados/RESUMO.json` |
+| A leitura da IA, etapa por etapa, com veredito | ✅ `docs/LEITURA_DA_IA.md` (opinião marcada como opinião, com a comparação que a sustenta) |
 | Revisão adversarial | ✅ `docs/REVISAO_ADVERSARIAL.md` (20 de 20) |
 | Segunda validação (06/out) | ✅ toda a cadeia refeita do zero sem nenhuma diferença nos resultados, e recontagem independente em `ferramentas/validacao-independente-*.py` (15 de 15). Achou 1 número a corrigir: a diferença de votos em SP agora é a oficial, 1.569.851 |
 | Erros achados no caminho | ✅ `docs/CORRECOES.md` |

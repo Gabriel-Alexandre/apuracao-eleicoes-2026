@@ -325,6 +325,78 @@ def g14_o_caminho():
     salvar(fig, "g14_o_caminho.png")
 
 
+
+def barras_simples(titulo, sub, rotulos, valores, cores, nome, unidade="", fmt=1, destaque=None, nota=None, xmax=None):
+    fig, ax = novo(titulo, sub)
+    fig.subplots_adjust(left=0.30)
+    y = np.arange(len(rotulos))[::-1]
+    ax.barh(y, valores, color=cores, height=0.58)
+    for yy, x, c in zip(y, valores, cores):
+        ax.text(x + (max(valores) * 0.015), yy, f"{v(x, fmt)}{unidade}", va="center", fontsize=32, fontweight="bold", color=ACENTO if c == ACENTO else FG)
+    ax.set_yticks(y); ax.set_yticklabels(rotulos, fontsize=25, color=FG)
+    ax.set_xlim(0, xmax or max(valores) * 1.18); ax.grid(axis="y", visible=False)
+    if nota:
+        fig.text(0.30, 0.09, nota, fontsize=19, color=MUTED, ha="left", va="center")
+    salvar(fig, nome)
+
+
+def g15_queda_comparada():
+    p26 = pd.read_csv(saida.RES / "p1_margem_por_pct_de_secoes.csv")
+    p22 = pd.read_csv(saida.RES / "p7_margem_2022_por_pct_de_secoes.csv")
+    q26 = float(p26[p26.pct_secoes == 10].margem.iloc[0] - RES["p1_resumo"]["margem_final"])
+    d = RES["derivados"]["p7"]
+    q22a = d["t1_margem_em_10pct"] - d["t1_margem_final"]
+    q22b = d["t2_margem_em_10pct"] - d["t2_margem_final"]
+    barras_simples("Quanto a vantagem do primeiro colocado encolheu", "Dos 10% das seções recebidas até o fim da contagem, em pontos",
+                   ["2022, 1º turno\n(Bolsonaro, virou)", "2026, 1º turno\n(Flávio, não virou)", "2022, 2º turno\n(Bolsonaro, virou)"],
+                   [q22a, q26, q22b], [NEUTRO, ACENTO, NEUTRO], "g15_queda_comparada.png", " pts")
+
+
+def g16_vazio_comparado():
+    a = RES["p2_maiores_vazios_de_recebimento_2026"][0]["minutos"]
+    b = RES["p7_maiores_vazios_de_recebimento_2022_turno1"][0]["minutos"]
+    c = RES["p7_maiores_vazios_de_recebimento_2022_turno2"][0]["minutos"]
+    barras_simples("O maior tempo sem nenhum boletim registrado", "Em minutos, na noite inteira de cada apuração",
+                   ["2026, 1º turno\n(19:31 às 19:59)", "2022, 1º turno", "2022, 2º turno"], [a, b, c], [ACENTO, NEUTRO, NEUTRO],
+                   "g16_vazio_comparado.png", " min")
+
+
+def g17_governadores_aliados():
+    lr = pd.read_csv(saida.RES / "p5_lacuna_governador_presidente.csv")
+    escolha = [(2022, "PA"), (2022, "PR"), (2022, "TO"), (2022, "MG"), (2026, "SP"), (2026, "MS"), (2026, "MG"), (2026, "PA")]
+    rot, val, cor = [], [], []
+    for ano, uf in escolha:
+        r = lr[(lr.ano == ano) & (lr.uf == uf)].iloc[0]
+        apoio = {"Flavio": "Flávio", "Bolsonaro": "Bolsonaro", "Lula": "Lula"}.get(r.apoio, r.apoio)
+        nome = str(r.governador).replace("Tarcisio", "Tarcísio").replace("Ratinho Junior", "Ratinho Júnior")
+        rot.append(f"{nome} ({uf}, {ano})\napoiava {apoio}")
+        val.append(float(r.lacuna_pontos))
+        cor.append(ACENTO if uf == "SP" else NEUTRO)
+    barras_simples("Governador aliado acima do presidente que ele apoia", "Em pontos dos votos válidos. As maiores diferenças de 2022 e de 2026",
+                   rot, val, cor, "g17_governadores_aliados.png", " pts",
+                   nota="Goiás 2026 (+46,8, apoio ao Caiado) fica fora: é um caso à parte")
+
+
+def g18_o_veredito():
+    fig, ax = plt.subplots()
+    ax.axis("off"); fig.subplots_adjust(left=0.04, right=0.96, top=0.9, bottom=0.08)
+    fig.text(0.05, 0.93, "A leitura da IA, etapa por etapa", fontsize=42, fontweight="bold", va="center")
+    linhas = [("A conta", "a soma das urnas bate com o oficial", "resolvido", "#00FF7B"),
+              ("A queda da vantagem", "ordem de chegada; caiu menos que em 2022", "normal", "#00FF7B"),
+              ("A tela parada", "voltou com a soma de boletins reais", "normal", "#00FF7B"),
+              ("O registro de chegada", "27 min sem nenhum boletim; em 2022, 7 min", "pede explicação", ACENTO),
+              ("São Paulo", "quase metade é branco e nulo; o resto, voto dividido", "normal", "#00FF7B"),
+              ("O Senado", "voto casado com o presidente, como antes", "normal", "#00FF7B"),
+              ("As cidades", "nenhuma fora do padrão nos três testes", "normal", "#00FF7B")]
+    for i, (a, b, c, cor) in enumerate(linhas):
+        y = 0.80 - i * 0.105
+        fig.add_artist(FancyBboxPatch((0.05, y - 0.04), 0.90, 0.085, boxstyle="round,pad=0.003,rounding_size=0.015", transform=fig.transFigure, fc="#12244A", ec=cor if cor == ACENTO else GRID, lw=2.5))
+        fig.text(0.07, y, a, fontsize=26, fontweight="bold", va="center")
+        fig.text(0.33, y, b, fontsize=23, color="#CBD5E1", va="center")
+        fig.text(0.93, y, c.upper(), fontsize=24, fontweight="bold", color=cor, va="center", ha="right")
+    fig.text(0.05, 0.035, FONTE, fontsize=17, color=MUTED, va="center", ha="left")
+    salvar(fig, "g18_a_leitura_da_ia.png")
+
 def trailer_borrado():
     """Versoes borradas dos graficos principais, para o trailer."""
     for nome in ("g01_a_noite_em_uma_linha", "g05_a_tela_parada", "g08_sao_paulo_base_de_votos", "g11_senado_e_presidente"):
@@ -334,7 +406,8 @@ def trailer_borrado():
 
 def main() -> int:
     for f in (g01_noite_em_uma_linha, g03_quem_chegou_primeiro, g04_embaralhando, g05_a_tela_parada, g06_tela_contra_boletins,
-              g07_2026_contra_2022, g08_sao_paulo_base, g09_governadores, g10_sp_municipios, g11_senado, g12_anomalias, g13_numeros, g14_o_caminho):
+              g07_2026_contra_2022, g08_sao_paulo_base, g09_governadores, g10_sp_municipios, g11_senado, g12_anomalias, g13_numeros, g14_o_caminho,
+              g15_queda_comparada, g16_vazio_comparado, g17_governadores_aliados, g18_o_veredito):
         f()
         print(f.__name__, "ok")
     trailer_borrado()

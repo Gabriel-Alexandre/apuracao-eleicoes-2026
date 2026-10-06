@@ -8,7 +8,7 @@ Projeto aberto que usa os boletins de urna publicados pelo TSE para refazer a ap
 - por que o voto de governador e de senador não se converteu da mesma forma no voto de presidente;
 - como 2026 se compara com 2014, 2018 e 2022.
 
-> **Estado:** executado. Resultados em [`RELATORIO.md`](RELATORIO.md) (completo) e [`RESUMO_SIMPLES.md`](RESUMO_SIMPLES.md) (linguagem simples). Método em [`docs/PLANO.md`](docs/PLANO.md), critérios gravados antes dos resultados em [`docs/PRE_REGISTRO.md`](docs/PRE_REGISTRO.md), erros achados no caminho em [`docs/CORRECOES.md`](docs/CORRECOES.md) e como refazer tudo em [`docs/REPLICAR.md`](docs/REPLICAR.md).
+> **Estado:** executado. Resultados em [`RELATORIO.md`](RELATORIO.md) (completo), [`RESUMO_SIMPLES.md`](RESUMO_SIMPLES.md) (linguagem simples) e [`docs/LEITURA_DA_IA.md`](docs/LEITURA_DA_IA.md) (a opinião da IA sobre cada etapa, com a comparação com 2022 e com outros estados). Método em [`docs/PLANO.md`](docs/PLANO.md), critérios gravados antes dos resultados em [`docs/PRE_REGISTRO.md`](docs/PRE_REGISTRO.md), erros achados no caminho em [`docs/CORRECOES.md`](docs/CORRECOES.md) e como refazer tudo em [`docs/REPLICAR.md`](docs/REPLICAR.md).
 
 ## O que este projeto não consegue dizer
 
