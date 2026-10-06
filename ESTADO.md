@@ -1,34 +1,44 @@
 # ESTADO: onde o trabalho parou
 
-**Atualizado em:** 05/out/2026.
+**Atualizado em:** 06/out/2026.
 
 Uma sessão nova consegue continuar lendo só este arquivo. Ele não guarda método: isso é [`docs/PLANO.md`](docs/PLANO.md).
 
 ## Em uma frase
 
-O planejamento está escrito e as fontes foram testadas ao vivo. Nenhum dado por seção foi baixado em massa e nenhuma análise rodou. A execução começa quando o autor pedir.
+A execução de ponta a ponta está feita: os boletins de 28 UFs foram coletados, validados contra o resultado oficial, a noite foi reconstruída pela hora de recebimento, as perguntas P1 a P8 foram respondidas, o relatório foi gerado e passou por revisão adversarial (20 de 20 checagens). Falta só o que depende do autor: gravar o vídeo e decidir o que publicar.
 
 ## O que está pronto
 
 | Peça | Estado |
 |---|---|
-| Plano e método | ✅ `docs/PLANO.md` |
-| Inventário de dados, com sondagem ao vivo de 05/out | ✅ `docs/FONTES_DE_DADOS.md` |
-| Pré-registro dos critérios | ⬜ rascunho em `docs/PRE_REGISTRO.md`, **vale só depois de aprovado e gravado em commit** |
-| Doutrina | ✅ `.cursor/rules/apuracao-fundamentos.mdc` |
-| Sondagem reproduzível | ✅ `ferramentas/sondar-fontes.py` |
-| Repositório | git local, sem commit e sem remoto |
+| Plano, método e fontes | ✅ `docs/PLANO.md`, `docs/FONTES_DE_DADOS.md` |
+| Pré-registro gravado antes dos resultados, com emendas datadas | ✅ `docs/PRE_REGISTRO.md` (§0.1 alinhamento por apoio declarado, §9 emendas, §10 exploratórias) |
+| Coleta de 2026 (499.192 seções, 998.468 arquivos, 6,5 GB) com sha256 | ✅ `dados/MANIFESTO.json` (bruto fora do git, em `dados/brutos/`) |
+| Validação aritmética contra o oficial | ✅ conta fecha exata em 99,96% das linhas município × cargo; a sobra são 3.935 votos de Presidente em 15 seções que o TSE não publicou |
+| Curva reconstruída e comparada com 14 pontos da imprensa | ✅ 13 encaixam, P02 não encaixa (declarado) |
+| Relatório completo e resumo simples | ✅ `RELATORIO.md`, `RESUMO_SIMPLES.md`, gerados por `ferramentas/analise-5-relatorio.py` a partir de `resultados/RESUMO.json` |
+| Revisão adversarial | ✅ `docs/REVISAO_ADVERSARIAL.md` (20 de 20) |
+| Erros achados no caminho | ✅ `docs/CORRECOES.md` |
+| Testes | ✅ `python -m pytest -q` |
 
-## O que falta, em ordem de dependência de dados
+## O que o projeto concluiu, em resumo
 
-1. Pré-registro aprovado e gravado em commit (Fase 0).
-2. Coleta com manifesto (Fase 1).
-3. Validação, a começar pelo fuso da hora de recebimento (Fase 2, T2.4).
-4. Reconstrução da curva (Fase 3), perguntas (Fase 4), revisão adversarial (Fase 5), relatório (Fase 6).
+- A ordem de chegada dos estados explica a queda da vantagem (de 10,8 para 1,9 pontos): Sul e Centro-Oeste primeiro, Nordeste por último. Em 2022 foi igual.
+- A parada de cerca de uma hora na tela de Presidente é consistente com atraso de exibição; a causa técnica não é verificável com dados públicos.
+- A diferença entre Tarcísio (62,65%) e Flávio (51,93%) em São Paulo: 45% dela é diferença de base de votos válidos; o resto fica dentro do que ocorreu em 30 outros casos de governador aliado.
+- Os 19 senadores do PL foram eleitos em estados onde Flávio liderou; 8 estados foram marcados pelo critério literal, com ressalvas no relatório.
+- Nenhum município passou nos três testes de anomalia ao mesmo tempo.
 
-As decisões que são do autor estão em `docs/PLANO.md` §14.
+## Limites declarados
+
+- Sem verificação da assinatura digital dos boletins.
+- Causa da parada da tela não é verificável.
+- A estimativa de para onde foi o voto é inferência ecológica.
+- A maioria dos pontos da imprensa tem uma única fonte.
+- A revisão adversarial foi feita pela mesma IA, não por pessoa.
 
 ## O que observar ao retomar
 
-- O CSV de boletim de urna de 2026 (`resultados-2026-boletim-de-urna`) não estava publicado em 05/out. `python ferramentas/sondar-fontes.py` mostra se já saiu.
-- Os arquivos por seção de 2022 já saíram do ar no site de resultados. Os de 2026 estão no ar; a coleta com hash é o que garante a reprodução depois.
+- O TSE pode republicar arquivos por seção; compare o `MANIFESTO.json` antes de concluir qualquer coisa.
+- O vídeo (vídeo longo 5) só começa por decisão do autor. A doutrina de roteiro mora no repositório de documentação, não aqui.

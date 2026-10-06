@@ -1,6 +1,6 @@
 # Plano e método: a apuração do 1º turno de 2026, medida ao longo do tempo
 
-**Escrito em:** 05/out/2026, um dia depois do 1º turno. **Estado:** planejamento. Nenhuma análise foi rodada.
+**Escrito em:** 05/out/2026, um dia depois do 1º turno. **Estado:** executado em 06/out/2026; este arquivo é o plano original e as mudanças de critério estão em `PRE_REGISTRO.md` §9 e `CORRECOES.md`.
 **Dono deste arquivo:** o método. O inventário de dados mora em [`FONTES_DE_DADOS.md`](FONTES_DE_DADOS.md); os testes com o critério de cada um, escritos antes de olhar os dados, moram em [`PRE_REGISTRO.md`](PRE_REGISTRO.md).
 
 ---

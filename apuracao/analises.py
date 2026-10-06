@@ -107,3 +107,12 @@ def troca_de_lideranca(d: pd.DataFrame) -> dict:
         "pct_secoes_da_troca": [float(d["pct"].iloc[i + 1]) for i in mudancas[:5]],
         "margem_final_pontos": margem(d),
     }
+
+
+def maiores_vazios(recebido: pd.Series, ini: str, fim: str, minimo_min: float = 3.0, top: int = 3) -> list[dict]:
+    """Maiores intervalos sem nenhum boletim registrado entre `ini` e `fim` (hora de recebimento)."""
+    r = recebido.dropna().sort_values()
+    r = r[(r >= pd.Timestamp(ini)) & (r <= pd.Timestamp(fim))].reset_index(drop=True)
+    dt = r.diff().dt.total_seconds() / 60
+    achados = [{"inicio": r.iloc[i - 1], "fim": r.iloc[i], "minutos": float(dt.iloc[i])} for i in dt[dt >= minimo_min].index]
+    return sorted(achados, key=lambda x: -x["minutos"])[:top]

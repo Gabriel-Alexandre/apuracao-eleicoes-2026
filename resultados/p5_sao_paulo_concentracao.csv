@@ -1,5 +1,5 @@
 uf,secoes,diferenca_votos,fluxo_bruto,razao_liquido_bruto,secoes_para_metade,fracao_das_secoes,estavel,top1pct_parcela_do_fluxo_positivo,top1pct_parcela_dos_votos,indice_top1pct,ano,comparacao
-SP,103644,1569632,1592142,0.9859,29448,0.2841,True,0.0309,0.0127,2.4357,2026,Tarcisio x Flavio
-SP,103644,-1081602,1096554,0.9864,28195,0.2720,True,0.0330,0.0102,3.2432,2026,Haddad x Lula
+SP,103644,1569632,1592142,0.9859,29448,0.2841,True,0.0309,0.0127,2.4350,2026,Tarcisio x Flavio
+SP,103644,-1081602,1096554,0.9864,28195,0.2720,True,0.0330,0.0102,3.2430,2026,Haddad x Lula
 SP,101073,-2357994,2359970,0.9992,34529,0.3416,True,0.0252,0.0109,2.3230,2022,Tarcisio x Bolsonaro
 SP,101073,-2152893,2153403,0.9998,32721,0.3237,True,0.0290,0.0109,2.6554,2022,Haddad x Lula

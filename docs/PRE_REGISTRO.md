@@ -143,4 +143,6 @@ Estas **não** estavam no pré-registro e **não decidem** nenhum critério dele
 | Diferença entre o lote que chegou na parada e o lote implicado pelos pontos da imprensa; atraso de exibição na parada e na retomada | critério da §4 só pedia a contagem | `RESUMO.json`, chaves `p2_*` |
 | Contabilidade exata e inferência ecológica em São Paulo (para onde foi o voto de quem votou em Tarcísio e em Haddad) | pergunta direta do autor sobre a diferença entre Tarcísio e Flávio | `p5_sao_paulo_*` |
 | Senadores do PL por quem liderou a eleição presidencial na UF; alinhamento entre municípios do voto presidencial e do voto no partido ao Senado, com PT como espelho | a comparação histórica por partido (P6) é fraca: o PSL de 2018 e o PL de 2022 tinham candidatos de força muito diferente | `p6_senadores_do_pl_*`, `p6_alinhamento_*` |
+| Contabilidade da base em São Paulo e nos outros casos (percentual dos válidos contra percentual de quem compareceu) | a revisão adversarial mostrou que a estimativa ecológica não explicava sozinha a diferença, e a conta exata da base separa o que é troca de voto do que é diferença de base | `p5_base_de_votos` no `RESUMO.json` |
+| Estimativa ecológica com as duas restrições juntas | a primeira versão não conservava os totais (erro de 4% para Flávio) | `apuracao/uf.py`, `inferencia_ecologica` |
 

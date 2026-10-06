@@ -2,10 +2,10 @@ ponto,hora_publicada_brt,pct_secoes,pct_meia_largura,flavio_pct,lula_pct,votos_f
 P01,17:27,1.5,0.05,49.2,42.2,,,,bloomberglinea (17:27),"fonte unica; titulo com 1,5% das secoes apuradas"
 P02,17:52,7.6,0.05,50.7,41.0,,,,bloomberglinea (17:52),fonte unica
 P03,18:26,22,0.5,51.1,40.8,,,,bloomberglinea (18:26),fonte unica; percentual inteiro no titulo
-P04,19:06,64.81,0.005,49.58,42.25,,,,"jornaldebrasilia (64,81% ate 19h06);ovale (64,8% com 49,58 e 42,25; postado 19h18);bloomberglinea (65% com 49,6 e 42,3; 19h19)",tres fontes. Ultimo ponto antes da parada
-P05,20:08,84.96,0.005,48.47,43.49,,,,"jornaldebrasilia (84,96% as 20h08);ovale (85% com 48,47 e 43,49; postado 20h10);bloomberglinea (85% com 48,5 e 43,5; 20h11)",tres fontes. Primeiro ponto depois da parada
+P04,19:06,64.81,0.005,49.58,42.25,,,,"jornaldebrasilia (64,81% ate 19h06);ovale (64,8% com 49,58 e 42,25 / postado 19h18);bloomberglinea (65% com 49,6 e 42,3 / 19h19)",tres fontes. Ultimo ponto antes da parada
+P05,20:08,84.96,0.005,48.47,43.49,,,,"jornaldebrasilia (84,96% as 20h08);ovale (85% com 48,47 e 43,49 / postado 20h10);bloomberglinea (85% com 48,5 e 43,5 / 20h11)",tres fontes. Primeiro ponto depois da parada
 P06,20:16,88,0.5,48.2,43.8,,,,bloomberglinea (20:16),fonte unica; percentual inteiro no titulo
-P07,20:31,90.56,0.005,48.02,44.0,51620844,47301073,,"tribunadonorte (90,56% com votos absolutos; 20h31);bloomberglinea (91% com 48 e 44; 20h24)",duas fontes; unico ponto com votos absolutos
+P07,20:31,90.56,0.005,48.02,44.0,51620844,47301073,,"tribunadonorte (90,56% com votos absolutos / 20h31);bloomberglinea (91% com 48 e 44 / 20h24)",duas fontes; unico ponto com votos absolutos
 P08,s/h,90,0.5,48.04,43.98,,,,tribunadosertao (Sputnik Brasil),fonte unica; percentual inteiro no titulo
 P09,20:45,93,0.5,47.8,44.2,,,,bloomberglinea (20:45),fonte unica; percentual inteiro no titulo
 P10,21:12,99,0.5,47.2,44.9,,,,bloomberglinea (21:12),fonte unica; percentual inteiro no titulo

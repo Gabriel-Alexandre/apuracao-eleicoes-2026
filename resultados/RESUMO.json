@@ -2,6 +2,144 @@
  "boletins_por_secao": {
   "1.0": 499233
  },
+ "derivados": {
+  "dados": {
+   "boletins_busa_por_uf": {
+    "MG": 2,
+    "ZZ": 29
+   },
+   "boletins_busa_total": 31,
+   "lista_mg": "município 41335, zona 319, seção 58; município 41335, zona 319, seção 240; município 41335, zona 319, seção 397",
+   "lista_sp": "município 63134, zona 388, seção 147; município 63134, zona 388, seção 148; município 63134, zona 388, seção 155; município 63134, zona 388, seção 181; município 63134, zona 388, seção 254; município 63134, zona 388, seção 299; município 63134, zona 388, seção 300; município 63134, zona 388, seção 360; município 63134, zona 388, seção 371; município 63134, zona 388, seção 413; município 63134, zona 388, seção 419; município 63134, zona 388, seção 554",
+   "n_mg": 3,
+   "n_sp": 12,
+   "secoes_com_mais_de_um_boletim": 0,
+   "secoes_com_um_boletim": 499233,
+   "secoes_sem_arquivo_publicado": 15
+  },
+  "oficial": {
+   "comparecimento": 125275835,
+   "flavio": 56104503,
+   "lula": 53879538,
+   "secoes_totalizadas_pct": "100,00",
+   "validos": 119300788
+  },
+  "p1": {
+   "nordeste_pct_ate_19h06": 53.4162,
+   "pct_explicado_pela_composicao_capital_ou_interior": -0.6784780145656895,
+   "pct_explicado_pela_composicao_porte_municipio": 1.0764430217515033,
+   "pct_explicado_pela_composicao_regiao": 68.61936977081383,
+   "pct_explicado_pela_composicao_regiao_2022": 66.82945138113084,
+   "pct_explicado_pela_composicao_tamanho_secao": -6.1349055579995095,
+   "pct_explicado_pela_composicao_uf": 70.80394644892132,
+   "pct_explicado_pela_composicao_uf_capital": 77.70704835003454,
+   "queda_do_pico_ao_fim_pontos": 8.917908523191798,
+   "queda_por_ponto_de_secoes_de_20_a_64_81": 0.07059808078553892,
+   "queda_por_ponto_de_secoes_de_64_81_a_84_96": 0.11854590570719609,
+   "queda_por_ponto_de_secoes_de_84_96_a_100": 0.20721409574468078,
+   "reducao_da_distancia_mediana_calendario_por_uf": 67.85586644948235,
+   "reducao_da_distancia_mediana_calendario_por_uf_capital_e_porte": 74.89216722222056,
+   "reducao_da_distancia_mediana_calendario_por_uf_e_capital": 72.67815472213569,
+   "sul_pct_ate_19h06": 86.239
+  },
+  "p2": {
+   "diferenca_vs_janela_bruta": 2.831764573919184,
+   "janela_bruta_pct_das_secoes": 22.981764573919175,
+   "tela_acrescentou_pct": 20.14999999999999,
+   "vazio_minutos_vs_maior_2022": 3.7123595505617977
+  },
+  "p3": {
+   "p02_flavio_publicado": 50.7,
+   "p02_flavio_refeito": 50.93,
+   "p02_lula_publicado": 41.0,
+   "p02_lula_refeito": 40.73,
+   "p02_pct_secoes": 7.6,
+   "p07_pct_flavio_da_diferenca": 0.05288755061811853,
+   "p07_votos_flavio_reconstruidos_menos_publicados": 27301,
+   "p07_votos_lula_reconstruidos_menos_publicados": 2276,
+   "p13_margem_publicada": 2400000,
+   "p13_margem_reconstruida": 2364076
+  },
+  "p4": {
+   "linhas_municipio_e_cargo_exatas": 16852,
+   "municipios_com_diferenca": 2,
+   "municipios_com_diferenca_lista": [
+    "MG-41335",
+    "SP-63134"
+   ],
+   "pct_dos_validos_sem_correspondencia_presidente": 0.0032983855898755673,
+   "pct_linhas_municipio_e_cargo_exatas": 99.96440858939376,
+   "votos_flavio_a_menos": 1757,
+   "votos_flavio_reconstruidos_menos_oficial": -1757,
+   "votos_lula_a_menos": 1746,
+   "votos_lula_reconstruidos_menos_oficial": -1746,
+   "votos_nominais_sem_correspondencia_presidente": 3935,
+   "votos_validos_a_menos": 3935,
+   "votos_validos_reconstruidos_menos_oficial": -3935
+  },
+  "p5": {
+   "diferenca_de_votos_tarcisio_menos_flavio": 1569632,
+   "gap_2022_p05": -17.013,
+   "gap_2022_p95": -2.34296,
+   "gap_2026_maximo_entre_municipios": 21.7493,
+   "gap_2026_minimo_entre_municipios": 4.682,
+   "gap_2026_p05": 7.3471,
+   "gap_2026_p95": 14.323379999999998,
+   "pct_dos_votos_validos_de_governador_em_municipios_com_gap_entre_5_e_15": 99.04231642783958
+  },
+  "p5_n": {
+   "casos_2022": 15,
+   "casos_2026": 16,
+   "casos_total": 31,
+   "comparados_com_sp": 30,
+   "todas_as_sensibilidades_com_sp_dentro": true
+  },
+  "p5_ref": {
+   "governadores_aliados_de_flavio_em_2026": 10,
+   "maior_diferenca_de_aliado_de_bolsonaro_em_2022": 14.3865,
+   "posicao_de_sp_entre_os_governadores_aliados_de_flavio_em_2026_da_maior_diferenca": 1
+  },
+  "p6": {
+   "a_explicar_n": 8,
+   "a_explicar_sem_senador_do_pl": [
+    "AM",
+    "BA",
+    "CE",
+    "PE"
+   ],
+   "nao_casado": "Thiago Junqueira, PI",
+   "ufs_com_lula_na_frente_ou_empate": 12
+  },
+  "p7": {
+   "t1_margem_em_10pct": 5.4532,
+   "t1_margem_final": -5.233167305421745,
+   "t2_margem_em_10pct": 4.0229,
+   "t2_margem_final": -1.8048102343443153
+  },
+  "p8": {
+   "flavio_2026_menor_ou_igual_a_bolsonaro_2022": true,
+   "governador_menor_que_presidente_2022": true,
+   "governador_menor_que_presidente_2026": true,
+   "lula_2026_menor_ou_igual_a_lula_2022": true
+  },
+  "sp": {
+   "ei_2022_tarcisio_para_bolsonaro_pct": 98.60275117200825,
+   "ei_haddad_para_lula_pct": 96.70505846974673,
+   "ei_tarcisio_para_cury_caiado_e_santos": 9.406106750711043,
+   "ei_tarcisio_para_flavio_ic": "85,0 a 89,1",
+   "ei_tarcisio_para_flavio_pct": 87.22344136131372,
+   "flavio_votos_de_quem_anulou_ou_deixou_em_branco_para_governador_estimado": 329588,
+   "fracao_das_secoes_para_metade_da_diferenca": 28.410000000000004,
+   "haddad_pct": 36.4169,
+   "lula_pct": 38.1995,
+   "pct_municipios_com_tarcisio_abaixo_de_bolsonaro_em_2022": 99.2248062015504,
+   "rodrigo_garcia_2022_pct": 18.3975,
+   "top1pct_parcela_da_diferenca": 3.09,
+   "top1pct_parcela_dos_votos": 1.27,
+   "votos_de_tarcisio": 14490219,
+   "votos_de_tarcisio_que_nao_foram_para_flavio_estimado": 1851351
+  }
+ },
  "erros_de_decodificacao": 0,
  "oficial_secoes": {
   "gerado_em": "05/10/2026 12:51:47",
@@ -12,170 +150,235 @@
  },
  "p1_decomposicao_uf_capital": {
   "capital_ou_interior_64_81_a_100": {
-   "M_antes": 7.369918882747552,
-   "M_ate": 1.8649747310816385,
-   "M_lote": -7.7208090506400096,
-   "diferenca_lote_menos_antes": -15.090727933387562,
-   "efeito_composicao": 0.10238537098174394,
-   "efeito_ordem_dentro_do_grupo": -15.193113304369305,
-   "mudanca": -5.504944151665914,
-   "soma_contribuicoes": -5.504944151665914
+   "M_antes": 7.370250525953959,
+   "M_ate": 1.8650567421086959,
+   "M_lote": -7.721134784569188,
+   "diferenca_lote_menos_antes": -15.091385310523147,
+   "efeito_composicao": 0.10239173142529556,
+   "efeito_ordem_dentro_do_grupo": -15.193777041948442,
+   "mudanca": -5.505193783845263,
+   "soma_contribuicoes": -5.505193783845264
   },
   "capital_ou_interior_64_81_a_84_96": {
-   "M_antes": 7.369918882747552,
-   "M_ate": 4.981336594070896,
-   "M_lote": -2.32936792127744,
-   "diferenca_lote_menos_antes": -9.699286804024991,
-   "efeito_composicao": 0.09300506677452058,
-   "efeito_ordem_dentro_do_grupo": -9.792291870799513,
-   "mudanca": -2.3885822886766555,
-   "soma_contribuicoes": -2.388582288676656
+   "M_antes": 7.370250525953959,
+   "M_ate": 4.98155866464059,
+   "M_lote": -2.3294687780759986,
+   "diferenca_lote_menos_antes": -9.699719304029959,
+   "efeito_composicao": 0.09301118913573059,
+   "efeito_ordem_dentro_do_grupo": -9.792730493165688,
+   "mudanca": -2.3886918613133687,
+   "soma_contribuicoes": -2.3886918613133687
   },
   "capital_ou_interior_84_96_a_100": {
-   "M_antes": 4.981336594070896,
-   "M_ate": 1.8649747310816385,
-   "M_lote": -14.836361151442752,
-   "diferenca_lote_menos_antes": -19.817697745513648,
-   "efeito_composicao": 0.09186159919748782,
-   "efeito_ordem_dentro_do_grupo": -19.909559344711134,
-   "mudanca": -3.1163618629892578,
-   "soma_contribuicoes": -3.1163618629892578
+   "M_antes": 4.98155866464059,
+   "M_ate": 1.8650567421086959,
+   "M_lote": -14.836965372249452,
+   "diferenca_lote_menos_antes": -19.818524036890043,
+   "efeito_composicao": 0.09186670492280058,
+   "efeito_ordem_dentro_do_grupo": -19.910390741812844,
+   "mudanca": -3.1165019225318944,
+   "soma_contribuicoes": -3.116501922531895
   },
   "porte_municipio_64_81_a_100": {
-   "M_antes": 7.369918882747552,
-   "M_ate": 1.8649747310816385,
-   "M_lote": -7.7208090506400096,
-   "diferenca_lote_menos_antes": -15.090727933387562,
-   "efeito_composicao": -0.16224700243815016,
-   "efeito_ordem_dentro_do_grupo": -14.928480930949412,
-   "mudanca": -5.504944151665914,
-   "soma_contribuicoes": -5.504944151665914
+   "M_antes": 7.370250525953959,
+   "M_ate": 1.8650567421086959,
+   "M_lote": -7.721134784569188,
+   "diferenca_lote_menos_antes": -15.091385310523147,
+   "efeito_composicao": -0.16245016406075785,
+   "efeito_ordem_dentro_do_grupo": -14.928935146462388,
+   "mudanca": -5.505193783845263,
+   "soma_contribuicoes": -5.505193783845264
   },
   "porte_municipio_64_81_a_84_96": {
-   "M_antes": 7.369918882747552,
-   "M_ate": 4.981336594070896,
-   "M_lote": -2.32936792127744,
-   "diferenca_lote_menos_antes": -9.699286804024991,
-   "efeito_composicao": 0.5248454991179439,
-   "efeito_ordem_dentro_do_grupo": -10.224132303142936,
-   "mudanca": -2.3885822886766555,
-   "soma_contribuicoes": -2.3885822886766555
+   "M_antes": 7.370250525953959,
+   "M_ate": 4.98155866464059,
+   "M_lote": -2.3294687780759986,
+   "diferenca_lote_menos_antes": -9.699719304029959,
+   "efeito_composicao": 0.5246871192080518,
+   "efeito_ordem_dentro_do_grupo": -10.22440642323801,
+   "mudanca": -2.3886918613133687,
+   "soma_contribuicoes": -2.3886918613133683
   },
   "porte_municipio_84_96_a_100": {
-   "M_antes": 4.981336594070896,
-   "M_ate": 1.8649747310816385,
-   "M_lote": -14.836361151442752,
-   "diferenca_lote_menos_antes": -19.817697745513648,
-   "efeito_composicao": -1.1983129190632615,
-   "efeito_ordem_dentro_do_grupo": -18.619384826450386,
-   "mudanca": -3.1163618629892578,
-   "soma_contribuicoes": -3.1163618629892578
+   "M_antes": 4.98155866464059,
+   "M_ate": 1.8650567421086959,
+   "M_lote": -14.836965372249452,
+   "diferenca_lote_menos_antes": -19.818524036890043,
+   "efeito_composicao": -1.198534012879831,
+   "efeito_ordem_dentro_do_grupo": -18.61999002401021,
+   "mudanca": -3.1165019225318944,
+   "soma_contribuicoes": -3.1165019225318944
   },
   "regiao_64_81_a_100": {
-   "M_antes": 7.369918882747552,
-   "M_ate": 1.8649747310816385,
-   "M_lote": -7.7208090506400096,
-   "diferenca_lote_menos_antes": -15.090727933387562,
-   "efeito_composicao": -10.355208232698914,
-   "efeito_ordem_dentro_do_grupo": -4.7355197006886485,
-   "mudanca": -5.504944151665914,
-   "soma_contribuicoes": -5.504944151665914
+   "M_antes": 7.370250525953959,
+   "M_ate": 1.8650567421086959,
+   "M_lote": -7.721134784569188,
+   "diferenca_lote_menos_antes": -15.091385310523147,
+   "efeito_composicao": -10.35561348976616,
+   "efeito_ordem_dentro_do_grupo": -4.735771820756987,
+   "mudanca": -5.505193783845263,
+   "soma_contribuicoes": -5.505193783845263
   },
   "regiao_64_81_a_84_96": {
-   "M_antes": 7.369918882747552,
-   "M_ate": 4.981336594070896,
-   "M_lote": -2.32936792127744,
-   "diferenca_lote_menos_antes": -9.699286804024991,
-   "efeito_composicao": -6.8655491892238905,
-   "efeito_ordem_dentro_do_grupo": -2.8337376148011013,
-   "mudanca": -2.3885822886766555,
-   "soma_contribuicoes": -2.3885822886766563
+   "M_antes": 7.370250525953959,
+   "M_ate": 4.98155866464059,
+   "M_lote": -2.3294687780759986,
+   "diferenca_lote_menos_antes": -9.699719304029959,
+   "efeito_composicao": -6.865814093282381,
+   "efeito_ordem_dentro_do_grupo": -2.8339052107475764,
+   "mudanca": -2.3886918613133687,
+   "soma_contribuicoes": -2.3886918613133687
   },
   "regiao_84_96_a_100": {
-   "M_antes": 4.981336594070896,
-   "M_ate": 1.8649747310816385,
-   "M_lote": -14.836361151442752,
-   "diferenca_lote_menos_antes": -19.817697745513648,
-   "efeito_composicao": -13.270078130034008,
-   "efeito_ordem_dentro_do_grupo": -6.547619615479641,
-   "mudanca": -3.1163618629892578,
-   "soma_contribuicoes": -3.116361862989257
+   "M_antes": 4.98155866464059,
+   "M_ate": 1.8650567421086959,
+   "M_lote": -14.836965372249452,
+   "diferenca_lote_menos_antes": -19.818524036890043,
+   "efeito_composicao": -13.27058937162085,
+   "efeito_ordem_dentro_do_grupo": -6.547934665269192,
+   "mudanca": -3.1165019225318944,
+   "soma_contribuicoes": -3.116501922531894
   },
   "tamanho_secao_64_81_a_100": {
-   "M_antes": 7.369918882747552,
-   "M_ate": 1.8649747310816385,
-   "M_lote": -7.7208090506400096,
-   "diferenca_lote_menos_antes": -15.090727933387562,
-   "efeito_composicao": 0.9258066913494556,
-   "efeito_ordem_dentro_do_grupo": -16.01653462473702,
-   "mudanca": -5.504944151665914,
-   "soma_contribuicoes": -5.504944151665914
+   "M_antes": 7.370250525953959,
+   "M_ate": 1.8650567421086959,
+   "M_lote": -7.721134784569188,
+   "diferenca_lote_menos_antes": -15.091385310523147,
+   "efeito_composicao": 0.9258422361944061,
+   "efeito_ordem_dentro_do_grupo": -16.01722754671755,
+   "mudanca": -5.505193783845263,
+   "soma_contribuicoes": -5.505193783845264
   },
   "tamanho_secao_64_81_a_84_96": {
-   "M_antes": 7.369918882747552,
-   "M_ate": 4.981336594070896,
-   "M_lote": -2.32936792127744,
-   "diferenca_lote_menos_antes": -9.699286804024991,
-   "efeito_composicao": 0.9527140154325195,
-   "efeito_ordem_dentro_do_grupo": -10.65200081945751,
-   "mudanca": -2.3885822886766555,
-   "soma_contribuicoes": -2.3885822886766555
+   "M_antes": 7.370250525953959,
+   "M_ate": 4.98155866464059,
+   "M_lote": -2.3294687780759986,
+   "diferenca_lote_menos_antes": -9.699719304029959,
+   "efeito_composicao": 0.9527470802614224,
+   "efeito_ordem_dentro_do_grupo": -10.65246638429138,
+   "mudanca": -2.3886918613133687,
+   "soma_contribuicoes": -2.3886918613133687
   },
   "tamanho_secao_84_96_a_100": {
-   "M_antes": 4.981336594070896,
-   "M_ate": 1.8649747310816385,
-   "M_lote": -14.836361151442752,
-   "diferenca_lote_menos_antes": -19.817697745513648,
-   "efeito_composicao": 0.6556758821486388,
-   "efeito_ordem_dentro_do_grupo": -20.473373627662284,
-   "mudanca": -3.1163618629892578,
-   "soma_contribuicoes": -3.1163618629892578
+   "M_antes": 4.98155866464059,
+   "M_ate": 1.8650567421086959,
+   "M_lote": -14.836965372249452,
+   "diferenca_lote_menos_antes": -19.818524036890043,
+   "efeito_composicao": 0.6557063478336729,
+   "efeito_ordem_dentro_do_grupo": -20.474230384723715,
+   "mudanca": -3.1165019225318944,
+   "soma_contribuicoes": -3.1165019225318944
+  },
+  "uf_64_81_a_100": {
+   "M_antes": 7.370250525953959,
+   "M_ate": 1.8650567421086959,
+   "M_lote": -7.721134784569188,
+   "diferenca_lote_menos_antes": -15.091385310523147,
+   "efeito_composicao": -10.685296373663189,
+   "efeito_ordem_dentro_do_grupo": -4.406088936859958,
+   "mudanca": -5.505193783845263,
+   "soma_contribuicoes": -5.505193783845263
+  },
+  "uf_64_81_a_84_96": {
+   "M_antes": 7.370250525953959,
+   "M_ate": 4.98155866464059,
+   "M_lote": -2.3294687780759986,
+   "diferenca_lote_menos_antes": -9.699719304029959,
+   "efeito_composicao": -6.935583132161568,
+   "efeito_ordem_dentro_do_grupo": -2.7641361718683894,
+   "mudanca": -2.3886918613133687,
+   "soma_contribuicoes": -2.3886918613133683
+  },
+  "uf_84_96_a_100": {
+   "M_antes": 4.98155866464059,
+   "M_ate": 1.8650567421086959,
+   "M_lote": -14.836965372249452,
+   "diferenca_lote_menos_antes": -19.818524036890043,
+   "efeito_composicao": -13.926120595634202,
+   "efeito_ordem_dentro_do_grupo": -5.892403441255839,
+   "mudanca": -3.1165019225318944,
+   "soma_contribuicoes": -3.116501922531895
   },
   "uf_capital_64_81_a_100": {
-   "M_antes": 7.369918882747552,
-   "M_ate": 1.8649747310816385,
-   "M_lote": -7.7208090506400096,
-   "diferenca_lote_menos_antes": -15.090727933387562,
-   "efeito_composicao": -11.726587082084912,
-   "efeito_ordem_dentro_do_grupo": -3.3641408513026487,
-   "mudanca": -5.504944151665914,
-   "soma_contribuicoes": -5.504944151665914
+   "M_antes": 7.370250525953959,
+   "M_ate": 1.8650567421086959,
+   "M_lote": -7.721134784569188,
+   "diferenca_lote_menos_antes": -15.091385310523147,
+   "efeito_composicao": -11.727070079938233,
+   "efeito_ordem_dentro_do_grupo": -3.3643152305849133,
+   "mudanca": -5.505193783845263,
+   "soma_contribuicoes": -5.505193783845263
   },
   "uf_capital_64_81_a_84_96": {
-   "M_antes": 7.369918882747552,
-   "M_ate": 4.981336594070896,
-   "M_lote": -2.32936792127744,
-   "diferenca_lote_menos_antes": -9.699286804024991,
-   "efeito_composicao": -7.692089536687174,
-   "efeito_ordem_dentro_do_grupo": -2.0071972673378182,
-   "mudanca": -2.3885822886766555,
-   "soma_contribuicoes": -2.388582288676656
+   "M_antes": 7.370250525953959,
+   "M_ate": 4.98155866464059,
+   "M_lote": -2.3294687780759986,
+   "diferenca_lote_menos_antes": -9.699719304029959,
+   "efeito_composicao": -7.692393134776578,
+   "efeito_ordem_dentro_do_grupo": -2.0073261692533797,
+   "mudanca": -2.3886918613133687,
+   "soma_contribuicoes": -2.3886918613133687
   },
   "uf_capital_84_96_a_100": {
-   "M_antes": 4.981336594070896,
-   "M_ate": 1.8649747310816385,
-   "M_lote": -14.836361151442752,
-   "diferenca_lote_menos_antes": -19.817697745513648,
-   "efeito_composicao": -15.156980681168669,
-   "efeito_ordem_dentro_do_grupo": -4.660717064344979,
-   "mudanca": -3.1163618629892578,
-   "soma_contribuicoes": -3.1163618629892578
+   "M_antes": 4.98155866464059,
+   "M_ate": 1.8650567421086959,
+   "M_lote": -14.836965372249452,
+   "diferenca_lote_menos_antes": -19.818524036890043,
+   "efeito_composicao": -15.15760955724129,
+   "efeito_ordem_dentro_do_grupo": -4.660914479648751,
+   "mudanca": -3.1165019225318944,
+   "soma_contribuicoes": -3.1165019225318944
   }
  },
  "p1_permutacao_aleatoria": {
   "de": 100,
-  "maior_distancia_pontos": 8.707729781622575,
+  "distancia_mediana_pontos": 6.384030993414392,
+  "grupos": null,
+  "maior_distancia_pontos": 8.708150708258835,
   "n": 1000,
   "pontos_da_curva_fora_da_faixa_5_95": 99
  },
  "p1_permutacao_calendario_por_uf": {
   "de": 100,
-  "maior_distancia_pontos": 3.2027073049269728,
+  "distancia_mediana_pontos": 2.052091448429561,
+  "grupos": 28,
+  "maior_distancia_pontos": 3.2028641717520525,
   "n": 1000,
   "pontos_da_curva_fora_da_faixa_5_95": 99
  },
+ "p1_permutacao_calendario_por_uf_capital_e_porte": {
+  "de": 100,
+  "distancia_mediana_pontos": 1.6028918263080971,
+  "grupos": 125,
+  "maior_distancia_pontos": 2.5859228939847743,
+  "n": 1000,
+  "pontos_da_curva_fora_da_faixa_5_95": 98
+ },
+ "p1_permutacao_calendario_por_uf_e_capital": {
+  "de": 100,
+  "distancia_mediana_pontos": 1.7442350705115839,
+  "grupos": 54,
+  "maior_distancia_pontos": 2.5936069642951587,
+  "n": 1000,
+  "pontos_da_curva_fora_da_faixa_5_95": 98
+ },
+ "p1_resumo": {
+  "margem_de_pico": 10.78296526530049,
+  "margem_em_64_81": 7.370184427020476,
+  "margem_em_84_96": 4.981451289672677,
+  "margem_final": 1.8650567421086919,
+  "menor_margem_depois_de_1pct": 1.8650567421086919,
+  "pct_secoes_da_ultima_troca_de_lideranca": 0.44607089061949173,
+  "pct_secoes_no_pico": 13.989440117937377,
+  "perda_do_pico_ao_fim": 8.917908523191798,
+  "recebido_no_pico": "2026-10-04T17:58:51",
+  "total_de_secoes_reconstruidas": 499191,
+  "total_de_votos_validos_reconstruidos": 119296853,
+  "votos_flavio_reconstruidos": 56102746,
+  "votos_lula_reconstruidos": 53877792
+ },
  "p1_troca_de_lideranca": {
-  "margem_final_pontos": 1.8649747310816385,
+  "margem_final_pontos": 1.8650567421086959,
   "pct_secoes_da_troca": [
    0.0012018075185078359,
    0.010215363907316604,
@@ -189,6 +392,23 @@
   "margem_reconstruida_do_lote": -2.3297271790558574,
   "votos_validos_do_lote_reconstruido": 24758693
  },
+ "p2_maiores_vazios_de_recebimento_2026": [
+  {
+   "fim": "2026-10-04T19:59:22",
+   "inicio": "2026-10-04T19:31:50",
+   "minutos": 27.533333333333335
+  },
+  {
+   "fim": "2026-10-04T18:08:47",
+   "inicio": "2026-10-04T18:01:00",
+   "minutos": 7.783333333333333
+  },
+  {
+   "fim": "2026-10-04T18:53:59",
+   "inicio": "2026-10-04T18:49:47",
+   "minutos": 4.2
+  }
+ ],
  "p2_parada": {
   "boletins_recebidos_19h06_20h08": 114736,
   "margem_do_lote_19h06_20h08": -3.8218098825230324,
@@ -202,6 +422,24 @@
   "boletins_por_5min_pico": 25596,
   "boletins_por_minuto_no_pico": 5119.2,
   "faixa_do_pico": "2026-10-04T19:00:00"
+ },
+ "p2_rajada_depois_do_vazio": {
+  "atraso_mediano_emissao_a_registro_entre_18h_e_19h_min": 81.58333333333333,
+  "atraso_mediano_emissao_a_registro_na_rajada_min": 161.75,
+  "atraso_mediano_emissao_a_registro_nos_16_min_antes_do_vazio": 128.46666666666667,
+  "boletins_na_rajada_de_6_minutos": 20171,
+  "boletins_no_vazio": 0,
+  "hora_mediana_de_emissao_na_rajada": "2026-10-04T17:19:21",
+  "margem_do_lote_da_rajada": -9.312679725345474,
+  "pct_da_rajada_emitida_pela_urna_antes_das_19h": 95.34480194338406,
+  "pct_da_rajada_emitida_pela_urna_antes_das_19h30": 99.64800951861584,
+  "regioes_da_rajada": {
+   "Centro-Oeste": 0.039,
+   "Nordeste": 0.429,
+   "Norte": 0.067,
+   "Sudeste": 0.412,
+   "Sul": 0.053
+  }
  },
  "p2_tela_contra_recebido": {
   "minutos_de_defasagem_na_parada_19h06": 1.85,
@@ -238,137 +476,154 @@
   "votos_nominais_dif_total": 14356,
   "votos_so_no_boletim": 276831
  },
+ "p5_base_de_votos": {
+  "classe_lacuna_pct_do_comparecimento_q05": -17.01840574689576,
+  "classe_lacuna_pct_do_comparecimento_q95": 12.899104634736856,
+  "efeito_da_base_mediano_na_classe": 3.273189953144822,
+  "efeito_da_base_mediano_na_classe_2022": 2.918957773110087,
+  "efeito_da_base_mediano_na_classe_2026": 3.279953874605418,
+  "sp_comparecimento": 26428458,
+  "sp_dentro_de_5_a_95_pelo_comparecimento": true,
+  "sp_efeito_da_base_pontos": 4.782172517364131,
+  "sp_flavio_pct_do_comparecimento": 48.88891739351573,
+  "sp_gov_validos_pct_do_comparecimento": 87.50972909581029,
+  "sp_lacuna_pct_do_comparecimento": 5.939173598399115,
+  "sp_pct_da_lacuna_que_vem_da_base": 44.604217285113656,
+  "sp_percentil_na_classe_pelo_comparecimento": 83.33333333333334,
+  "sp_pres_validos_pct_do_comparecimento": 94.13959755048894,
+  "sp_tarcisio_pct_do_comparecimento": 54.82809099191485
+ },
  "p5_classe_de_referencia": {
-  "max": 46.83867515292309,
-  "mediana": -0.21879643715082864,
+  "max": 46.838330447858446,
+  "mediana": -0.21965633379306126,
   "min": -17.55463309571445,
   "n": 30,
   "negativas": 16,
   "positivas": 14,
   "q05": -15.538659844849606,
   "q95": 16.478509872216605,
-  "sp_2026_lacuna_pontos": 10.66364742343626,
+  "sp_2026_lacuna_pontos": 10.721346115763247,
   "sp_dentro_de_5_a_95": true,
-  "sp_gov_pct": 62.59318208560959,
+  "sp_gov_pct": 62.65370897433148,
   "sp_percentil_na_classe": 83.33333333333334,
-  "sp_pres_pct": 51.92953466217333
+  "sp_pres_pct": 51.93236285856823
  },
  "p5_sao_paulo_ei_2022": {
   "tarcisio_para_bolsonaro": {
-   "fracao": 0.9606561617545524,
-   "p05": 0.9173813288477226,
-   "p95": 0.9894091221726825
+   "fracao": 0.9860275117200825,
+   "p05": 0.9546929835373039,
+   "p95": 1.0
   },
   "tarcisio_para_branco_nulo": {
    "fracao": 0.0,
    "p05": 0.0,
-   "p95": 0.005340060500773621
+   "p95": 4.8102372417306176e-18
   },
   "tarcisio_para_ciro": {
-   "fracao": 0.011855256096497376,
-   "p05": 0.007649331605595476,
-   "p95": 0.017482051525772528
+   "fracao": 5.635416077201267e-19,
+   "p05": 0.0,
+   "p95": 0.004489744400698266
   },
   "tarcisio_para_lula": {
    "fracao": 0.0,
    "p05": 0.0,
-   "p95": 0.0
+   "p95": 4.794788816610572e-18
   },
   "tarcisio_para_outros_nominais": {
-   "fracao": 0.005980165076474117,
-   "p05": 0.001454439419868986,
-   "p95": 0.01225005485447933
+   "fracao": 0.0,
+   "p05": 0.0,
+   "p95": 2.0804710753896754e-18
   },
   "tarcisio_para_simone": {
-   "fracao": 0.021508417072476273,
-   "p05": 0.001411402247844543,
-   "p95": 0.049244735422682186
+   "fracao": 0.01397248827991758,
+   "p05": 1.2402653460391505e-18,
+   "p95": 0.04191112522386669
   }
  },
  "p5_sao_paulo_ei_2026": {
   "tarcisio_para_bolsonaro": {
-   "fracao": 0.900996991133147,
-   "p05": 0.8863884074553453,
-   "p95": 0.9153316860821966
+   "fracao": 0.8722344136131371,
+   "p05": 0.8503087113687292,
+   "p95": 0.8909305141964059
   },
   "tarcisio_para_branco_nulo": {
-   "fracao": 0.0015911198913566428,
-   "p05": 0.0004281678368060852,
-   "p95": 0.007089650527067173
+   "fracao": 0.005826107638742009,
+   "p05": 0.004624364319130222,
+   "p95": 0.00842670022794491
   },
   "tarcisio_para_caiado": {
-   "fracao": 0.026608844359412423,
-   "p05": 0.024600550801000723,
-   "p95": 0.031146965354758905
+   "fracao": 0.033464391007321195,
+   "p05": 0.027823019758881413,
+   "p95": 0.03978303311637231
   },
   "tarcisio_para_cury": {
-   "fracao": 0.02829644576975102,
-   "p05": 0.025173159213777142,
-   "p95": 0.030661252253667566
+   "fracao": 0.031840143443363826,
+   "p05": 0.029685981664377328,
+   "p95": 0.03491421611643649
   },
   "tarcisio_para_lula": {
-   "fracao": 0.013756746964508421,
-   "p05": 0.0018454882175856864,
-   "p95": 0.01805179293879211
+   "fracao": 0.017636522247801562,
+   "p05": 0.007705445707169855,
+   "p95": 0.022041889182100753
   },
   "tarcisio_para_outros_nominais": {
-   "fracao": 0.005331926374366431,
-   "p05": 0.004731369969313414,
-   "p95": 0.006967689690202231
+   "fracao": 0.01024188899320879,
+   "p05": 0.008244073037309837,
+   "p95": 0.012071261389802744
   },
   "tarcisio_para_santos": {
-   "fracao": 0.02341792550745804,
-   "p05": 0.020003230457932723,
-   "p95": 0.02787104689533811
+   "fracao": 0.028756533056425428,
+   "p05": 0.02489353690868002,
+   "p95": 0.035671605484232566
   }
  },
  "p5_sao_paulo_ei_2026_haddad": {
   "haddad_para_bolsonaro": {
    "fracao": 0.0,
    "p05": 0.0,
-   "p95": 0.0
+   "p95": 8.112738301119592e-18
   },
   "haddad_para_branco_nulo": {
-   "fracao": 0.022664093707685427,
-   "p05": 0.007288336525289717,
-   "p95": 0.025533828763039383
+   "fracao": 1.369423312116649e-17,
+   "p05": 0.0,
+   "p95": 0.0024615808876992207
   },
   "haddad_para_caiado": {
-   "fracao": 0.01853730749912316,
-   "p05": 0.014045795116028069,
-   "p95": 0.019573149968288593
+   "fracao": 0.003786737500547647,
+   "p05": 0.0,
+   "p95": 0.006676348817418656
   },
   "haddad_para_cury": {
-   "fracao": 0.029759322658763514,
-   "p05": 0.026087201485867254,
-   "p95": 0.03781073743182548
+   "fracao": 0.007866947209020394,
+   "p05": 0.0034696415597507664,
+   "p95": 0.009613701097296616
   },
   "haddad_para_lula": {
-   "fracao": 0.8861501897732118,
-   "p05": 0.8836977513052257,
-   "p95": 0.9035317178339369
+   "fracao": 0.9670505846974673,
+   "p05": 0.9624859595527202,
+   "p95": 0.9849490174474649
   },
   "haddad_para_outros_nominais": {
-   "fracao": 0.005175886707217419,
-   "p05": 0.00260266342637035,
-   "p95": 0.005660564266245328
+   "fracao": 2.609126175339262e-19,
+   "p05": 0.0,
+   "p95": 1.0899537247207056e-18
   },
   "haddad_para_santos": {
-   "fracao": 0.03771319965399854,
-   "p05": 0.035479262196666764,
-   "p95": 0.038796962005164096
+   "fracao": 0.021295730592964607,
+   "p05": 0.008792155904328977,
+   "p95": 0.022726984033477476
   }
  },
  "p5_sao_paulo_municipios": {
   "gap_2022_sao_paulo_capital": -5.433582578684053,
-  "gap_2026_sao_paulo_capital": 10.5681769177583,
+  "gap_2026_sao_paulo_capital": 10.628395359525854,
   "gap_mediano_2022": -7.288121372874002,
-  "gap_mediano_2026": 10.169447917792283,
+  "gap_mediano_2026": 10.208511048348342,
   "municipios": 645,
-  "p_valor": 0.008428203434556095,
+  "p_valor": 0.009897567716235471,
   "pct_municipios_com_tarcisio_acima_de_bolsonaro_2022": 0.7751937984496124,
   "pct_municipios_com_tarcisio_acima_de_flavio": 100.0,
-  "spearman_gap2026_x_gap2022": -0.10365157824079022
+  "spearman_gap2026_x_gap2022": -0.10149776689985236
  },
  "p5_sensibilidade_com_2018": {
   "n": 33,
@@ -384,35 +639,73 @@
  },
  "p5_sensibilidade_so_2026": {
   "n": 15,
-  "q05": -10.436747306374308,
-  "q95": 19.978331948388117,
+  "q05": -10.439485057252067,
+  "q95": 19.976136623350868,
   "sp_dentro": true
  },
  "p5_sensibilidade_so_apoiadores_do_candidato_do_PL": {
   "n": 18,
-  "q05": -10.964765926416042,
+  "q05": -10.968674648562821,
   "q95": 14.174367474619672,
   "sp_dentro": true
+ },
+ "p6_alinhamento_municipal": {
+  "2018_PSL": {
+   "mediana_spearman": 0.7038134074552456,
+   "ufs": 18,
+   "ufs_com_spearman_acima_de_0_8": 5
+  },
+  "2018_PT": {
+   "mediana_spearman": 0.7075687317167485,
+   "ufs": 18,
+   "ufs_com_spearman_acima_de_0_8": 7
+  },
+  "2022_PL": {
+   "mediana_spearman": 0.6477633953805659,
+   "ufs": 16,
+   "ufs_com_spearman_acima_de_0_8": 4
+  },
+  "2022_PT": {
+   "mediana_spearman": 0.4962173900383104,
+   "ufs": 10,
+   "ufs_com_spearman_acima_de_0_8": 2
+  },
+  "2026_PL": {
+   "mediana_spearman": 0.7897052384261172,
+   "ufs": 24,
+   "ufs_com_spearman_acima_de_0_8": 12
+  },
+  "2026_PT": {
+   "mediana_spearman": 0.7538518443581734,
+   "ufs": 16,
+   "ufs_com_spearman_acima_de_0_8": 5
+  }
  },
  "p6_casamento": {
   "casados": 46,
   "na_lista": 47,
   "nao_casados": 1
  },
- "p6_resumo": {
-  "razao_2026_pl": {
-   "mediana": 0.9684413981378769,
-   "n": 25,
-   "q05": 0.5106713376684479,
-   "q95": 1.1911407131721703
-  },
-  "razao_historica_partido_do_presidente": {
-   "mediana": 0.5399405728435316,
-   "n": 35,
-   "q05": 0.13652026538451761,
-   "q95": 1.0429270057730782
-  },
-  "ufs_2026_fora_do_intervalo_historico": [
+ "p6_criterio_literal": {
+  "dessas_com_senador_do_pl_eleito": [
+   "DF",
+   "MS",
+   "RS",
+   "SP"
+  ],
+  "ufs_a_explicar_pelo_criterio_literal": [
+   "AM",
+   "BA",
+   "CE",
+   "DF",
+   "MS",
+   "PE",
+   "RS",
+   "SP"
+  ],
+  "ufs_fora_do_intervalo_pelo_PL_abaixo": [],
+  "ufs_fora_do_intervalo_pelo_PL_acima": [
+   "AM",
    "BA",
    "CE",
    "DF",
@@ -422,6 +715,67 @@
    "SP",
    "TO"
   ]
+ },
+ "p6_entre_ufs": {
+  "mediana_razao_pl": 0.9684013999157601,
+  "mediana_razao_pt": 0.8116688616926746,
+  "n_pl": 25,
+  "n_pt": 17,
+  "spearman_flavio_x_candidatos_do_pl": 0.6538461538461537,
+  "spearman_lula_x_candidatos_do_pt": 0.556372549019608
+ },
+ "p6_resumo": {
+  "razao_2026_pl": {
+   "mediana": 0.9684013999157601,
+   "n": 25,
+   "q05": 0.5106446747776161,
+   "q95": 1.1911097598485787
+  },
+  "razao_historica_partido_do_presidente": {
+   "mediana": 0.5399405728435316,
+   "n": 35,
+   "q05": 0.13652026538451761,
+   "q95": 1.0429270057730782
+  },
+  "ufs_2026_fora_do_intervalo_historico": [
+   "AM",
+   "BA",
+   "CE",
+   "DF",
+   "MS",
+   "PE",
+   "RS",
+   "SP",
+   "TO"
+  ]
+ },
+ "p6_senadores_do_pl": {
+  "em_ufs_com_flavio_na_frente": 19,
+  "em_ufs_com_lula_na_frente_ou_empate": 0,
+  "total_eleitos": 19,
+  "ufs_com_flavio_na_frente": 15,
+  "ufs_com_flavio_na_frente_e_sem_senador_do_pl": [
+   "ES"
+  ],
+  "ufs_com_lula_na_frente_ou_empate": [
+   "AL",
+   "AM",
+   "AP",
+   "BA",
+   "CE",
+   "MA",
+   "PA",
+   "PB",
+   "PE",
+   "PI",
+   "RN",
+   "SE"
+  ]
+ },
+ "p6_senadores_do_pt": {
+  "em_ufs_com_flavio_na_frente": 1,
+  "em_ufs_com_lula_na_frente_ou_empate": 5,
+  "total_eleitos": 6
  },
  "p7_2022_turno1_troca": {
   "margem_final_pontos": -5.233167305421745,
@@ -472,9 +826,38 @@
   "secoes_testadas": 471908,
   "viol_BRT_total": 524
  },
+ "p7_maiores_vazios_de_recebimento_2022_turno1": [
+  {
+   "fim": "2022-10-02T18:20:54",
+   "inicio": "2022-10-02T18:13:29",
+   "minutos": 7.416666666666667
+  },
+  {
+   "fim": "2022-10-02T20:35:15",
+   "inicio": "2022-10-02T20:30:56",
+   "minutos": 4.316666666666666
+  }
+ ],
+ "p7_maiores_vazios_de_recebimento_2022_turno2": [
+  {
+   "fim": "2022-10-30T21:42:24",
+   "inicio": "2022-10-30T21:37:49",
+   "minutos": 4.583333333333333
+  },
+  {
+   "fim": "2022-10-30T21:48:10",
+   "inicio": "2022-10-30T21:44:26",
+   "minutos": 3.7333333333333334
+  }
+ ],
+ "p7_pico_de_chegada_2022": {
+  "boletins_por_5min_pico": 18956,
+  "boletins_por_minuto_no_pico": 3791.2,
+  "faixa_do_pico": "2022-10-02T19:30:00"
+ },
  "p8_impressao_digital": {
-  "mudanca_spearman_flavio_menos_boso_mediana": -0.008370109321717473,
-  "mudanca_spearman_lula_mediana": 0.03333083009809168,
+  "mudanca_spearman_flavio_menos_boso_mediana": -0.008444544595976475,
+  "mudanca_spearman_lula_mediana": 0.0333146863064333,
   "pct_secoes_no_canto_95_90_2022_max_uf": 0.08928571428571429,
   "pct_secoes_no_canto_95_90_2026_max_uf": 0.13175230566534915
  },
@@ -487,7 +870,7 @@
   "placebo_2022_sinal_c": 13,
   "placebo_2022_testados": 5232,
   "sinal_a_historico": 26,
-  "sinal_a_lula": 24,
+  "sinal_a_lula": 25,
   "sinal_b_lula": 21,
   "sinal_b_outro_cargo": 61,
   "sinal_c_comparecimento": 5,
@@ -512,5 +895,6 @@
   "pontos_que_encaixam_com_MT_em_BRT": 13,
   "secoes_de_MT": 8287
  },
+ "votos_de_candidato_fora_da_lista_oficial_como_nulos_2026": 276831,
  "votos_de_candidato_fora_da_lista_oficial_vistos_como_nulos": 276831
 }

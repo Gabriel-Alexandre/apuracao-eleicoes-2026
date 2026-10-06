@@ -67,7 +67,11 @@ def main() -> int:
     # chegada por regiao em 2022
     d22["regiao"] = d22["uf"].map(__import__("apuracao.tempo", fromlist=["REGIAO"]).REGIAO)
     saida.csv(analises.chegada_por_regiao(d22, "30min").reset_index(), "p7_chegada_por_regiao_2022_30min.csv")
-    saida.csv(analises.taxa_de_chegada(d22, "5min").reset_index(), "p7_chegada_2022_a_cada_5min.csv")
+    ch22 = analises.taxa_de_chegada(d22, "5min")
+    saida.csv(ch22.reset_index(), "p7_chegada_2022_a_cada_5min.csv")
+    saida.anotar("p7_maiores_vazios_de_recebimento_2022_turno1", analises.maiores_vazios(d22["recebido"], "2022-10-02 17:00", "2022-10-02 22:00"))
+    saida.anotar("p7_maiores_vazios_de_recebimento_2022_turno2", analises.maiores_vazios(h["2"][2]["recebido"], "2022-10-30 17:00", "2022-10-30 22:00"))
+    saida.anotar("p7_pico_de_chegada_2022", {"boletins_por_5min_pico": int(ch22["boletins"].max()), "faixa_do_pico": ch22["boletins"].idxmax(), "boletins_por_minuto_no_pico": float(ch22["boletins"].max() / 5)})
     # decomposicao em 2022 (UF e regiao) a partir de 64,81% e entre 84,96 e 100, para comparar com 2026
     d22["uf_x"] = d22["uf"]
     for chave in ("regiao", "uf"):
@@ -110,6 +114,21 @@ def main() -> int:
         "sp_dentro_de_5_a_95": bool(q05 <= sp["lacuna_pontos"] <= q95),
         "sp_gov_pct": float(sp["gov_pct"]), "sp_pres_pct": float(sp["pres_pct"]),
         "positivas": int((outras["lacuna_pontos"] > 0).sum()), "negativas": int((outras["lacuna_pontos"] < 0).sum()),
+    })
+    # contabilidade da base (exata, sem inferencia): validos contra comparecimento
+    q05c, q95c = np.percentile(outras["lacuna_pct_do_comparecimento"], [5, 95])
+    saida.anotar("p5_base_de_votos", {
+        "sp_gov_validos_pct_do_comparecimento": float(sp["gov_validos_pct_do_comparecimento"]), "sp_pres_validos_pct_do_comparecimento": float(sp["pres_validos_pct_do_comparecimento"]),
+        "sp_tarcisio_pct_do_comparecimento": float(sp["gov_pct_do_comparecimento"]), "sp_flavio_pct_do_comparecimento": float(sp["pres_pct_do_comparecimento"]),
+        "sp_lacuna_pct_do_comparecimento": float(sp["lacuna_pct_do_comparecimento"]), "sp_efeito_da_base_pontos": float(sp["efeito_da_base_pontos"]),
+        "sp_pct_da_lacuna_que_vem_da_base": float(100 * sp["efeito_da_base_pontos"] / sp["lacuna_pontos"]),
+        "sp_comparecimento": int(sp["comparecimento"]),
+        "classe_lacuna_pct_do_comparecimento_q05": float(q05c), "classe_lacuna_pct_do_comparecimento_q95": float(q95c),
+        "sp_percentil_na_classe_pelo_comparecimento": float(100 * (outras["lacuna_pct_do_comparecimento"] < sp["lacuna_pct_do_comparecimento"]).mean()),
+        "sp_dentro_de_5_a_95_pelo_comparecimento": bool(q05c <= sp["lacuna_pct_do_comparecimento"] <= q95c),
+        "efeito_da_base_mediano_na_classe": float(outras["efeito_da_base_pontos"].median()),
+        "efeito_da_base_mediano_na_classe_2026": float(outras[outras.ano == 2026]["efeito_da_base_pontos"].median()),
+        "efeito_da_base_mediano_na_classe_2022": float(outras[outras.ano == 2022]["efeito_da_base_pontos"].median()),
     })
     # sensibilidade: so quem apoiou Flavio/Bolsonaro; so 2026; e sem as UFs onde o governador nao esta no 1o turno
     for rotulo, sub in (("so_apoiadores_do_candidato_do_PL", outras[outras.candidato_apoiado == 22]), ("so_2026", outras[outras.ano == 2026]), ("so_2022", outras[outras.ano == 2022]), ("com_2018", pd.concat([outras, ref[ref.ano == 2018]]))):
@@ -217,6 +236,19 @@ def main() -> int:
     r_hist = hist_all["razao_partido_pres"].dropna()
     q05, q50, q95 = np.percentile(r_hist, [5, 50, 95]) if len(r_hist) else (np.nan,) * 3
     r26 = sen["razao_pl_media_sobre_flavio"].dropna()
+    sen["razao_apoio_flavio_media_sobre_flavio"] = sen["razao_apoio_flavio_media_sobre_flavio"]
+    acima = sen["razao_pl_media_sobre_flavio"] > q95
+    abaixo = sen["razao_pl_media_sobre_flavio"] < q05
+    apoio_acima = sen["razao_apoio_flavio_media_sobre_flavio"] > q95
+    apoio_abaixo = sen["razao_apoio_flavio_media_sobre_flavio"] < q05
+    sen["a_explicar_literal"] = (acima & apoio_acima) | (abaixo & apoio_abaixo)
+    sen["fora_do_intervalo_historico_pl"] = np.where(acima, "acima", np.where(abaixo, "abaixo", ""))
+    saida.csv(sen, "p6_senado_vs_presidente_2026.csv")
+    saida.anotar("p6_criterio_literal", {
+        "ufs_fora_do_intervalo_pelo_PL_acima": sen.loc[acima, "uf"].tolist(), "ufs_fora_do_intervalo_pelo_PL_abaixo": sen.loc[abaixo, "uf"].tolist(),
+        "ufs_a_explicar_pelo_criterio_literal": sen.loc[sen["a_explicar_literal"], "uf"].tolist(),
+        "dessas_com_senador_do_pl_eleito": sen.loc[sen["a_explicar_literal"] & (sen["pl_eleitos"] > 0), "uf"].tolist(),
+    })
     saida.anotar("p6_resumo", {
         "razao_historica_partido_do_presidente": {"n": len(r_hist), "q05": q05, "mediana": q50, "q95": q95},
         "razao_2026_pl": {"n": len(r26), "q05": float(np.percentile(r26, 5)) if len(r26) else None, "mediana": float(r26.median()) if len(r26) else None, "q95": float(np.percentile(r26, 95)) if len(r26) else None},

@@ -113,6 +113,23 @@ def main() -> int:
         "pontos_que_nao_encaixam": cmp_.loc[~cmp_["encaixa"], "ponto"].tolist(),
     })
 
+    # resumo da curva
+    mm = cv["margem_flavio_lula"].to_numpy()
+    pp = cv["pct_secoes"].to_numpy()
+    apos1 = pp >= 1.0
+    i_pico = int(np.argmax(np.where(apos1, mm, -1e9)))
+    mudancas = np.flatnonzero(np.diff(np.sign(mm)) != 0)
+    saida.anotar("p1_resumo", {
+        "margem_de_pico": float(mm[i_pico]), "pct_secoes_no_pico": float(pp[i_pico]), "recebido_no_pico": cv["recebido"].iloc[i_pico],
+        "margem_em_64_81": float(curva.no_pct(cv, 64.81)["margem_flavio_lula"]), "margem_em_84_96": float(curva.no_pct(cv, 84.96)["margem_flavio_lula"]),
+        "margem_final": float(mm[-1]),
+        "pct_secoes_da_ultima_troca_de_lideranca": float(pp[mudancas[-1] + 1]) if len(mudancas) else None,
+        "menor_margem_depois_de_1pct": float(mm[apos1].min()),
+        "perda_do_pico_ao_fim": float(mm[i_pico] - mm[-1]),
+        "total_de_votos_validos_reconstruidos": int(cv["validos"].iloc[-1]), "total_de_secoes_reconstruidas": int(len(cv)),
+        "votos_flavio_reconstruidos": int(cv["votos_flavio"].iloc[-1]), "votos_lula_reconstruidos": int(cv["votos_lula"].iloc[-1]),
+    })
+
     # sensibilidade ao fuso de Mato Grosso: a leitura literal da regra por secao (MT "LOCAL") soma 1 h ao recebimento de MT
     alt = pres.copy()
     alt.loc[alt["uf"] == "MT", "recebido"] = alt.loc[alt["uf"] == "MT", "recebido"] + pd.Timedelta(hours=1)
@@ -161,6 +178,30 @@ def main() -> int:
     })
     pico = analises.taxa_de_chegada(d, "5min")
     saida.anotar("p2_pico_de_chegada", {"boletins_por_5min_pico": int(pico["boletins"].max()), "faixa_do_pico": pico["boletins"].idxmax(), "boletins_por_minuto_no_pico": float(pico["boletins"].max() / 5)})
+
+    # o vazio no registro de recebimento e a rajada que veio depois (exploratorio)
+    vazios = analises.maiores_vazios(d["recebido"], "2026-10-04 17:00", "2026-10-04 22:00")
+    saida.anotar("p2_maiores_vazios_de_recebimento_2026", vazios)
+    v0 = vazios[0]
+    off_ = d["uf"].map(lambda u: tempo.OFFSET_PARA_BRASILIA.get(u, 0))
+    dd = d[d["uf"] != "ZZ"].copy()
+    dd["emitido_brt"] = dd["emitido"] + pd.to_timedelta(off_[dd.index], unit="h")
+    dd["atraso_min"] = (dd["recebido"] - dd["emitido_brt"]).dt.total_seconds() / 60
+    raj = dd[(dd["recebido"] >= v0["fim"] - pd.Timedelta(minutes=1)) & (dd["recebido"] < v0["fim"] + pd.Timedelta(minutes=5.6))]
+    ref_18 = dd[(dd["recebido"] >= pd.Timestamp("2026-10-04 18:00")) & (dd["recebido"] < pd.Timestamp("2026-10-04 19:00"))]
+    pre = dd[(dd["recebido"] >= v0["inicio"] - pd.Timedelta(minutes=16)) & (dd["recebido"] <= v0["inicio"])]
+    saida.anotar("p2_rajada_depois_do_vazio", {
+        "boletins_no_vazio": int(((d["recebido"] > v0["inicio"]) & (d["recebido"] < v0["fim"])).sum()),
+        "boletins_na_rajada_de_6_minutos": int(len(raj)),
+        "pct_da_rajada_emitida_pela_urna_antes_das_19h": float(100 * (raj["emitido_brt"] < pd.Timestamp("2026-10-04 19:00")).mean()),
+        "pct_da_rajada_emitida_pela_urna_antes_das_19h30": float(100 * (raj["emitido_brt"] < pd.Timestamp("2026-10-04 19:30")).mean()),
+        "hora_mediana_de_emissao_na_rajada": raj["emitido_brt"].median(),
+        "atraso_mediano_emissao_a_registro_na_rajada_min": float(raj["atraso_min"].median()),
+        "atraso_mediano_emissao_a_registro_entre_18h_e_19h_min": float(ref_18["atraso_min"].median()),
+        "atraso_mediano_emissao_a_registro_nos_16_min_antes_do_vazio": float(pre["atraso_min"].median()),
+        "regioes_da_rajada": {k: float(x) for k, x in raj["regiao"].value_counts(normalize=True).round(3).items()},
+        "margem_do_lote_da_rajada": analises.margem(raj),
+    })
 
     # ---- P1: decomposicao
     base = d.merge(mun[["uf", "mun_cd", "capital"]].rename(columns={"capital": "cap"}), on=["uf", "mun_cd"], how="left")

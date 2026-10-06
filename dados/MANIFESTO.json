@@ -1,5 +1,5 @@
 {
- "gerado_utc": "2026-10-06T04:49:05+00:00",
+ "gerado_utc": "2026-10-06T05:57:13+00:00",
  "como_o_resumo_e_calculado": "sha256 sobre as linhas 'url<TAB>sha256 do corpo' ordenadas por url, de cada banco em dados/brutos/",
  "ufs": {
   "AC": {
@@ -113,15 +113,15 @@
    "sha256_resumo": "9eb87524db712c055252bab5661c8fe1dc00b865ece0cdf35615b27ef2d3c9f7"
   },
   "MG": {
-   "arquivos": 104120,
-   "status_200": 104117,
+   "arquivos": 104122,
+   "status_200": 104119,
    "status_404": 3,
-   "bytes": 619308587,
+   "bytes": 619334907,
    "coleta_utc": [
     "2026-10-06T03:08:14+00:00",
-    "2026-10-06T03:28:56+00:00"
+    "2026-10-06T04:58:17+00:00"
    ],
-   "sha256_resumo": "0925ce8e8a3c543685d19d8cf80c16af178996fe126c38294aa8236c05b775b2"
+   "sha256_resumo": "27373ec58f953ea0f00cbfa98a8077a1a1918d5ba8e2a6a2171a387fb2a82bbd"
   },
   "MS": {
    "arquivos": 14213,
@@ -300,15 +300,15 @@
    "sha256_resumo": "d3c990c22054467b3077eb3da99694658f80718dd6a1e939382382ccd8853647"
   },
   "ZZ": {
-   "arquivos": 2633,
-   "status_200": 2633,
+   "arquivos": 2662,
+   "status_200": 2662,
    "status_404": 0,
-   "bytes": 2665544,
+   "bytes": 2692072,
    "coleta_utc": [
     "2026-10-06T02:27:43+00:00",
-    "2026-10-06T02:28:07+00:00"
+    "2026-10-06T04:58:31+00:00"
    ],
-   "sha256_resumo": "aeea29bab290ac68b5fb3f93d0ead740c07f6854c55a796218954c7d70dd3834"
+   "sha256_resumo": "0b1ae8e1932b10d195f4c5b03341184b66833044194e43c1859cf325123c258f"
   }
  },
  "oficial": {
@@ -316,7 +316,7 @@
   "sha256_resumo": "90057b4b9ea9203646bc373d608c037e68353713e80ffb94acc3221783ceed6d"
  },
  "totais": {
-  "arquivos": 998437,
-  "bytes": 6553108175
+  "arquivos": 998468,
+  "bytes": 6553161023
  }
 }

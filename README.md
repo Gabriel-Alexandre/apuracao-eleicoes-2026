@@ -8,7 +8,7 @@ Projeto aberto que usa os boletins de urna publicados pelo TSE para refazer a ap
 - por que o voto de governador e de senador não se converteu da mesma forma no voto de presidente;
 - como 2026 se compara com 2014, 2018 e 2022.
 
-> **Estado:** planejamento. Nenhuma análise foi rodada. O método está em [`docs/PLANO.md`](docs/PLANO.md), os critérios em [`docs/PRE_REGISTRO.md`](docs/PRE_REGISTRO.md) e o inventário de dados em [`docs/FONTES_DE_DADOS.md`](docs/FONTES_DE_DADOS.md).
+> **Estado:** executado. Resultados em [`RELATORIO.md`](RELATORIO.md) (completo) e [`RESUMO_SIMPLES.md`](RESUMO_SIMPLES.md) (linguagem simples). Método em [`docs/PLANO.md`](docs/PLANO.md), critérios gravados antes dos resultados em [`docs/PRE_REGISTRO.md`](docs/PRE_REGISTRO.md), erros achados no caminho em [`docs/CORRECOES.md`](docs/CORRECOES.md) e como refazer tudo em [`docs/REPLICAR.md`](docs/REPLICAR.md).
 
 ## O que este projeto não consegue dizer
 
@@ -18,18 +18,21 @@ Ele começa no boletim que cada urna imprimiu e publicou. Não audita o software
 
 | Caminho | O que tem |
 |---|---|
-| `docs/PLANO.md` | o método, fase a fase |
-| `docs/PRE_REGISTRO.md` | os testes e os critérios, escritos antes de olhar os dados |
-| `docs/FONTES_DE_DADOS.md` | o que existe, o que foi testado e o que não existe |
-| `ferramentas/` | scripts (hoje: `sondar-fontes.py`) |
-| `dados/` | manifesto e dados derivados; o dado bruto pesado fica fora do git |
+| `RELATORIO.md`, `RESUMO_SIMPLES.md` | os resultados (gerados de `resultados/RESUMO.json`) |
+| `docs/` | plano, pré-registro, fontes, correções, revisão adversarial, como replicar |
+| `apuracao/` | biblioteca: coletor, decodificador de boletim, curva, análises |
+| `ferramentas/` | scripts numerados na ordem de execução |
+| `resultados/` | tabelas CSV, figuras e `RESUMO.json` |
+| `dados/` | entradas escritas à mão, manifesto com sha256 e dados derivados; o bruto pesado fica fora do git |
+| `tests/` | testes do decodificador e das contas |
 | `ESTADO.md` | onde o trabalho parou |
 | `.cursor/rules/` | a doutrina do projeto |
 
-## Refazer a sondagem das fontes
+## Refazer
 
 ```bash
-python ferramentas/sondar-fontes.py
+python -m pip install -r requirements.txt -r requirements-dev.txt
+python -m pytest -q
 ```
 
-Só a biblioteca padrão do Python 3.10 ou mais novo.
+Passo a passo completo, com espaço em disco e tempo: [`docs/REPLICAR.md`](docs/REPLICAR.md).

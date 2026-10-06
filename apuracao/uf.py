@@ -53,6 +53,17 @@ def lacuna_governador_presidente(votos: pd.DataFrame, apoios: pd.DataFrame, ano:
     base = base.merge(pres, on=["uf", "candidato_apoiado"], how="left")
     base["lacuna_pontos"] = base["gov_pct"] - base["pres_pct"]
     base["lacuna_votos"] = base["gov_votos"] - base["pres_votos"]
+    # contabilidade da base: percentual dos validos de cada cargo contra percentual de quem compareceu
+    comp = votos[votos["cargo"] == 1].groupby("uf").votos.sum().rename("comparecimento").reset_index()
+    gv = tot[tot.cargo == 3].groupby("uf").validos.first().rename("gov_validos").reset_index()
+    pv = tot[tot.cargo == 1].groupby("uf").validos.first().rename("pres_validos").reset_index()
+    base = base.merge(comp, on="uf", how="left").merge(gv, on="uf", how="left").merge(pv, on="uf", how="left")
+    base["gov_pct_do_comparecimento"] = 100 * base["gov_votos"] / base["comparecimento"]
+    base["pres_pct_do_comparecimento"] = 100 * base["pres_votos"] / base["comparecimento"]
+    base["lacuna_pct_do_comparecimento"] = base["gov_pct_do_comparecimento"] - base["pres_pct_do_comparecimento"]
+    base["efeito_da_base_pontos"] = base["lacuna_pontos"] - base["lacuna_pct_do_comparecimento"]
+    base["gov_validos_pct_do_comparecimento"] = 100 * base["gov_validos"] / base["comparecimento"]
+    base["pres_validos_pct_do_comparecimento"] = 100 * base["pres_validos"] / base["comparecimento"]
     return base
 
 
@@ -204,48 +215,74 @@ def _tabela_ei(votos: pd.DataFrame, uf: str, gov_cands: dict[str, int], pres_can
 
 
 def inferencia_ecologica(votos: pd.DataFrame, uf: str, gov_cands: dict[str, int], pres_cands: dict[str, int], rodadas: int = 200, semente: int = 20261004) -> pd.DataFrame:
-    """Estima, por regressao com restricao, a fracao dos eleitores de cada grupo de governador que votou em cada grupo de presidente.
+    """Estima a fracao dos eleitores de cada grupo de governador que votou em cada grupo de presidente.
 
-    ECOLOGICA: usa totais por secao, nao o voto de ninguem. Exploratoria, com intervalo por reamostragem de municipios
-    (percentis 5 e 95) e com os limites da falacia ecologica. Cada linha da matriz soma 1 por construcao (normalizacao).
+    Minimos quadrados ponderados com as duas restricoes ao mesmo tempo (frações nao negativas e cada linha somando 1),
+    resolvidos como um problema quadratico sobre estatisticas suficientes por municipio. A versao anterior (um NNLS por
+    saida, normalizado depois) deixava a soma estimada 4% acima do total real de Flavio; esta conserva os totais.
+    ECOLOGICA: usa totais por secao, nao o voto de ninguem. Intervalo por reamostragem de municipios (percentis 5 e 95).
     """
-    from scipy.optimize import nnls
+    from scipy.optimize import minimize
 
     t, gcols, pcols = _tabela_ei(votos, uf, gov_cands, pres_cands)
     t = t.reset_index()
     t = t[t[gcols].sum(axis=1) > 0]
-    muns = t["mun_cd"].unique()
+    G, K = len(gcols), len(pcols)
+    X = t[gcols].to_numpy(dtype=float)
+    Y = t[pcols].to_numpy(dtype=float)
+    w = 1.0 / np.maximum(X.sum(axis=1), 1.0)
+    # estatisticas suficientes por municipio
+    chaves = t["mun_cd"].to_numpy()
+    uniq, idx = np.unique(chaves, return_inverse=True)
+    A_m = np.zeros((len(uniq), G, G))
+    C_m = np.zeros((len(uniq), G, K))
+    for m in range(len(uniq)):
+        sel = idx == m
+        Xm, Ym, wm = X[sel], Y[sel], w[sel]
+        A_m[m] = (Xm * wm[:, None]).T @ Xm
+        C_m[m] = (Xm * wm[:, None]).T @ Ym
+
+    def resolver(A, C, B0=None):
+        escala = max(np.trace(A), 1.0)
+        A_, C_ = A / escala, C / escala
+
+        def f(b):
+            B = b.reshape(G, K)
+            return float(np.sum(B * (A_ @ B)) - 2 * np.sum(B * C_))
+
+        def g(b):
+            B = b.reshape(G, K)
+            return (2 * A_ @ B - 2 * C_).ravel()
+
+        b0 = (np.full((G, K), 1.0 / K) if B0 is None else B0).ravel()
+        cons = [{"type": "eq", "fun": (lambda b, i=i: b.reshape(G, K)[i].sum() - 1.0), "jac": (lambda b, i=i: _linha(G, K, i))} for i in range(G)]
+        res = minimize(f, b0, jac=g, bounds=[(0, 1)] * (G * K), constraints=cons, method="SLSQP", options={"maxiter": 300, "ftol": 1e-12})
+        return res.x.reshape(G, K)
+
+    base = resolver(A_m.sum(0), C_m.sum(0))
     rng = np.random.default_rng(semente)
-
-    def estimar(df: pd.DataFrame) -> np.ndarray:
-        X = df[gcols].to_numpy(dtype=float)
-        w = 1.0 / np.sqrt(np.maximum(X.sum(axis=1), 1.0))
-        B = np.zeros((len(gcols), len(pcols)))
-        for k, pc in enumerate(pcols):
-            y = df[pc].to_numpy(dtype=float)
-            b, _ = nnls(X * w[:, None], y * w)
-            B[:, k] = b
-        s = B.sum(axis=1, keepdims=True)
-        return B / np.where(s == 0, 1, s), s.ravel()
-
-    base, somas = estimar(t)
-    por_mun = {m: g for m, g in t.groupby("mun_cd")}
-    boot = []
-    for _ in range(rodadas):
-        amostra = rng.choice(muns, size=len(muns), replace=True)
-        df = pd.concat([por_mun[m] for m in amostra], ignore_index=True)
-        boot.append(estimar(df)[0])
-    boot = np.stack(boot)
+    boot = np.empty((rodadas, G, K))
+    for r in range(rodadas):
+        cont = rng.multinomial(len(uniq), np.full(len(uniq), 1.0 / len(uniq)))
+        boot[r] = resolver(np.tensordot(cont, A_m, axes=1), np.tensordot(cont, C_m, axes=1), base)
+    prev = base.T @ X.sum(0) if False else (X.sum(0) @ base)  # total previsto por grupo de presidente
+    real = Y.sum(0)
     linhas = []
     for i, gc in enumerate(gcols):
         for k, pc in enumerate(pcols):
             linhas.append({
                 "grupo_governador": gc, "grupo_presidente": pc, "fracao_estimada": float(base[i, k]),
                 "p05": float(np.percentile(boot[:, i, k], 5)), "p95": float(np.percentile(boot[:, i, k], 95)),
-                "soma_da_linha_antes_de_normalizar": float(somas[i]),
-                "votos_do_grupo_governador": int(t[gc].sum()),
+                "votos_do_grupo_governador": int(X[:, i].sum()),
+                "total_previsto_do_grupo_presidente": float(prev[k]), "total_real_do_grupo_presidente": float(real[k]),
             })
     return pd.DataFrame(linhas)
+
+
+def _linha(G: int, K: int, i: int) -> np.ndarray:
+    j = np.zeros((G, K))
+    j[i] = 1.0
+    return j.ravel()
 
 
 def alinhamento_municipal(votos: pd.DataFrame, num_partido: int, num_pres: int, votos_por_eleitor: int, min_municipios: int = 10) -> pd.DataFrame:

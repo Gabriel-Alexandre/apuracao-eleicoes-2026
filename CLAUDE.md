@@ -15,7 +15,9 @@ As regras moram em `.cursor/rules/*.mdc`, que o Cursor carrega sozinho e o Claud
 ## O que nunca fazer
 
 - Dar número que não saiu de script sobre dado com hash.
-- Rodar teste antes do pré-registro gravado.
+- Mudar critério sem registrar na tabela da §9 do pré-registro, dizendo se foi antes ou depois de ver o resultado.
+- Escrever número à mão no relatório: ele vem de `resultados/RESUMO.json` pelos modelos `docs/*.modelo.md`.
 - Escrever "fraude" ou "provou que não houve fraude".
-- Fazer commit, criar remoto ou tornar o repositório público sem o autor pedir.
+- Tornar o repositório público sem o autor pedir. O remoto é privado.
+- Dizer que o alinhamento de alguém é o do partido: vale o apoio declarado, com fonte (`docs/PRE_REGISTRO.md` §0.1).
 - Baixar em massa sem teto de requisições e sem manifesto.
